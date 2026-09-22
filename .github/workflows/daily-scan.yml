@@ -1,0 +1,47 @@
+name: Daily multi-channel pet launch scan
+
+on:
+  schedule:
+    - cron: '30 0 * * *' # 08:30 China Standard Time
+  workflow_dispatch:
+  push:
+    paths:
+      - 'config/sources.json'
+      - 'scripts/scan.py'
+      - '.github/workflows/daily-scan.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-pet-launch-scan
+  cancel-in-progress: true
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Scan all configured channels
+        run: python scripts/scan.py
+
+      - name: Commit scan state
+        run: |
+          git config user.name "pet-launch-radar-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/source-status.json data/discovery.json data/discovered-links.json
+          if git diff --cached --quiet; then
+            echo "No scan changes"
+          else
+            git commit -m "chore: update daily pet launch discovery"
+            git push
+          fi
