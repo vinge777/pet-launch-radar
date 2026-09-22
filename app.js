@@ -76,7 +76,15 @@ function card(p){
  node.querySelector('.region-pill').textContent=`${regionCN[p.market_region]||p.market_region} · ${p.country}`;node.querySelector('.brand-name').textContent=p.brand;node.querySelector('.launch-date').textContent=`发现 ${fmt(p.first_seen_at)}`;node.querySelector('.product-name').textContent=p.product_name;node.querySelector('.product-summary').textContent=p.summary||'暂无摘要';
  node.querySelector('.chips').innerHTML=[p.species,p.category,...(p.tags||[]).slice(0,2)].filter(Boolean).map(x=>`<span class="chip">${x}</span>`).join('');
  node.querySelector('.source-stack').innerHTML=(p.evidence||[]).map(x=>`<span class="evidence ${x}">${x==='official'?'官方':x==='retailer'?'零售商':'行业媒体'}</span>`).join('');
- const a=node.querySelector('.source-link');a.href=p.sources?.[0]?.url||'#'; return node;
+ const detailSource=(p.sources||[]).find(s=>s.page_type==='product_detail');
+ const fallbackSource=(p.sources||[]).find(s=>s.page_type==='launch_announcement')||(p.sources||[]).find(s=>s.page_type==='catalog')||(p.sources||[])[0];
+ const detailUrl=p.product_url||detailSource?.url;
+ const a=node.querySelector('.source-link');
+ a.href=detailUrl||fallbackSource?.url||'#';
+ if(detailUrl){a.textContent='产品详情 ↗';a.title='打开该产品的具体详情页';}
+ else if(fallbackSource?.page_type==='launch_announcement'){a.textContent='新品发布页 ↗';a.title='该产品暂未找到独立详情页，打开官方新品发布页';}
+ else{a.textContent='发现来源 ↗';a.title='该产品暂未找到独立详情页，打开发现来源';}
+ return node;
 }
 function renderBrands(){
  const root=$('#content');const rows=state.brands.filter(b=>b.origin_country!=='China').sort((a,b)=>a.name.localeCompare(b.name));
