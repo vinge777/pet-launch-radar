@@ -1,6 +1,8 @@
 const state={products:[],sources:[],brands:[],view:'today',region:'All',search:'',species:'All',category:'All',confidence:'All'};
 const $=s=>document.querySelector(s); const $$=s=>[...document.querySelectorAll(s)];
 const regionCN={'North America':'美国','Europe':'欧洲','Asia':'亚洲','South America':'南美'};
+const channelCN={brand_official:'品牌官网',specialty_retail:'宠物专业渠道',mass_retail:'商超/综合零售',drugstore:'药妆/药房',marketplace:'综合电商/Marketplace',trade_media:'行业媒体/全网发现'};
+const channelOrder=['brand_official','specialty_retail','mass_retail','drugstore','marketplace','trade_media'];
 const fmt=d=>new Intl.DateTimeFormat('zh-CN',{month:'2-digit',day:'2-digit'}).format(new Date(d));
 const daysAgo=(n)=>{const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-n);return d};
 const safeImg=(u,brand)=>u||`https://placehold.co/800x480/f0f3f2/31403c?text=${encodeURIComponent(brand||'Pet Product')}`;
@@ -12,7 +14,8 @@ async function load(){
     fetch('data/brands.json?ts='+Date.now()).then(r=>r.json())
   ]);
   state.products=p.products||[]; state.sources=s.sources||[]; state.brands=b.brands||[];
-  $('#lastScan').textContent=p.generated_at?new Date(p.generated_at).toLocaleString('zh-CN',{hour12:false}):'暂无';
+  const scanTime=s.generated_at||p.generated_at;
+  $('#lastScan').textContent=scanTime?new Date(scanTime).toLocaleString('zh-CN',{hour12:false}):'暂无';
   setupCategories(); bind(); render();
 }
 function setupCategories(){
@@ -45,7 +48,7 @@ function filtered(){
  return arr.sort((a,b)=>new Date(b.first_seen_at)-new Date(a.first_seen_at));
 }
 function render(){
- const titles={today:['今日新品','今天新发现的非中国宠物品牌产品。'],week:['近 7 天','过去 7 天进入监测池的新品。'],all:['全部新品','按首次发现时间倒序查看历史新品。'],brands:['品牌雷达','查看已核验品牌及其市场覆盖。'],coverage:['来源覆盖','检查每天实际扫描了哪些来源以及抓取状态。']};
+ const titles={today:['今日新品','今天新发现的非中国宠物品牌产品。'],week:['近 7 天','过去 7 天进入监测池的新品。'],all:['全部新品','按首次发现时间倒序查看历史新品。'],brands:['品牌雷达','查看已核验品牌及其市场覆盖。'],coverage:['来源覆盖','检查品牌官网、专业渠道、商超、药妆、电商与行业媒体当天是否都被扫描。']};
  $('#pageTitle').textContent=titles[state.view][0];$('#pageSubtitle').textContent=titles[state.view][1];
  const productsView=!['brands','coverage'].includes(state.view);$('#regionTabs').style.display=productsView?'flex':'none';$('#filters').style.display=productsView?'grid':'none';
  renderStats();renderCounts();renderContent();
@@ -59,7 +62,7 @@ function renderStats(){
  const arr=baseProducts(); const brands=new Set(arr.map(x=>x.brand)); const countries=new Set(arr.map(x=>x.country));
  const today=state.products.filter(p=>new Date(p.first_seen_at)>=daysAgo(0)&&p.origin_verified!==false&&p.brand_origin_country!=='China').length;
  $('#stats').innerHTML=[
-  ['当前结果',arr.length,'按当前时间与地区范围'],['涉及品牌',brands.size,'已核验非中国品牌'],['市场国家',countries.size,'按上市市场计'],['今日新发现',today,'每日扫描自动更新']
+  ['当前结果',arr.length,'按当前时间与地区范围'],['涉及品牌',brands.size,'已核验非中国品牌'],['市场国家',countries.size,'按上市市场计'],['今日新发现',today,'自动扫描后经核验入库']
  ].map(x=>`<div class="stat-card"><div class="stat-label">${x[0]}</div><div class="stat-value">${x[1]}</div><div class="stat-foot">${x[2]}</div></div>`).join('');
 }
 function renderContent(){
@@ -92,6 +95,9 @@ function renderBrands(){
 }
 function renderCoverage(){
  const root=$('#content');const ok=state.sources.filter(s=>s.status==='ok').length;
- root.innerHTML=`<div class="coverage-grid"><div class="panel"><h3>抓取来源 · ${state.sources.length}</h3>${state.sources.map(s=>`<div class="source-row"><div><strong>${s.name}</strong><br><span style="color:#7d8790">${s.type}</span></div><div>${regionCN[s.region]||s.region}</div><div>${s.items_found||0} 条</div><div class="${s.status==='ok'?'status-ok':'status-warn'}">${s.status==='ok'?'正常':'需检查'}</div></div>`).join('')}</div><div class="panel"><h3>今日覆盖健康度</h3><div class="stat-value">${state.sources.length?Math.round(ok/state.sources.length*100):0}%</div><p style="color:#707a83;font-size:12px;line-height:1.7">“全球全部新品”无法由单一来源保证。本站通过官方、零售商、行业媒体三层交叉覆盖，并把失效来源直接暴露出来，避免数据黑箱。</p><div class="chips"><span class="chip">官方优先</span><span class="chip">来源可追溯</span><span class="chip">未知中国来源隐藏</span><span class="chip">每日去重</span></div></div></div>`
+ const channelCounts={};channelOrder.forEach(k=>channelCounts[k]=0);state.sources.forEach(s=>channelCounts[s.channel_type||s.type]=(channelCounts[s.channel_type||s.type]||0)+1);
+ const coverageChips=channelOrder.map(k=>`<span class="chip">${channelCN[k]} ${channelCounts[k]||0}</span>`).join('');
+ const rows=[...state.sources].sort((a,b)=>channelOrder.indexOf(a.channel_type)-channelOrder.indexOf(b.channel_type)||a.region.localeCompare(b.region)||a.name.localeCompare(b.name));
+ root.innerHTML=`<div class="coverage-grid"><div class="panel"><h3>全渠道监测源 · ${state.sources.length}</h3><div class="chips" style="margin-bottom:14px">${coverageChips}</div>${rows.map(s=>`<div class="source-row"><div><strong>${s.name}</strong><br><span style="color:#7d8790">${channelCN[s.channel_type]||s.type||'其他渠道'} · ${s.country||''}</span></div><div>${regionCN[s.region]||s.region}</div><div>${s.items_found||0} 条${s.new_candidates?` / 新 ${s.new_candidates}`:''}</div><div class="${s.status==='ok'?'status-ok':'status-warn'}">${s.status==='ok'?'正常':'需检查'}</div></div>`).join('')}</div><div class="panel"><h3>今日覆盖健康度</h3><div class="stat-value">${state.sources.length?Math.round(ok/state.sources.length*100):0}%</div><p style="color:#707a83;font-size:12px;line-height:1.7">监测范围不只包括宠物专业网站，而是覆盖品牌官网、宠物专业渠道、商超、药妆/药房、综合电商与行业媒体/全网发现。自动发现先进入候选池，核验品牌原产地、上市时间和详情页后才进入正式新品库。</p><div class="chips"><span class="chip">全渠道</span><span class="chip">多语言发现</span><span class="chip">单品链接优先</span><span class="chip">中国品牌排除</span><span class="chip">每日去重</span></div></div></div>`
 }
 load().catch(e=>{$('#content').innerHTML=`<div class="empty"><strong>数据加载失败</strong>${e.message}</div>`});
