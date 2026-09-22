@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Global Pet Launch Radar - 全球非中国宠物品牌新品监测" />
+  <title>Pet Launch Radar | 全球宠物新品雷达</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand-lockup">
+        <div class="logo">PL</div>
+        <div>
+          <div class="brand-title">Pet Launch Radar</div>
+          <div class="brand-subtitle">全球宠物新品雷达</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-item active" data-view="today"><span>⌁</span> 今日新品</button>
+        <button class="nav-item" data-view="week"><span>◷</span> 近 7 天</button>
+        <button class="nav-item" data-view="all"><span>▦</span> 全部新品</button>
+        <button class="nav-item" data-view="brands"><span>◎</span> 品牌雷达</button>
+        <button class="nav-item" data-view="coverage"><span>◉</span> 来源覆盖</button>
+      </nav>
+
+      <div class="sidebar-note">
+        <div class="note-kicker">数据原则</div>
+        <p>仅展示非中国品牌。未知品牌原产地默认隐藏，待核验后进入主列表。</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">DAILY MARKET INTELLIGENCE</div>
+          <h1 id="pageTitle">今日新品</h1>
+          <p id="pageSubtitle">每天扫描全球公开来源，追踪非中国宠物品牌新上市产品。</p>
+        </div>
+        <div class="scan-box">
+          <div class="pulse"></div>
+          <div>
+            <strong id="lastScan">等待数据</strong>
+            <span>最近扫描</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="region-tabs" id="regionTabs">
+        <button class="region-tab active" data-region="All">全部地区 <span id="count-All">0</span></button>
+        <button class="region-tab" data-region="North America">美国 <span id="count-North-America">0</span></button>
+        <button class="region-tab" data-region="Europe">欧洲 <span id="count-Europe">0</span></button>
+        <button class="region-tab" data-region="Asia">亚洲 <span id="count-Asia">0</span></button>
+        <button class="region-tab" data-region="South America">南美 <span id="count-South-America">0</span></button>
+      </section>
+
+      <section class="stats" id="stats"></section>
+
+      <section class="filters" id="filters">
+        <div class="search-wrap">
+          <span>⌕</span>
+          <input id="searchInput" placeholder="搜索品牌、产品、卖点或来源…" />
+        </div>
+        <select id="speciesFilter">
+          <option value="All">全部宠物</option>
+          <option value="Dog">Dog</option>
+          <option value="Cat">Cat</option>
+          <option value="Multi">Dog & Cat</option>
+          <option value="Other">Other</option>
+        </select>
+        <select id="categoryFilter">
+          <option value="All">全部品类</option>
+        </select>
+        <select id="confidenceFilter">
+          <option value="All">全部证据</option>
+          <option value="official">官方</option>
+          <option value="retailer">零售商</option>
+          <option value="trade_media">行业媒体</option>
+        </select>
+        <button id="clearBtn" class="ghost-btn">清空</button>
+      </section>
+
+      <section id="content"></section>
+    </main>
+  </div>
+
+  <template id="productCardTemplate">
+    <article class="product-card">
+      <div class="product-image-wrap">
+        <img class="product-image" alt="" loading="lazy" />
+        <div class="region-pill"></div>
+      </div>
+      <div class="product-body">
+        <div class="card-meta-row">
+          <div class="brand-name"></div>
+          <div class="launch-date"></div>
+        </div>
+        <h3 class="product-name"></h3>
+        <p class="product-summary"></p>
+        <div class="chips"></div>
+        <div class="card-footer">
+          <div class="source-stack"></div>
+          <a class="source-link" target="_blank" rel="noopener noreferrer">查看来源 ↗</a>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
