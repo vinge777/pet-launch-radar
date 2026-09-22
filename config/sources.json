@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "coverage_rule": "Cover every major channel type in every region where a practical public source exists. Discovery does not imply product verification.",
+  "channel_types": {
+    "brand_official": "品牌官网 / 官方新品与新闻",
+    "specialty_retail": "宠物专业渠道 / 连锁 / 垂直电商",
+    "mass_retail": "商超 / 综合零售",
+    "drugstore": "药妆 / 药房",
+    "marketplace": "综合电商 / Marketplace",
+    "trade_media": "行业媒体 / 展会 / 全网发现"
+  },
+  "sources": [
+    {"id":"us-chewy","name":"Chewy","region":"North America","country":"United States","channel_type":"specialty_retail","mode":"html","url":"https://www.chewy.com/b/dog-2669","same_domain_only":true},
+    {"id":"us-petco","name":"Petco New at Petco","region":"North America","country":"United States","channel_type":"specialty_retail","mode":"html","url":"https://www.petco.com/category/trending-shops/new-at-petco","same_domain_only":true,"link_patterns":["/product/","/shop/en/petcostore/product/"]},
+    {"id":"us-petsmart","name":"PetSmart New & Featured","region":"North America","country":"United States","channel_type":"specialty_retail","mode":"html","url":"https://www.petsmart.com/new-and-featured/","same_domain_only":true},
+    {"id":"us-walmart","name":"Walmart Pets New Arrivals","region":"North America","country":"United States","channel_type":"mass_retail","mode":"html","url":"https://www.walmart.com/shop/pets/new-arrivals","same_domain_only":true,"link_patterns":["/ip/"]},
+    {"id":"us-target","name":"Target Pets","region":"North America","country":"United States","channel_type":"mass_retail","mode":"html","url":"https://www.target.com/c/pets/-/N-5xt44","same_domain_only":true,"link_patterns":["/p/"]},
+    {"id":"us-news","name":"US web discovery","region":"North America","country":"United States","channel_type":"trade_media","mode":"google_news","query":"(pet OR dog OR cat) (new product OR launch OR launches OR launches new OR new food OR new treats)"},
+
+    {"id":"eu-zooplus","name":"zooplus","region":"Europe","country":"European Union","channel_type":"specialty_retail","mode":"html","url":"https://www.zooplus.com/shop/zooplus_exclusives/all_pets","same_domain_only":true,"link_patterns":["/shop/"]},
+    {"id":"eu-petsathome","name":"Pets at Home","region":"Europe","country":"United Kingdom","channel_type":"specialty_retail","mode":"html","url":"https://www.petsathome.com/shop/en/pets","same_domain_only":true},
+    {"id":"eu-dm","name":"dm Pet New Arrivals","region":"Europe","country":"Germany","channel_type":"drugstore","mode":"html","url":"https://www.dm.de/neu/tier-neuheiten","same_domain_only":true},
+    {"id":"eu-rossmann","name":"Rossmann Tier","region":"Europe","country":"Germany","channel_type":"drugstore","mode":"html","url":"https://www.rossmann.de/de/tier/c/olcat1_k_5190857","same_domain_only":true},
+    {"id":"eu-carrefour","name":"Carrefour Animalerie","region":"Europe","country":"France","channel_type":"mass_retail","mode":"html","url":"https://www.carrefour.fr/r/animalerie","same_domain_only":true,"link_patterns":["/p/"]},
+    {"id":"eu-news-en","name":"Europe web discovery EN","region":"Europe","country":"Europe","channel_type":"trade_media","mode":"google_news","query":"Europe pet new product OR dog food launch OR cat food launch"},
+    {"id":"eu-news-de","name":"Europe web discovery DE","region":"Europe","country":"Germany","channel_type":"trade_media","mode":"google_news","query":"Haustier Neuheit OR Hundefutter Neuheit OR Katzenfutter Neuheit"},
+    {"id":"eu-news-fr","name":"Europe web discovery FR","region":"Europe","country":"France","channel_type":"trade_media","mode":"google_news","query":"nouveauté animalerie OR nouvelle nourriture chien OR nouvelle nourriture chat"},
+
+    {"id":"asia-petio","name":"Petio New Products","region":"Asia","country":"Japan","channel_type":"brand_official","mode":"html","url":"https://fs.petio.com/exhibition/2026ss/","same_domain_only":true},
+    {"id":"asia-rakuten-petkit","name":"Rakuten PETKIT New Products","region":"Asia","country":"Japan","channel_type":"marketplace","mode":"html","url":"https://www.rakuten.co.jp/neikonu/contents/new/","same_domain_only":false},
+    {"id":"asia-news-ja","name":"Japan web discovery","region":"Asia","country":"Japan","channel_type":"trade_media","mode":"google_news","query":"ペット 新商品 犬 猫 フード おやつ"},
+    {"id":"asia-news-ko","name":"Korea web discovery","region":"Asia","country":"South Korea","channel_type":"trade_media","mode":"google_news","query":"반려동물 신제품 강아지 고양이 사료 간식"},
+    {"id":"asia-news-en","name":"Asia web discovery EN","region":"Asia","country":"Asia","channel_type":"trade_media","mode":"google_news","query":"Asia pet new product dog cat food launch"},
+
+    {"id":"sa-petlove","name":"Petlove","region":"South America","country":"Brazil","channel_type":"specialty_retail","mode":"html","url":"https://www.petlove.com.br/","same_domain_only":true},
+    {"id":"sa-petz","name":"Petz","region":"South America","country":"Brazil","channel_type":"specialty_retail","mode":"html","url":"https://www.petz.com.br/","same_domain_only":true},
+    {"id":"sa-cobasi","name":"Cobasi","region":"South America","country":"Brazil","channel_type":"specialty_retail","mode":"html","url":"https://www.cobasi.com.br/","same_domain_only":true},
+    {"id":"sa-news-pt","name":"Brazil web discovery","region":"South America","country":"Brazil","channel_type":"trade_media","mode":"google_news","query":"novo produto pet cachorro gato ração petisco lançamento"},
+    {"id":"sa-news-es","name":"Latin America web discovery ES","region":"South America","country":"Latin America","channel_type":"trade_media","mode":"google_news","query":"nuevo producto mascotas alimento perro gato lanzamiento"}
+  ]
+}
