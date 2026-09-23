@@ -7,6 +7,7 @@ import time
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone, timedelta
 from html.parser import HTMLParser
 from pathlib import Path
@@ -46,9 +47,9 @@ class AnchorParser(HTMLParser):
             text=re.sub(r"\s+"," "," ".join(self._parts)).strip()
             self.links.append((self._href,text)); self._href=None; self._parts=[]
 
-def fetch(url):
+def fetch(url, timeout=20):
     req=urllib.request.Request(url,headers={"User-Agent":UA,"Accept-Language":"en-US,en;q=0.8"})
-    with urllib.request.urlopen(req,timeout=25) as resp:
+    with urllib.request.urlopen(req,timeout=timeout) as resp:
         raw=resp.read(); charset=resp.headers.get_content_charset() or "utf-8"
         return raw.decode(charset,errors="replace")
 
@@ -82,18 +83,14 @@ def normalize_date(raw):
     if not raw: return None
     raw=str(raw).strip()
     try:
-        if re.match(r"^\d{4}-\d{2}-\d{2}$",raw):
-            return raw+"T00:00:00Z"
+        if re.match(r"^\d{4}-\d{2}-\d{2}$",raw): return raw+"T00:00:00Z"
         dt=datetime.fromisoformat(raw.replace("Z","+00:00"))
         if dt.tzinfo is None: dt=dt.replace(tzinfo=timezone.utc)
         return dt.astimezone(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z")
-    except Exception:
-        pass
+    except Exception: pass
     for fmt in ("%Y/%m/%d","%Y.%m.%d","%Y-%m-%d","%B %d, %Y","%b %d, %Y"):
-        try:
-            return datetime.strptime(raw,fmt).replace(tzinfo=timezone.utc).isoformat().replace("+00:00","Z")
-        except Exception:
-            pass
+        try: return datetime.strptime(raw,fmt).replace(tzinfo=timezone.utc).isoformat().replace("+00:00","Z")
+        except Exception: pass
     return None
 
 def infer_date_from_text_url(title,url):
@@ -105,16 +102,13 @@ def infer_date_from_text_url(title,url):
     for pat in patterns:
         m=re.search(pat,text)
         if m:
-            try:
-                return datetime(int(m.group('y')),int(m.group('m')),int(m.group('d')),tzinfo=timezone.utc).isoformat().replace("+00:00","Z")
-            except Exception:
-                pass
+            try: return datetime(int(m.group('y')),int(m.group('m')),int(m.group('d')),tzinfo=timezone.utc).isoformat().replace("+00:00","Z")
+            except Exception: pass
     return None
 
 def extract_date_from_article(url):
-    try: html=fetch(url)
+    try: html=fetch(url, timeout=8)
     except Exception: return None
-    candidates=[]
     patterns=[
         r'<meta[^>]+property=["\']article:published_time["\'][^>]+content=["\']([^"\']+)',
         r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']article:published_time["\']',
@@ -123,22 +117,18 @@ def extract_date_from_article(url):
         r'<time[^>]+datetime=["\']([^"\']+)',
     ]
     for pat in patterns:
-        candidates.extend(re.findall(pat,html,re.I))
-    for raw in candidates:
-        d=normalize_date(raw)
-        if d: return d
+        for raw in re.findall(pat,html,re.I):
+            d=normalize_date(raw)
+            if d: return d
     return None
 
 def translate_to_zh(text):
     text=(text or '').strip()
     if not text: return ''
-    # Keep already-Chinese titles as-is. Japanese/Korean titles still go through translation.
-    if re.search(r'[\u4e00-\u9fff]',text) and not re.search(r'[\u3040-\u30ff\uac00-\ud7af]',text) and not re.search(r'[A-Za-z]{4,}',text):
-        return text
+    if re.search(r'[\u4e00-\u9fff]',text) and not re.search(r'[\u3040-\u30ff\uac00-\ud7af]',text) and not re.search(r'[A-Za-z]{4,}',text): return text
     try:
         q=urllib.parse.urlencode({"client":"gtx","sl":"auto","tl":"zh-CN","dt":"t","q":text})
-        url="https://translate.googleapis.com/translate_a/single?"+q
-        data=json.loads(fetch(url))
+        data=json.loads(fetch("https://translate.googleapis.com/translate_a/single?"+q, timeout=8))
         translated=''.join(part[0] for part in (data[0] or []) if part and part[0])
         return translated.strip() or text
     except Exception:
@@ -190,35 +180,44 @@ def main():
             found=scan_google_news(src) if src.get("mode")=="google_news" else scan_html(src)
             for x in found:
                 previous=old_by_url.get(x['url'],{})
-                published_at=x.get('published_at') or previous.get('published_at')
-                title_zh=previous.get('title_zh') or translate_to_zh(x['title'])
                 items.append({
                     "id":previous.get('id') or f"{src['id']}-{abs(hash(x['url']))}",
-                    "title":x["title"],"title_zh":title_zh,"summary":previous.get('summary',''),"summary_zh":previous.get('summary_zh',''),"url":x["url"],
+                    "title":x["title"],"title_zh":previous.get('title_zh',''),"summary":previous.get('summary',''),"summary_zh":previous.get('summary_zh',''),"url":x["url"],
                     "publisher":x.get("publisher") or src["name"],"source_name":src["name"],"source_id":src["id"],
                     "channel_type":src["channel_type"],"region":src.get("region","Global"),"country":src.get("country","Global"),
-                    "topic":topic_for(x["title"]),"published_at":published_at,"discovered_at":previous.get('discovered_at') or checked
+                    "topic":topic_for(x["title"]),"published_at":x.get('published_at') or previous.get('published_at'),"discovered_at":previous.get('discovered_at') or checked
                 })
             source_state[src["id"]]={"status":"ok","checked_at":checked,"items_found":len(found)}
             statuses.append({"id":src["id"],"name":src["name"],"channel_type":src["channel_type"],"status":"ok","items_found":len(found)})
         except Exception as exc:
             source_state[src["id"]]={"status":"error","checked_at":checked,"error":str(exc)[:240]}
             statuses.append({"id":src["id"],"name":src["name"],"channel_type":src["channel_type"],"status":"error","items_found":0})
-        time.sleep(.25)
+        time.sleep(.15)
 
-    # Preserve still-recent items from sources not selected in a partial refresh.
     if selected is not None:
         items.extend(x for x in old.get('items',[]) if x.get('channel_type') not in selected)
 
-    # Enrich original publication dates. Never substitute discovered_at as publication date.
-    for i,x in enumerate(items):
+    for x in items:
         if not x.get('published_at'):
             x['published_at']=infer_date_from_text_url(x.get('title',''),x.get('url',''))
-        if not x.get('published_at') and x.get('url') and not x.get('url','').startswith('https://news.google.com/'):
-            x['published_at']=extract_date_from_article(x['url'])
-            if i % 8 == 0: time.sleep(.08)
-        if not x.get('title_zh'):
-            x['title_zh']=translate_to_zh(x.get('title',''))
+
+    missing_dates=[x for x in items if not x.get('published_at') and x.get('url') and not x.get('url','').startswith('https://news.google.com/')]
+    if missing_dates:
+        with ThreadPoolExecutor(max_workers=10) as ex:
+            future_map={ex.submit(extract_date_from_article,x['url']):x for x in missing_dates}
+            for fut in as_completed(future_map):
+                x=future_map[fut]
+                try: x['published_at']=fut.result()
+                except Exception: x['published_at']=None
+
+    missing_translations=[x for x in items if not x.get('title_zh')]
+    if missing_translations:
+        with ThreadPoolExecutor(max_workers=10) as ex:
+            future_map={ex.submit(translate_to_zh,x.get('title','')):x for x in missing_translations}
+            for fut in as_completed(future_map):
+                x=future_map[fut]
+                try: x['title_zh']=fut.result()
+                except Exception: x['title_zh']=x.get('title','')
 
     cutoff=datetime.now(timezone.utc)-timedelta(days=120); by_url={}; by_title={}
     def pub_dt(x):
@@ -227,7 +226,6 @@ def main():
         try:return datetime.fromisoformat(raw.replace("Z","+00:00"))
         except Exception:return datetime(1970,1,1,tzinfo=timezone.utc)
     for x in sorted(items,key=pub_dt):
-        # If publication date is known, keep only recent 120-day news. Unknown dates stay visible but sort last.
         if x.get('published_at') and pub_dt(x)<cutoff: continue
         fp=fingerprint(x.get("title",""))
         if x.get("url") in by_url or (fp and fp in by_title): continue
