@@ -1,7 +1,20 @@
 {
-  "generated_at": "2026-09-23T00:28:16Z",
+  "generated_at": "2026-09-23T00:43:26Z",
   "last_scan_scope": "all",
   "candidates": [
+    {
+      "id": "eu-zooplus-1340914159766417208",
+      "title": "659001",
+      "url": "https://www.zooplus.com/shop/cats/dry_cat_food/purizon_cat/adult_cat/659001?activeVariant=659001.4",
+      "source_id": "eu-zooplus",
+      "source_name": "zooplus",
+      "region": "Europe",
+      "country": "European Union",
+      "channel_type": "specialty_retail",
+      "discovered_at": "2026-09-23T00:43:26Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
     {
       "id": "us-petsmart-8352920627084935213",
       "title": "thrills and chillsandtrade halloween pop up cat tent 98120.html",
