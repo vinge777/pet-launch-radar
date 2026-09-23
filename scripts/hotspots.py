@@ -78,6 +78,72 @@ def fingerprint(title):
     s=re.sub(r"[^a-z0-9\u4e00-\u9fff]+","",title.lower())
     return s[:180]
 
+def normalize_date(raw):
+    if not raw: return None
+    raw=str(raw).strip()
+    try:
+        if re.match(r"^\d{4}-\d{2}-\d{2}$",raw):
+            return raw+"T00:00:00Z"
+        dt=datetime.fromisoformat(raw.replace("Z","+00:00"))
+        if dt.tzinfo is None: dt=dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z")
+    except Exception:
+        pass
+    for fmt in ("%Y/%m/%d","%Y.%m.%d","%Y-%m-%d","%B %d, %Y","%b %d, %Y"):
+        try:
+            return datetime.strptime(raw,fmt).replace(tzinfo=timezone.utc).isoformat().replace("+00:00","Z")
+        except Exception:
+            pass
+    return None
+
+def infer_date_from_text_url(title,url):
+    text=f"{title} {urllib.parse.unquote(url)}"
+    patterns=[
+        r"(?P<y>20\d{2})[-/年](?P<m>0?[1-9]|1[0-2])[-/月](?P<d>0?[1-9]|[12]\d|3[01])(?:日)?",
+        r"/(?P<y>20\d{2})/(?P<m>0[1-9]|1[0-2])(?P<d>0[1-9]|[12]\d|3[01])(?:[-_/]|$)",
+    ]
+    for pat in patterns:
+        m=re.search(pat,text)
+        if m:
+            try:
+                return datetime(int(m.group('y')),int(m.group('m')),int(m.group('d')),tzinfo=timezone.utc).isoformat().replace("+00:00","Z")
+            except Exception:
+                pass
+    return None
+
+def extract_date_from_article(url):
+    try: html=fetch(url)
+    except Exception: return None
+    candidates=[]
+    patterns=[
+        r'<meta[^>]+property=["\']article:published_time["\'][^>]+content=["\']([^"\']+)',
+        r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']article:published_time["\']',
+        r'<meta[^>]+name=["\'](?:date|publish-date|publication_date|pubdate)["\'][^>]+content=["\']([^"\']+)',
+        r'"datePublished"\s*:\s*"([^"]+)"',
+        r'<time[^>]+datetime=["\']([^"\']+)',
+    ]
+    for pat in patterns:
+        candidates.extend(re.findall(pat,html,re.I))
+    for raw in candidates:
+        d=normalize_date(raw)
+        if d: return d
+    return None
+
+def translate_to_zh(text):
+    text=(text or '').strip()
+    if not text: return ''
+    # Keep already-Chinese titles as-is. Japanese/Korean titles still go through translation.
+    if re.search(r'[\u4e00-\u9fff]',text) and not re.search(r'[\u3040-\u30ff\uac00-\ud7af]',text) and not re.search(r'[A-Za-z]{4,}',text):
+        return text
+    try:
+        q=urllib.parse.urlencode({"client":"gtx","sl":"auto","tl":"zh-CN","dt":"t","q":text})
+        url="https://translate.googleapis.com/translate_a/single?"+q
+        data=json.loads(fetch(url))
+        translated=''.join(part[0] for part in (data[0] or []) if part and part[0])
+        return translated.strip() or text
+    except Exception:
+        return text
+
 def scan_html(source):
     html=fetch(source["url"]); parser=AnchorParser(); parser.feed(html); out=[]
     pet_specific=bool(source.get("pet_specific"))
@@ -89,7 +155,7 @@ def scan_html(source):
         combined=text+" "+urllib.parse.unquote(urllib.parse.urlparse(url).path)
         if not pet_specific and not PET_TERMS.search(combined): continue
         if not NEWS_TERMS.search(combined) and not source.get("include_all_pet_news",False): continue
-        out.append({"title":text[:240],"url":url,"published_at":None,"publisher":source["name"]})
+        out.append({"title":text[:240],"url":url,"published_at":infer_date_from_text_url(text,url),"publisher":source["name"]})
     dedup={}
     for x in out: dedup.setdefault(x["url"],x)
     return list(dedup.values())[:200]
@@ -117,39 +183,59 @@ def parse_scope():
 
 def main():
     selected,scope=parse_scope(); cfg=load_json(CONFIG,{"sources":[]}); old=load_json(OUT,{"items":[]}); state=load_json(STATE,{"sources":{}})
-    checked=now_iso(); items=list(old.get("items",[])); source_state=state.setdefault("sources",{}); statuses=[]
+    checked=now_iso(); old_by_url={x.get('url'):x for x in old.get('items',[]) if x.get('url')}; items=[]; source_state=state.setdefault("sources",{}); statuses=[]
     for src in cfg.get("sources",[]):
         if selected is not None and src["channel_type"] not in selected: continue
         try:
             found=scan_google_news(src) if src.get("mode")=="google_news" else scan_html(src)
             for x in found:
+                previous=old_by_url.get(x['url'],{})
+                published_at=x.get('published_at') or previous.get('published_at')
+                title_zh=previous.get('title_zh') or translate_to_zh(x['title'])
                 items.append({
-                    "id":f"{src['id']}-{abs(hash(x['url']))}","title":x["title"],"summary":"","url":x["url"],
+                    "id":previous.get('id') or f"{src['id']}-{abs(hash(x['url']))}",
+                    "title":x["title"],"title_zh":title_zh,"summary":previous.get('summary',''),"summary_zh":previous.get('summary_zh',''),"url":x["url"],
                     "publisher":x.get("publisher") or src["name"],"source_name":src["name"],"source_id":src["id"],
                     "channel_type":src["channel_type"],"region":src.get("region","Global"),"country":src.get("country","Global"),
-                    "topic":topic_for(x["title"]),"published_at":x.get("published_at"),"discovered_at":checked
+                    "topic":topic_for(x["title"]),"published_at":published_at,"discovered_at":previous.get('discovered_at') or checked
                 })
             source_state[src["id"]]={"status":"ok","checked_at":checked,"items_found":len(found)}
             statuses.append({"id":src["id"],"name":src["name"],"channel_type":src["channel_type"],"status":"ok","items_found":len(found)})
         except Exception as exc:
             source_state[src["id"]]={"status":"error","checked_at":checked,"error":str(exc)[:240]}
             statuses.append({"id":src["id"],"name":src["name"],"channel_type":src["channel_type"],"status":"error","items_found":0})
-        time.sleep(.35)
+        time.sleep(.25)
+
+    # Preserve still-recent items from sources not selected in a partial refresh.
+    if selected is not None:
+        items.extend(x for x in old.get('items',[]) if x.get('channel_type') not in selected)
+
+    # Enrich original publication dates. Never substitute discovered_at as publication date.
+    for i,x in enumerate(items):
+        if not x.get('published_at'):
+            x['published_at']=infer_date_from_text_url(x.get('title',''),x.get('url',''))
+        if not x.get('published_at') and x.get('url') and not x.get('url','').startswith('https://news.google.com/'):
+            x['published_at']=extract_date_from_article(x['url'])
+            if i % 8 == 0: time.sleep(.08)
+        if not x.get('title_zh'):
+            x['title_zh']=translate_to_zh(x.get('title',''))
 
     cutoff=datetime.now(timezone.utc)-timedelta(days=120); by_url={}; by_title={}
-    def dt_of(x):
-        raw=x.get("published_at") or x.get("discovered_at") or checked
+    def pub_dt(x):
+        raw=x.get("published_at")
+        if not raw: return datetime(1970,1,1,tzinfo=timezone.utc)
         try:return datetime.fromisoformat(raw.replace("Z","+00:00"))
-        except Exception:return datetime.now(timezone.utc)
-    for x in sorted(items,key=dt_of):
-        if dt_of(x)<cutoff: continue
+        except Exception:return datetime(1970,1,1,tzinfo=timezone.utc)
+    for x in sorted(items,key=pub_dt):
+        # If publication date is known, keep only recent 120-day news. Unknown dates stay visible but sort last.
+        if x.get('published_at') and pub_dt(x)<cutoff: continue
         fp=fingerprint(x.get("title",""))
         if x.get("url") in by_url or (fp and fp in by_title): continue
         by_url[x.get("url")]=x
         if fp: by_title[fp]=x
-    final=sorted(by_url.values(),key=dt_of,reverse=True)[:1500]
+    final=sorted(by_url.values(),key=pub_dt,reverse=True)[:1500]
     save_json(OUT,{"generated_at":checked,"last_scan_scope":scope,"items":final,"source_status":statuses})
     save_json(STATE,{"generated_at":checked,"last_scan_scope":scope,"sources":source_state})
-    print(f"Hotspot scan scope: {scope}; sources: {len(statuses)}; items: {len(final)}")
+    print(f"Hotspot scan scope: {scope}; sources: {len(statuses)}; items: {len(final)}; translated: {sum(1 for x in final if x.get('title_zh'))}; dated: {sum(1 for x in final if x.get('published_at'))}")
 
 if __name__=="__main__": main()
