@@ -1,7 +1,20 @@
 {
-  "generated_at": "2026-09-23T02:14:32Z",
+  "generated_at": "2026-09-23T02:16:59Z",
   "last_scan_scope": "all",
   "candidates": [
+    {
+      "id": "asia-news-en-5441749166833258060",
+      "title": "Liza Soberano joins Dr. Shiba family in newest product launch - Daily Tribune",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQZ0Z6R3B5ZndtNWtwR3V0WVVsRzJoVUZhX2hha2E2UXhodTFtX0d4cS1vRDd5MWt1aUJ4cHBwNE5CNFpHb2g1X1Bybnl6TnkyVVBJR2xvMUhHZjN4WWxyWTF0S25hT014TnNpdDdVYmFSUm5SZ0lWZURXZHItXzlsWXhTU3RzNjVvX1FuVXAtVFJabldMTFJmY2hB?oc=5",
+      "source_id": "asia-news-en",
+      "source_name": "Asia web discovery EN",
+      "region": "Asia",
+      "country": "Asia",
+      "channel_type": "trade_media",
+      "discovered_at": "2026-09-23T02:16:59Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
     {
       "id": "eu-zooplus-2274681128236605013",
       "title": "2030413",
