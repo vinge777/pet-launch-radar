@@ -25,7 +25,7 @@ FOOD_TERMS = re.compile(
     re.I,
 )
 SUPPLIES_TERMS = re.compile(
-    r'toy|toys|bed|bedding|leash|lead\b|collar|harness|apparel|fashion|costume|clothing|litter|cat\s*litter|groom|shampoo|brush|comb|bowl|feeder|fountain|crate|carrier|kennel|scratch(?:er|ing)|cat\s*tree|furniture|accessor|accessories|tracker|camera|smart\s*(?:collar|feeder|device)|training\s*pad|pee\s*pad|poop\s*bag|waste\s*bag|cleaning|odor|odour|stroller|travel\s*gear|pet\s*tech|aquarium|terrarium|服装|玩具|猫砂|牵引|项圈|宠物用品|おもちゃ|猫砂|용품',
+    r'toy|toys|bed|bedding|leash|lead\b|collar|harness|apparel|fashion|costume|clothing|jumper|jumpers|sweater|sweaters|jacket|jackets|litter|cat\s*litter|groom|shampoo|brush|comb|bowl|feeder|fountain|crate|carrier|kennel|scratch(?:er|ing)|cat\s*tree|furniture|accessor|accessories|tracker|camera|smart\s*(?:collar|feeder|device)|training\s*pad|pee\s*pad|poop\s*bag|waste\s*bag|cleaning|odor|odour|stroller|travel\s*gear|pet\s*tech|aquarium|terrarium|服装|玩具|猫砂|牵引|项圈|宠物用品|おもちゃ|猫砂|용품',
     re.I,
 )
 
@@ -111,19 +111,29 @@ def translate(text):
 
 
 def classify_segment(item):
-    hay = ' '.join([
-        item.get('title',''), item.get('title_zh',''), item.get('summary',''), item.get('summary_zh',''),
-        item.get('topic',''), item.get('source_name',''), item.get('publisher',''), item.get('url','')
+    title_hay = ' '.join([item.get('title',''), item.get('title_zh','')])
+    body_hay = ' '.join([
+        item.get('summary',''), item.get('summary_zh',''), item.get('topic',''),
+        item.get('source_name',''), item.get('publisher',''), item.get('url','')
     ])
-    food_hits = len(FOOD_TERMS.findall(hay))
-    supply_hits = len(SUPPLIES_TERMS.findall(hay))
-    if food_hits:
+    food_hits = len(FOOD_TERMS.findall(title_hay)) * 3 + len(FOOD_TERMS.findall(body_hay))
+    supply_hits = len(SUPPLIES_TERMS.findall(title_hay)) * 3 + len(SUPPLIES_TERMS.findall(body_hay))
+
+    if food_hits and supply_hits:
+        if food_hits >= max(3, supply_hits * 2):
+            segment = 'food'
+        elif supply_hits >= max(2, food_hits * 2):
+            segment = 'supplies'
+        else:
+            segment = 'industry'
+    elif food_hits:
         segment = 'food'
     elif supply_hits:
         segment = 'supplies'
     else:
         segment = 'industry'
 
+    hay = f'{title_hay} {body_hay}'
     subcategory = ''
     if segment == 'food':
         if re.search(r'treat|snack|chew|jerky|biscuit|lickable|おやつ|간식|零食|洁齿', hay, re.I):
@@ -145,7 +155,7 @@ def classify_segment(item):
     elif segment == 'supplies':
         if re.search(r'toy|scratch|玩具', hay, re.I):
             subcategory = '玩具 / 丰容'
-        elif re.search(r'apparel|fashion|costume|clothing|服装', hay, re.I):
+        elif re.search(r'apparel|fashion|costume|clothing|jumper|sweater|jacket|服装', hay, re.I):
             subcategory = '服饰'
         elif re.search(r'litter|clean|odor|odour|pad|bag|猫砂|清洁', hay, re.I):
             subcategory = '清洁 / 猫砂'
@@ -208,7 +218,6 @@ def main():
         published = x.get('published_at') or ''
         return (x.get('food_priority', 0), published)
 
-    # 食品情报优先进入数据文件前部；前端仍可按发布日期筛选和查看用品/行业综合。
     items.sort(key=sort_key, reverse=True)
     data['items'] = items
     data['segment_counts'] = {
