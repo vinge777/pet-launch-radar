@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "purpose": "Global pet-industry hotspot monitoring across official brands, specialty pet retail, mass retail, drugstores, marketplaces, trade media and broad web discovery.",
+  "version": 2,
+  "purpose": "Global pet-industry hotspot monitoring across official brands, specialty pet retail, mass retail, drugstores, marketplaces, trade media and broad web discovery, with pet food prioritized over supplies.",
   "sources": [
     {"id":"hot-brand-purina","name":"Purina News Center","region":"North America","country":"United States","channel_type":"brand_official","mode":"html","url":"https://newscenter.purina.com/press-releases","same_domain_only":true,"pet_specific":true,"include_all_pet_news":true},
     {"id":"hot-brand-unicharm","name":"Unicharm Corporate News","region":"Asia","country":"Japan","channel_type":"brand_official","mode":"html","url":"https://www.unicharm.co.jp/ja/company/news.html","same_domain_only":true},
@@ -18,6 +18,12 @@
 
     {"id":"hot-market-rakuten","name":"Rakuten Press Releases","region":"Asia","country":"Japan","channel_type":"marketplace","mode":"html","url":"https://global.rakuten.com/corp/news/press/","same_domain_only":true},
     {"id":"hot-market-amazon","name":"Amazon News","region":"North America","country":"United States","channel_type":"marketplace","mode":"html","url":"https://www.aboutamazon.com/news","same_domain_only":true},
+
+    {"id":"hot-food-global","name":"Global pet food priority discovery","region":"Global","country":"Global","channel_type":"trade_media","mode":"google_news","query":"\"pet food\" innovation OR \"dog food\" launch OR \"cat food\" launch OR pet nutrition ingredient OR pet treats OR wet pet food OR freeze dried pet food"},
+    {"id":"hot-food-us","name":"US pet food priority discovery","region":"North America","country":"United States","channel_type":"trade_media","mode":"google_news","query":"US pet food launch OR dog food innovation OR cat food innovation OR pet treats trend OR pet nutrition ingredient OR wet pet food"},
+    {"id":"hot-food-eu","name":"Europe pet food priority discovery","region":"Europe","country":"Europe","channel_type":"trade_media","mode":"google_news","query":"Europe pet food launch OR dog food innovation OR cat food innovation OR pet treats trend OR pet nutrition ingredient OR wet pet food"},
+    {"id":"hot-food-asia","name":"Asia pet food priority discovery","region":"Asia","country":"Asia","channel_type":"trade_media","mode":"google_news","query":"Asia pet food launch OR Japan pet food new product OR Korea pet food trend OR pet treats innovation OR pet nutrition ingredient"},
+    {"id":"hot-food-sa","name":"South America pet food priority discovery","region":"South America","country":"South America","channel_type":"trade_media","mode":"google_news","query":"Brazil pet food launch OR Latin America pet food trend OR dog cat food innovation OR pet nutrition ingredient OR pet treats"},
 
     {"id":"hot-trade-global","name":"Global pet industry discovery","region":"Global","country":"Global","channel_type":"trade_media","mode":"google_news","query":"pet industry trend OR pet food innovation OR pet nutrition trend OR pet retail trend OR pet care innovation"},
     {"id":"hot-trade-us","name":"US pet industry discovery","region":"North America","country":"United States","channel_type":"trade_media","mode":"google_news","query":"US pet food trend OR pet retail innovation OR dog cat nutrition market"},
