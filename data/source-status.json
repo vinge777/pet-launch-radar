@@ -1,5 +1,6 @@
 {
-  "generated_at": "2026-09-22T08:13:54Z",
+  "generated_at": "2026-09-23T00:28:16Z",
+  "last_scan_scope": "all",
   "sources": [
     {
       "id": "us-chewy",
@@ -11,9 +12,10 @@
       "status": "error",
       "items_found": 0,
       "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "https://www.chewy.com/b/dog-2669",
-      "error": "HTTP Error 429: Too Many Requests"
+      "error": "HTTP Error 429: Too Many Requests",
+      "selected_in_last_run": true
     },
     {
       "id": "us-petco",
@@ -25,9 +27,10 @@
       "status": "error",
       "items_found": 0,
       "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "https://www.petco.com/category/trending-shops/new-at-petco",
-      "error": "HTTP Error 403: Forbidden"
+      "error": "HTTP Error 403: Forbidden",
+      "selected_in_last_run": true
     },
     {
       "id": "us-petsmart",
@@ -38,10 +41,11 @@
       "type": "specialty_retail",
       "status": "ok",
       "items_found": 90,
-      "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "new_candidates": 1,
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "https://www.petsmart.com/new-and-featured/",
-      "baseline_created": true
+      "baseline_created": false,
+      "selected_in_last_run": true
     },
     {
       "id": "us-walmart",
@@ -50,12 +54,13 @@
       "country": "United States",
       "channel_type": "mass_retail",
       "type": "mass_retail",
-      "status": "error",
-      "items_found": 0,
+      "status": "ok",
+      "items_found": 3,
       "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "https://www.walmart.com/shop/pets/new-arrivals",
-      "error": "HTTP Error 429: Too Many Requests"
+      "baseline_created": true,
+      "selected_in_last_run": true
     },
     {
       "id": "us-target",
@@ -67,9 +72,10 @@
       "status": "ok",
       "items_found": 0,
       "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "https://www.target.com/c/pets/-/N-5xt44",
-      "baseline_created": true
+      "baseline_created": false,
+      "selected_in_last_run": true
     },
     {
       "id": "us-news",
@@ -80,10 +86,11 @@
       "type": "trade_media",
       "status": "ok",
       "items_found": 100,
-      "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "new_candidates": 13,
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "Google News: (pet OR dog OR cat) (new product OR launch OR launches OR launches new OR new food OR new treats)",
-      "baseline_created": true
+      "baseline_created": false,
+      "selected_in_last_run": true
     },
     {
       "id": "eu-zooplus",
@@ -95,9 +102,10 @@
       "status": "ok",
       "items_found": 315,
       "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "https://www.zooplus.com/shop/zooplus_exclusives/all_pets",
-      "baseline_created": true
+      "baseline_created": false,
+      "selected_in_last_run": true
     },
     {
       "id": "eu-petsathome",
@@ -109,9 +117,10 @@
       "status": "error",
       "items_found": 0,
       "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "https://www.petsathome.com/shop/en/pets",
-      "error": "HTTP Error 404: Not Found"
+      "error": "HTTP Error 404: Not Found",
+      "selected_in_last_run": true
     },
     {
       "id": "eu-dm",
@@ -123,9 +132,10 @@
       "status": "ok",
       "items_found": 0,
       "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "https://www.dm.de/neu/tier-neuheiten",
-      "baseline_created": true
+      "baseline_created": false,
+      "selected_in_last_run": true
     },
     {
       "id": "eu-rossmann",
@@ -137,9 +147,10 @@
       "status": "ok",
       "items_found": 0,
       "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "https://www.rossmann.de/de/tier/c/olcat1_k_5190857",
-      "baseline_created": true
+      "baseline_created": false,
+      "selected_in_last_run": true
     },
     {
       "id": "eu-carrefour",
@@ -151,9 +162,10 @@
       "status": "error",
       "items_found": 0,
       "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "https://www.carrefour.fr/r/animalerie",
-      "error": "HTTP Error 403: Forbidden"
+      "error": "HTTP Error 403: Forbidden",
+      "selected_in_last_run": true
     },
     {
       "id": "eu-news-en",
@@ -163,11 +175,12 @@
       "channel_type": "trade_media",
       "type": "trade_media",
       "status": "ok",
-      "items_found": 83,
-      "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "items_found": 81,
+      "new_candidates": 4,
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "Google News: Europe pet new product OR dog food launch OR cat food launch",
-      "baseline_created": true
+      "baseline_created": false,
+      "selected_in_last_run": true
     },
     {
       "id": "eu-news-de",
@@ -179,9 +192,10 @@
       "status": "ok",
       "items_found": 0,
       "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "Google News: Haustier Neuheit OR Hundefutter Neuheit OR Katzenfutter Neuheit",
-      "baseline_created": true
+      "baseline_created": false,
+      "selected_in_last_run": true
     },
     {
       "id": "eu-news-fr",
@@ -191,11 +205,12 @@
       "channel_type": "trade_media",
       "type": "trade_media",
       "status": "ok",
-      "items_found": 2,
-      "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "items_found": 3,
+      "new_candidates": 1,
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "Google News: nouveauté animalerie OR nouvelle nourriture chien OR nouvelle nourriture chat",
-      "baseline_created": true
+      "baseline_created": false,
+      "selected_in_last_run": true
     },
     {
       "id": "asia-petio",
@@ -207,9 +222,10 @@
       "status": "ok",
       "items_found": 7,
       "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "https://fs.petio.com/exhibition/2026ss/",
-      "baseline_created": true
+      "baseline_created": false,
+      "selected_in_last_run": true
     },
     {
       "id": "asia-rakuten-petkit",
@@ -221,9 +237,10 @@
       "status": "ok",
       "items_found": 78,
       "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "https://www.rakuten.co.jp/neikonu/contents/new/",
-      "baseline_created": true
+      "baseline_created": false,
+      "selected_in_last_run": true
     },
     {
       "id": "asia-news-ja",
@@ -235,9 +252,10 @@
       "status": "ok",
       "items_found": 0,
       "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "Google News: ペット 新商品 犬 猫 フード おやつ",
-      "baseline_created": true
+      "baseline_created": false,
+      "selected_in_last_run": true
     },
     {
       "id": "asia-news-ko",
@@ -249,9 +267,10 @@
       "status": "ok",
       "items_found": 0,
       "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "Google News: 반려동물 신제품 강아지 고양이 사료 간식",
-      "baseline_created": true
+      "baseline_created": false,
+      "selected_in_last_run": true
     },
     {
       "id": "asia-news-en",
@@ -261,11 +280,12 @@
       "channel_type": "trade_media",
       "type": "trade_media",
       "status": "ok",
-      "items_found": 79,
-      "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "items_found": 77,
+      "new_candidates": 5,
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "Google News: Asia pet new product dog cat food launch",
-      "baseline_created": true
+      "baseline_created": false,
+      "selected_in_last_run": true
     },
     {
       "id": "sa-petlove",
@@ -277,9 +297,10 @@
       "status": "error",
       "items_found": 0,
       "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "https://www.petlove.com.br/",
-      "error": "HTTP Error 403: Forbidden"
+      "error": "HTTP Error 403: Forbidden",
+      "selected_in_last_run": true
     },
     {
       "id": "sa-petz",
@@ -291,9 +312,10 @@
       "status": "error",
       "items_found": 0,
       "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "https://www.petz.com.br/",
-      "error": "HTTP Error 403: Forbidden"
+      "error": "HTTP Error 403: Forbidden",
+      "selected_in_last_run": true
     },
     {
       "id": "sa-cobasi",
@@ -305,9 +327,10 @@
       "status": "ok",
       "items_found": 68,
       "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "https://www.cobasi.com.br/",
-      "baseline_created": true
+      "baseline_created": false,
+      "selected_in_last_run": true
     },
     {
       "id": "sa-news-pt",
@@ -319,9 +342,10 @@
       "status": "ok",
       "items_found": 0,
       "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "Google News: novo produto pet cachorro gato ração petisco lançamento",
-      "baseline_created": true
+      "baseline_created": false,
+      "selected_in_last_run": true
     },
     {
       "id": "sa-news-es",
@@ -333,9 +357,10 @@
       "status": "ok",
       "items_found": 0,
       "new_candidates": 0,
-      "checked_at": "2026-09-22T08:13:54Z",
+      "checked_at": "2026-09-23T00:28:16Z",
       "source_url": "Google News: nuevo producto mascotas alimento perro gato lanzamiento",
-      "baseline_created": true
+      "baseline_created": false,
+      "selected_in_last_run": true
     }
   ]
 }
