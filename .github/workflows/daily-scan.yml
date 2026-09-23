@@ -24,6 +24,7 @@ on:
       - 'config/hotspot-sources.json'
       - 'scripts/scan.py'
       - 'scripts/hotspots.py'
+      - 'scripts/hotspot_quality.py'
       - '.github/workflows/daily-scan.yml'
 
 permissions:
@@ -52,6 +53,9 @@ jobs:
 
       - name: Scan global hotspots
         run: python scripts/hotspots.py --channels "${{ github.event.inputs.channel_scope || 'all' }}"
+
+      - name: Refine hotspot relevance and summaries
+        run: python scripts/hotspot_quality.py
 
       - name: Commit intelligence data safely
         run: |
