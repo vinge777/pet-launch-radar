@@ -20,6 +20,15 @@ ADMIN = re.compile(
     re.I,
 )
 
+FOOD_TERMS = re.compile(
+    r'pet\s*food|dog\s*food|cat\s*food|puppy\s*food|kitten\s*food|kibble|dry\s*food|wet\s*food|canned|can\s*food|pouch|tray|meal|diet|formula|nutrition|nutritional|ingredient|protein|meat|poultry|fish|tuna|salmon|chicken|beef|duck|treat|treats|snack|chew|chews|jerky|biscuit|dental\s*chew|supplement|nutraceutical|vitamin|mineral|probiotic|prebiotic|omega|topper|broth|gravy|mousse|lickable|freeze[- ]?dried|air[- ]?dried|raw\s*(?:food|diet)|fresh\s*(?:pet\s*)?food|palatab|flavou?r|recipe|functional\s*(?:food|treat|nutrition)|complete\s*(?:and\s*balanced\s*)?food|pet\s*nutrition|animal\s*nutrition|ração|alimento\s+para\s+(?:cães|gatos)|futter|hundefutter|katzenfutter|nahrung|ペットフード|ドッグフード|キャットフード|おやつ|사료|간식',
+    re.I,
+)
+SUPPLIES_TERMS = re.compile(
+    r'toy|toys|bed|bedding|leash|lead\b|collar|harness|apparel|fashion|costume|clothing|litter|cat\s*litter|groom|shampoo|brush|comb|bowl|feeder|fountain|crate|carrier|kennel|scratch(?:er|ing)|cat\s*tree|furniture|accessor|accessories|tracker|camera|smart\s*(?:collar|feeder|device)|training\s*pad|pee\s*pad|poop\s*bag|waste\s*bag|cleaning|odor|odour|stroller|travel\s*gear|pet\s*tech|aquarium|terrarium|服装|玩具|猫砂|牵引|项圈|宠物用品|おもちゃ|猫砂|용품',
+    re.I,
+)
+
 
 def fetch(url, timeout=8):
     req = urllib.request.Request(url, headers={'User-Agent': UA, 'Accept-Language': 'en-US,en;q=0.8'})
@@ -101,6 +110,59 @@ def translate(text):
         return text
 
 
+def classify_segment(item):
+    hay = ' '.join([
+        item.get('title',''), item.get('title_zh',''), item.get('summary',''), item.get('summary_zh',''),
+        item.get('topic',''), item.get('source_name',''), item.get('publisher',''), item.get('url','')
+    ])
+    food_hits = len(FOOD_TERMS.findall(hay))
+    supply_hits = len(SUPPLIES_TERMS.findall(hay))
+    if food_hits:
+        segment = 'food'
+    elif supply_hits:
+        segment = 'supplies'
+    else:
+        segment = 'industry'
+
+    subcategory = ''
+    if segment == 'food':
+        if re.search(r'treat|snack|chew|jerky|biscuit|lickable|おやつ|간식|零食|洁齿', hay, re.I):
+            subcategory = '零食 / 洁齿'
+        elif re.search(r'supplement|nutraceutical|vitamin|mineral|probiotic|prebiotic|omega|joint|skin|coat|gut|digest|营养补充|保健', hay, re.I):
+            subcategory = '营养补充'
+        elif re.search(r'ingredient|protein|nutrition|research|study|science|palatab|raw material|原料|营养|科研', hay, re.I):
+            subcategory = '原料 / 营养科研'
+        elif re.search(r'packag|retort|extrusion|freeze[- ]?dried|air[- ]?dried|baked|process|manufactur|factory|facility|包装|加工|工厂', hay, re.I):
+            subcategory = '加工 / 包装'
+        elif re.search(r'wet\s*food|canned|pouch|tray|broth|gravy|mousse|湿粮|罐头|汤包', hay, re.I):
+            subcategory = '湿粮'
+        elif re.search(r'dry\s*food|kibble|baked|extrud|干粮|烘焙粮|膨化', hay, re.I):
+            subcategory = '干粮'
+        elif re.search(r'market|sales|consumer|retail|growth|demand|trend|市场|消费|渠道', hay, re.I):
+            subcategory = '食品市场 / 渠道'
+        else:
+            subcategory = '宠物食品综合'
+    elif segment == 'supplies':
+        if re.search(r'toy|scratch|玩具', hay, re.I):
+            subcategory = '玩具 / 丰容'
+        elif re.search(r'apparel|fashion|costume|clothing|服装', hay, re.I):
+            subcategory = '服饰'
+        elif re.search(r'litter|clean|odor|odour|pad|bag|猫砂|清洁', hay, re.I):
+            subcategory = '清洁 / 猫砂'
+        elif re.search(r'tracker|camera|smart|tech|智能|科技', hay, re.I):
+            subcategory = '智能用品'
+        else:
+            subcategory = '宠物用品综合'
+    else:
+        subcategory = '行业综合'
+
+    item['segment'] = segment
+    item['segment_zh'] = {'food':'宠物食品','supplies':'宠物用品','industry':'行业综合'}[segment]
+    item['subcategory_zh'] = subcategory
+    item['food_priority'] = 3 if segment == 'food' else (2 if segment == 'industry' else 1)
+    return item
+
+
 def main():
     data = json.loads(DATA.read_text(encoding='utf-8'))
     items = []
@@ -140,10 +202,27 @@ def main():
             title = clean(x.get('title_zh') or x.get('title') or '')
             topic = x.get('topic') or '行业动态'
             x['summary_zh'] = f'{topic}：文章主要介绍{title.rstrip("。！？!?")}。' if title else '原文摘要暂未识别。'
+        classify_segment(x)
 
+    def sort_key(x):
+        published = x.get('published_at') or ''
+        return (x.get('food_priority', 0), published)
+
+    # 食品情报优先进入数据文件前部；前端仍可按发布日期筛选和查看用品/行业综合。
+    items.sort(key=sort_key, reverse=True)
     data['items'] = items
+    data['segment_counts'] = {
+        'food': sum(1 for x in items if x.get('segment') == 'food'),
+        'supplies': sum(1 for x in items if x.get('segment') == 'supplies'),
+        'industry': sum(1 for x in items if x.get('segment') == 'industry'),
+    }
     DATA.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    print(f'Hotspot quality pass: kept={len(items)}, summaries={sum(1 for x in items if x.get("summary_zh"))}')
+    print(
+        'Hotspot quality pass: '
+        f'kept={len(items)}, food={data["segment_counts"]["food"]}, '
+        f'supplies={data["segment_counts"]["supplies"]}, industry={data["segment_counts"]["industry"]}, '
+        f'summaries={sum(1 for x in items if x.get("summary_zh"))}'
+    )
 
 
 if __name__ == '__main__':
