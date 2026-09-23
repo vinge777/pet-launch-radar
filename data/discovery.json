@@ -1,7 +1,20 @@
 {
-  "generated_at": "2026-09-23T03:37:02Z",
+  "generated_at": "2026-09-23T06:29:42Z",
   "last_scan_scope": "all",
   "candidates": [
+    {
+      "id": "us-news-5254094691220273443",
+      "title": "Girl Scouts launch first dog cookies and allergy-friendly treats - Los Angeles Times",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPYWdNTTJoZGJiTXBDT2ZhNUlSMkVqZnhoYUNzanFPNllkX1ZxSXd1S0hUOUNkREYwZUZlY1U3QmcybGs5NmtoQVFNRHBWWFlzTFlJdTZLb0NNR05aWkd6bVRfd3BmMUZBck9yOW9GOE1QaE9YLVZxSjdRZUpDUkV6UnNEQVN5Q3hZN1JLSlBkdTBPaFhsX0hwdVVSR3RaWWd4bmlLejhyR1hsdnRzaDVn?oc=5",
+      "source_id": "us-news",
+      "source_name": "US web discovery",
+      "region": "North America",
+      "country": "United States",
+      "channel_type": "trade_media",
+      "discovered_at": "2026-09-23T06:29:42Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
     {
       "id": "asia-news-en-5441749166833258060",
       "title": "Liza Soberano joins Dr. Shiba family in newest product launch - Daily Tribune",
