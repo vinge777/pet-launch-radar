@@ -53,15 +53,31 @@ jobs:
       - name: Scan global hotspots
         run: python scripts/hotspots.py --channels "${{ github.event.inputs.channel_scope || 'all' }}"
 
-      - name: Commit intelligence data
+      - name: Commit intelligence data safely
         run: |
           git config user.name "pet-launch-radar-bot"
           git config user.email "actions@users.noreply.github.com"
+
+          mkdir -p /tmp/pet-intelligence-data
+          cp data/source-status.json /tmp/pet-intelligence-data/
+          cp data/discovery.json /tmp/pet-intelligence-data/
+          cp data/discovered-links.json /tmp/pet-intelligence-data/
+          cp data/hotspots.json /tmp/pet-intelligence-data/
+          cp data/hotspot-state.json /tmp/pet-intelligence-data/
+
+          git fetch origin main
+          git reset --hard origin/main
+
+          cp /tmp/pet-intelligence-data/source-status.json data/
+          cp /tmp/pet-intelligence-data/discovery.json data/
+          cp /tmp/pet-intelligence-data/discovered-links.json data/
+          cp /tmp/pet-intelligence-data/hotspots.json data/
+          cp /tmp/pet-intelligence-data/hotspot-state.json data/
+
           git add data/source-status.json data/discovery.json data/discovered-links.json data/hotspots.json data/hotspot-state.json
           if git diff --cached --quiet; then
             echo "No intelligence changes"
           else
             git commit -m "chore: update pet intelligence data"
-            git pull --rebase origin main
-            git push
+            git push origin main
           fi
