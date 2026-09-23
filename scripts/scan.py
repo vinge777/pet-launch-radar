@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import argparse
 import json
 import re
 import time
@@ -15,6 +16,10 @@ STATUS = ROOT / "data" / "source-status.json"
 DISCOVERY = ROOT / "data" / "discovery.json"
 SEEN = ROOT / "data" / "discovered-links.json"
 UA = "Mozilla/5.0 (compatible; PetLaunchRadar/1.0; +https://github.com/vinge777/pet-launch-radar)"
+VALID_CHANNELS = {
+    "brand_official", "specialty_retail", "mass_retail",
+    "drugstore", "marketplace", "trade_media"
+}
 
 
 def now_iso():
@@ -90,7 +95,6 @@ def clean_url(base, href):
         return None
     if re.search(r"\.(jpg|jpeg|png|gif|webp|svg|pdf|css|js)(\?|$)", p.path, re.I):
         return None
-    # Strip tracking fragments but keep query because some retailers need it.
     return urllib.parse.urlunparse((p.scheme, p.netloc, p.path, p.params, p.query, ""))
 
 
@@ -114,7 +118,6 @@ def scan_html(source):
         if len(text) < 3:
             continue
         out.append({"url": url, "title": text[:240]})
-    # Preserve order while deduping URLs.
     dedup = {}
     for item in out:
         dedup.setdefault(item["url"], item)
@@ -135,17 +138,56 @@ def scan_google_news(source):
     return out
 
 
+def parse_scope():
+    parser = argparse.ArgumentParser(description="Scan configured pet launch sources")
+    parser.add_argument("--channels", default="all", help="all or comma-separated channel types")
+    args = parser.parse_args()
+    raw = (args.channels or "all").strip()
+    if raw == "all":
+        return None, "all"
+    selected = {x.strip() for x in raw.split(",") if x.strip()}
+    invalid = selected - VALID_CHANNELS
+    if invalid:
+        raise SystemExit("Unknown channel type(s): " + ", ".join(sorted(invalid)))
+    if not selected:
+        return None, "all"
+    return selected, ",".join(sorted(selected))
+
+
 def main():
+    selected_channels, scope_label = parse_scope()
     cfg = load_json(CONFIG, {"sources": []})
     seen = load_json(SEEN, {"sources": {}})
     discovery = load_json(DISCOVERY, {"generated_at": None, "candidates": []})
+    previous_status = load_json(STATUS, {"sources": []})
+    previous_by_id = {x.get("id"): x for x in previous_status.get("sources", []) if x.get("id")}
     seen_sources = seen.setdefault("sources", {})
     candidates = discovery.setdefault("candidates", [])
     status_rows = []
     checked_at = now_iso()
+    scanned_count = 0
 
     for source in cfg.get("sources", []):
         sid = source["id"]
+        channel = source["channel_type"]
+        if selected_channels is not None and channel not in selected_channels:
+            prior = previous_by_id.get(sid)
+            if prior:
+                preserved = dict(prior)
+                preserved["selected_in_last_run"] = False
+                status_rows.append(preserved)
+            else:
+                status_rows.append({
+                    "id": sid, "name": source["name"], "region": source["region"],
+                    "country": source.get("country"), "channel_type": channel, "type": channel,
+                    "status": "not_scanned", "items_found": 0, "new_candidates": 0,
+                    "checked_at": None,
+                    "source_url": source.get("url") or ("Google News: " + source.get("query", "")),
+                    "selected_in_last_run": False
+                })
+            continue
+
+        scanned_count += 1
         try:
             if source.get("mode") == "google_news":
                 items = scan_google_news(source)
@@ -165,13 +207,12 @@ def main():
                     "source_name": source["name"],
                     "region": source["region"],
                     "country": source.get("country"),
-                    "channel_type": source["channel_type"],
+                    "channel_type": channel,
                     "discovered_at": checked_at,
                     "review_status": "pending",
                     "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
                 })
 
-            # Keep a rolling union so a temporarily missing link is not repeatedly rediscovered.
             merged = list(dict.fromkeys(list(previous) + current_urls))
             seen_sources[sid] = merged[-6000:]
             status_rows.append({
@@ -179,14 +220,15 @@ def main():
                 "name": source["name"],
                 "region": source["region"],
                 "country": source.get("country"),
-                "channel_type": source["channel_type"],
-                "type": source["channel_type"],
+                "channel_type": channel,
+                "type": channel,
                 "status": "ok",
                 "items_found": len(items),
                 "new_candidates": len(new_items),
                 "checked_at": checked_at,
                 "source_url": source.get("url") or ("Google News: " + source.get("query", "")),
-                "baseline_created": first_run
+                "baseline_created": first_run,
+                "selected_in_last_run": True
             })
         except Exception as exc:
             status_rows.append({
@@ -194,18 +236,18 @@ def main():
                 "name": source["name"],
                 "region": source["region"],
                 "country": source.get("country"),
-                "channel_type": source["channel_type"],
-                "type": source["channel_type"],
+                "channel_type": channel,
+                "type": channel,
                 "status": "error",
                 "items_found": 0,
                 "new_candidates": 0,
                 "checked_at": checked_at,
                 "source_url": source.get("url") or ("Google News: " + source.get("query", "")),
-                "error": str(exc)[:300]
+                "error": str(exc)[:300],
+                "selected_in_last_run": True
             })
         time.sleep(0.4)
 
-    # Dedupe candidates by URL, retain newest record and 180 days of history.
     cutoff = datetime.now(timezone.utc) - timedelta(days=180)
     by_url = {}
     for c in candidates:
@@ -218,10 +260,10 @@ def main():
         by_url[c["url"]] = c
     candidates = sorted(by_url.values(), key=lambda x: x.get("discovered_at", ""), reverse=True)[:2500]
 
-    save_json(SEEN, {"generated_at": checked_at, "sources": seen_sources})
-    save_json(DISCOVERY, {"generated_at": checked_at, "candidates": candidates})
-    save_json(STATUS, {"generated_at": checked_at, "sources": status_rows})
-    print(f"Scanned {len(status_rows)} sources; pending candidates: {len(candidates)}")
+    save_json(SEEN, {"generated_at": checked_at, "last_scan_scope": scope_label, "sources": seen_sources})
+    save_json(DISCOVERY, {"generated_at": checked_at, "last_scan_scope": scope_label, "candidates": candidates})
+    save_json(STATUS, {"generated_at": checked_at, "last_scan_scope": scope_label, "sources": status_rows})
+    print(f"Scan scope: {scope_label}; scanned {scanned_count} sources; pending candidates: {len(candidates)}")
 
 
 if __name__ == "__main__":
