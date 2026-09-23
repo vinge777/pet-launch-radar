@@ -4,6 +4,20 @@ on:
   schedule:
     - cron: '30 0 * * *' # 08:30 China Standard Time
   workflow_dispatch:
+    inputs:
+      channel_scope:
+        description: 'Refresh scope / 刷新范围'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - brand_official
+          - specialty_retail
+          - mass_retail
+          - drugstore
+          - marketplace
+          - trade_media
   push:
     paths:
       - 'config/sources.json'
@@ -31,8 +45,8 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Scan all configured channels
-        run: python scripts/scan.py
+      - name: Scan selected channels
+        run: python scripts/scan.py --channels "${{ github.event.inputs.channel_scope || 'all' }}"
 
       - name: Commit scan state
         run: |
@@ -42,6 +56,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No scan changes"
           else
-            git commit -m "chore: update daily pet launch discovery"
+            git commit -m "chore: update pet launch discovery"
             git push
           fi
