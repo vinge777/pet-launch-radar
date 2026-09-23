@@ -1,4 +1,4 @@
-name: Daily multi-channel pet launch scan
+name: Daily multi-channel pet intelligence scan
 
 on:
   schedule:
@@ -21,14 +21,16 @@ on:
   push:
     paths:
       - 'config/sources.json'
+      - 'config/hotspot-sources.json'
       - 'scripts/scan.py'
+      - 'scripts/hotspots.py'
       - '.github/workflows/daily-scan.yml'
 
 permissions:
   contents: write
 
 concurrency:
-  group: daily-pet-launch-scan
+  group: daily-pet-intelligence-scan
   cancel-in-progress: true
 
 jobs:
@@ -45,18 +47,21 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Scan selected channels
+      - name: Scan product launch channels
         run: python scripts/scan.py --channels "${{ github.event.inputs.channel_scope || 'all' }}"
 
-      - name: Commit scan state
+      - name: Scan global hotspots
+        run: python scripts/hotspots.py --channels "${{ github.event.inputs.channel_scope || 'all' }}"
+
+      - name: Commit intelligence data
         run: |
           git config user.name "pet-launch-radar-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/source-status.json data/discovery.json data/discovered-links.json
+          git add data/source-status.json data/discovery.json data/discovered-links.json data/hotspots.json data/hotspot-state.json
           if git diff --cached --quiet; then
-            echo "No scan changes"
+            echo "No intelligence changes"
           else
-            git commit -m "chore: update pet launch discovery"
+            git commit -m "chore: update pet intelligence data"
             git pull --rebase origin main
             git push
           fi
