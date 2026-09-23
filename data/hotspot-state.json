@@ -1,90 +1,90 @@
 {
-  "generated_at": "2026-09-23T02:51:48Z",
+  "generated_at": "2026-09-23T02:56:59Z",
   "last_scan_scope": "all",
   "sources": {
     "hot-brand-purina": {
       "status": "ok",
-      "checked_at": "2026-09-23T02:51:48Z",
+      "checked_at": "2026-09-23T02:56:59Z",
       "items_found": 9
     },
     "hot-brand-unicharm": {
       "status": "ok",
-      "checked_at": "2026-09-23T02:51:48Z",
+      "checked_at": "2026-09-23T02:56:59Z",
       "items_found": 8
     },
     "hot-specialty-chewy": {
       "status": "ok",
-      "checked_at": "2026-09-23T02:51:48Z",
+      "checked_at": "2026-09-23T02:56:59Z",
       "items_found": 3
     },
     "hot-specialty-petco": {
       "status": "ok",
-      "checked_at": "2026-09-23T02:51:48Z",
+      "checked_at": "2026-09-23T02:56:59Z",
       "items_found": 10
     },
     "hot-specialty-pah": {
       "status": "ok",
-      "checked_at": "2026-09-23T02:51:48Z",
+      "checked_at": "2026-09-23T02:56:59Z",
       "items_found": 16
     },
     "hot-mass-walmart": {
       "status": "ok",
-      "checked_at": "2026-09-23T02:51:48Z",
+      "checked_at": "2026-09-23T02:56:59Z",
       "items_found": 0
     },
     "hot-mass-target": {
       "status": "ok",
-      "checked_at": "2026-09-23T02:51:48Z",
+      "checked_at": "2026-09-23T02:56:59Z",
       "items_found": 0
     },
     "hot-mass-carrefour": {
       "status": "error",
-      "checked_at": "2026-09-23T02:51:48Z",
+      "checked_at": "2026-09-23T02:56:59Z",
       "error": "HTTP Error 403: Forbidden"
     },
     "hot-drugstore-dm": {
       "status": "ok",
-      "checked_at": "2026-09-23T02:51:48Z",
+      "checked_at": "2026-09-23T02:56:59Z",
       "items_found": 0
     },
     "hot-drugstore-rossmann": {
       "status": "ok",
-      "checked_at": "2026-09-23T02:51:48Z",
+      "checked_at": "2026-09-23T02:56:59Z",
       "items_found": 0
     },
     "hot-market-rakuten": {
       "status": "ok",
-      "checked_at": "2026-09-23T02:51:48Z",
+      "checked_at": "2026-09-23T02:56:59Z",
       "items_found": 0
     },
     "hot-market-amazon": {
       "status": "ok",
-      "checked_at": "2026-09-23T02:51:48Z",
+      "checked_at": "2026-09-23T02:56:59Z",
       "items_found": 0
     },
     "hot-trade-global": {
       "status": "ok",
-      "checked_at": "2026-09-23T02:51:48Z",
+      "checked_at": "2026-09-23T02:56:59Z",
       "items_found": 75
     },
     "hot-trade-us": {
       "status": "ok",
-      "checked_at": "2026-09-23T02:51:48Z",
+      "checked_at": "2026-09-23T02:56:59Z",
       "items_found": 97
     },
     "hot-trade-eu": {
       "status": "ok",
-      "checked_at": "2026-09-23T02:51:48Z",
+      "checked_at": "2026-09-23T02:56:59Z",
       "items_found": 64
     },
     "hot-trade-asia": {
       "status": "ok",
-      "checked_at": "2026-09-23T02:51:48Z",
+      "checked_at": "2026-09-23T02:56:59Z",
       "items_found": 58
     },
     "hot-trade-sa": {
       "status": "ok",
-      "checked_at": "2026-09-23T02:51:48Z",
+      "checked_at": "2026-09-23T02:56:59Z",
       "items_found": 68
     }
   }
