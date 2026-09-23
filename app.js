@@ -1,26 +1,39 @@
-const state={products:[],sources:[],brands:[],view:'today',region:'All',search:'',species:'All',category:'All',confidence:'All'};
+const state={products:[],sources:[],brands:[],view:'today',region:'All',search:'',species:'All',category:'All',confidence:'All',lastScanScope:'all'};
 const $=s=>document.querySelector(s); const $$=s=>[...document.querySelectorAll(s)];
 const regionCN={'North America':'美国','Europe':'欧洲','Asia':'亚洲','South America':'南美'};
 const channelCN={brand_official:'品牌官网',specialty_retail:'宠物专业渠道',mass_retail:'商超/综合零售',drugstore:'药妆/药房',marketplace:'综合电商/Marketplace',trade_media:'行业媒体/全网发现'};
+const scopeCN={all:'全部渠道',...channelCN};
 const channelOrder=['brand_official','specialty_retail','mass_retail','drugstore','marketplace','trade_media'];
 const fmt=d=>new Intl.DateTimeFormat('zh-CN',{month:'2-digit',day:'2-digit'}).format(new Date(d));
 const daysAgo=(n)=>{const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()-n);return d};
 const safeImg=(u,brand)=>u||`https://placehold.co/800x480/f0f3f2/31403c?text=${encodeURIComponent(brand||'Pet Product')}`;
 
-async function load(){
+async function fetchData(){
+  const ts=Date.now();
   const [p,s,b]=await Promise.all([
-    fetch('data/products.json?ts='+Date.now()).then(r=>r.json()),
-    fetch('data/source-status.json?ts='+Date.now()).then(r=>r.json()),
-    fetch('data/brands.json?ts='+Date.now()).then(r=>r.json())
+    fetch('data/products.json?ts='+ts,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('新品数据读取失败');return r.json()}),
+    fetch('data/source-status.json?ts='+ts,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('来源状态读取失败');return r.json()}),
+    fetch('data/brands.json?ts='+ts,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('品牌数据读取失败');return r.json()})
   ]);
-  state.products=p.products||[]; state.sources=s.sources||[]; state.brands=b.brands||[];
+  state.products=p.products||[]; state.sources=s.sources||[]; state.brands=b.brands||[]; state.lastScanScope=s.last_scan_scope||'all';
   const scanTime=s.generated_at||p.generated_at;
   $('#lastScan').textContent=scanTime?new Date(scanTime).toLocaleString('zh-CN',{hour12:false}):'暂无';
-  setupCategories(); bind(); render();
+  setupCategories();
+  return scanTime;
+}
+
+async function load(){
+  await fetchData();
+  bind();
+  bindSettings();
+  render();
 }
 function setupCategories(){
+ const current=state.category;
  const cats=[...new Set(state.products.map(x=>x.category).filter(Boolean))].sort();
  $('#categoryFilter').innerHTML='<option value="All">全部品类</option>'+cats.map(x=>`<option>${x}</option>`).join('');
+ $('#categoryFilter').value=cats.includes(current)?current:'All';
+ if(!cats.includes(current))state.category='All';
 }
 function bind(){
  $$('.nav-item').forEach(x=>x.onclick=()=>{state.view=x.dataset.view;$$('.nav-item').forEach(n=>n.classList.remove('active'));x.classList.add('active');render()});
@@ -30,6 +43,30 @@ function bind(){
  $('#categoryFilter').onchange=e=>{state.category=e.target.value;renderContent()};
  $('#confidenceFilter').onchange=e=>{state.confidence=e.target.value;renderContent()};
  $('#clearBtn').onclick=()=>{state.search='';state.species='All';state.category='All';state.confidence='All';$('#searchInput').value='';$('#speciesFilter').value='All';$('#categoryFilter').value='All';$('#confidenceFilter').value='All';renderContent()};
+}
+function bindSettings(){
+ const modal=$('#settingsModal');
+ const open=()=>{modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'};
+ const close=()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow=''};
+ $('#settingsBtn').onclick=open;
+ $('#settingsClose').onclick=close;
+ $$('[data-close-settings]').forEach(x=>x.onclick=close);
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))close()});
+ const scope=$('#scanScope');
+ const saved=localStorage.getItem('petLaunchRadarScanScope');
+ if(saved&&[...scope.options].some(o=>o.value===saved))scope.value=saved;
+ scope.onchange=()=>localStorage.setItem('petLaunchRadarScanScope',scope.value);
+ $('#refreshDataBtn').onclick=refreshPublishedData;
+}
+async function refreshPublishedData(){
+ const btn=$('#refreshDataBtn');const status=$('#refreshDataStatus');
+ btn.disabled=true;status.className='settings-status';status.textContent='正在读取最新已发布数据…';
+ try{
+   const scanTime=await fetchData();render();
+   status.className='settings-status success';
+   status.textContent=`刷新完成${scanTime?' · 最近扫描 '+new Date(scanTime).toLocaleString('zh-CN',{hour12:false}):''}`;
+ }catch(e){status.className='settings-status error';status.textContent='刷新失败：'+e.message}
+ finally{btn.disabled=false}
 }
 function baseProducts(){
  const now=new Date(); const today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
@@ -98,6 +135,6 @@ function renderCoverage(){
  const channelCounts={};channelOrder.forEach(k=>channelCounts[k]=0);state.sources.forEach(s=>channelCounts[s.channel_type||s.type]=(channelCounts[s.channel_type||s.type]||0)+1);
  const coverageChips=channelOrder.map(k=>`<span class="chip">${channelCN[k]} ${channelCounts[k]||0}</span>`).join('');
  const rows=[...state.sources].sort((a,b)=>channelOrder.indexOf(a.channel_type)-channelOrder.indexOf(b.channel_type)||a.region.localeCompare(b.region)||a.name.localeCompare(b.name));
- root.innerHTML=`<div class="coverage-grid"><div class="panel"><h3>全渠道监测源 · ${state.sources.length}</h3><div class="chips" style="margin-bottom:14px">${coverageChips}</div>${rows.map(s=>`<div class="source-row"><div><strong>${s.name}</strong><br><span style="color:#7d8790">${channelCN[s.channel_type]||s.type||'其他渠道'} · ${s.country||''}</span></div><div>${regionCN[s.region]||s.region}</div><div>${s.items_found||0} 条${s.new_candidates?` / 新 ${s.new_candidates}`:''}</div><div class="${s.status==='ok'?'status-ok':'status-warn'}">${s.status==='ok'?'正常':'需检查'}</div></div>`).join('')}</div><div class="panel"><h3>今日覆盖健康度</h3><div class="stat-value">${state.sources.length?Math.round(ok/state.sources.length*100):0}%</div><p style="color:#707a83;font-size:12px;line-height:1.7">监测范围不只包括宠物专业网站，而是覆盖品牌官网、宠物专业渠道、商超、药妆/药房、综合电商与行业媒体/全网发现。自动发现先进入候选池，核验品牌原产地、上市时间和详情页后才进入正式新品库。</p><div class="chips"><span class="chip">全渠道</span><span class="chip">多语言发现</span><span class="chip">单品链接优先</span><span class="chip">中国品牌排除</span><span class="chip">每日去重</span></div></div></div>`
+ root.innerHTML=`<div class="coverage-grid"><div class="panel"><h3>全渠道监测源 · ${state.sources.length}</h3><div class="chips" style="margin-bottom:14px">${coverageChips}</div>${rows.map(s=>`<div class="source-row"><div><strong>${s.name}</strong><br><span style="color:#7d8790">${channelCN[s.channel_type]||s.type||'其他渠道'} · ${s.country||''}</span></div><div>${regionCN[s.region]||s.region}</div><div>${s.items_found||0} 条${s.new_candidates?` / 新 ${s.new_candidates}`:''}</div><div class="${s.status==='ok'?'status-ok':'status-warn'}">${s.status==='ok'?'正常':s.status==='not_scanned'?'未扫描':'需检查'}</div></div>`).join('')}</div><div class="panel"><h3>今日覆盖健康度</h3><div class="stat-value">${state.sources.length?Math.round(ok/state.sources.length*100):0}%</div><p style="color:#707a83;font-size:12px;line-height:1.7">最近任务范围：<strong>${scopeCN[state.lastScanScope]||state.lastScanScope}</strong>。监测范围覆盖品牌官网、宠物专业渠道、商超、药妆/药房、综合电商与行业媒体/全网发现。自动发现先进入候选池，核验品牌原产地、上市时间和详情页后才进入正式新品库。</p><div class="chips"><span class="chip">全渠道</span><span class="chip">多语言发现</span><span class="chip">单品链接优先</span><span class="chip">中国品牌排除</span><span class="chip">每日去重</span></div></div></div>`
 }
 load().catch(e=>{$('#content').innerHTML=`<div class="empty"><strong>数据加载失败</strong>${e.message}</div>`});
