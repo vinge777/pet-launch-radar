@@ -26,29 +26,33 @@
     $('#hotspotClear').onclick=()=>{filters.search='';filters.channel='all';filters.region='all';filters.start='';filters.end='';$('#hotspotSearch').value='';$('#hotspotChannel').value='all';$('#hotspotRegion').value='all';$('#hotspotStart').value='';$('#hotspotEnd').value='';renderHotspots()};
   }
 
-  const itemDate=x=>String(x.published_at||x.discovered_at||'').slice(0,10);
+  const itemDate=x=>String(x.published_at||'').slice(0,10);
+  const publishedTime=x=>x.published_at?new Date(x.published_at).getTime():0;
   function filtered(){
     return data.items.filter(x=>{
       if(filters.channel!=='all'&&x.channel_type!==filters.channel)return false;
       if(filters.region!=='all'&&x.region!==filters.region)return false;
-      const d=itemDate(x);if(filters.start&&d<filters.start)return false;if(filters.end&&d>filters.end)return false;
-      if(filters.search){const hay=JSON.stringify([x.title,x.summary,x.publisher,x.source_name,x.topic,x.country,channelCN[x.channel_type]]).toLowerCase();if(!hay.includes(filters.search))return false}
+      const d=itemDate(x);
+      if((filters.start||filters.end)&&!d)return false;
+      if(filters.start&&d<filters.start)return false;if(filters.end&&d>filters.end)return false;
+      if(filters.search){const hay=JSON.stringify([x.title_zh,x.title,x.summary_zh,x.summary,x.publisher,x.source_name,x.topic,x.country,channelCN[x.channel_type]]).toLowerCase();if(!hay.includes(filters.search))return false}
       return true;
-    }).sort((a,b)=>new Date(b.published_at||b.discovered_at)-new Date(a.published_at||a.discovered_at));
+    }).sort((a,b)=>publishedTime(b)-publishedTime(a));
   }
 
   function renderStatsHot(arr){
     const sources=new Set(arr.map(x=>x.publisher||x.source_name));const channels=new Set(arr.map(x=>x.channel_type));
     const today=new Date().toISOString().slice(0,10);const todayN=arr.filter(x=>itemDate(x)===today).length;
-    $('#stats').innerHTML=[['热点结果',arr.length,'按当前筛选条件'],['来源',sources.size,'去重后的发布来源'],['渠道类型',channels.size,'覆盖来源类型'],['今日发现',todayN,'今天发布或发现']].map(x=>`<div class="stat-card"><div class="stat-label">${x[0]}</div><div class="stat-value">${x[1]}</div><div class="stat-foot">${x[2]}</div></div>`).join('');
+    $('#stats').innerHTML=[['热点结果',arr.length,'按当前筛选条件'],['来源',sources.size,'去重后的发布来源'],['渠道类型',channels.size,'覆盖来源类型'],['今日发布',todayN,'原文发布日期为今天']].map(x=>`<div class="stat-card"><div class="stat-label">${x[0]}</div><div class="stat-value">${x[1]}</div><div class="stat-foot">${x[2]}</div></div>`).join('');
   }
 
   function renderHotspots(){
     if(!active)return;const arr=filtered();renderStatsHot(arr);const root=$('#content');
     if(!arr.length){root.innerHTML='<div class="hotspot-empty"><strong>当前筛选下暂无热点</strong>可以清空筛选，或在“设置 / 刷新”中重新扫描对应渠道。</div>';return}
     root.innerHTML=`<div class="hotspot-list">${arr.map(x=>{
-      const date=itemDate(x)||'日期待确认';const pub=x.published_at?'发布':'发现';
-      return `<article class="hotspot-card"><div><div class="hotspot-kicker"><span class="hotspot-badge hotspot-topic">${x.topic||'行业新闻'}</span><span class="hotspot-badge">${channelCN[x.channel_type]||x.channel_type}</span><span class="hotspot-badge">${regionCN[x.region]||x.region||'全球'}</span></div><h3>${escapeHtml(x.title||'Untitled')}</h3>${x.summary?`<p class="hotspot-summary">${escapeHtml(x.summary)}</p>`:''}<div class="hotspot-meta">${escapeHtml(x.publisher||x.source_name||'未知来源')} · ${pub} ${date}${x.country?` · ${escapeHtml(x.country)}`:''}</div></div><a class="hotspot-link" href="${escapeAttr(x.url||'#')}" target="_blank" rel="noopener noreferrer">查看原文 ↗</a></article>`
+      const date=itemDate(x);const title=x.title_zh||x.title||'未命名热点';const summary=x.summary_zh||x.summary||'';
+      const dateText=date?`原文发布日期 ${date}`:'发布日期未识别';
+      return `<article class="hotspot-card"><div><div class="hotspot-kicker"><span class="hotspot-badge hotspot-topic">${x.topic||'行业新闻'}</span><span class="hotspot-badge">${channelCN[x.channel_type]||x.channel_type}</span><span class="hotspot-badge">${regionCN[x.region]||x.region||'全球'}</span></div><h3>${escapeHtml(title)}</h3>${summary?`<p class="hotspot-summary">${escapeHtml(summary)}</p>`:''}<div class="hotspot-meta">${escapeHtml(x.publisher||x.source_name||'未知来源')} · ${dateText}${x.country?` · ${escapeHtml(x.country)}`:''}</div></div><a class="hotspot-link" href="${escapeAttr(x.url||'#')}" target="_blank" rel="noopener noreferrer" title="打开原始发布页面">查看原文 ↗</a></article>`
     }).join('')}</div>`;
   }
 
@@ -62,7 +66,7 @@
 
   function openHotspots(){
     active=true;ensureFilters();document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));$('#hotspotNav').classList.add('active');
-    $('#pageTitle').textContent='全球热点';$('#pageSubtitle').textContent='汇总品牌官网、宠物专业渠道、商超、药妆、综合电商、行业媒体与全网发现中的趋势、新闻与新发现。';
+    $('#pageTitle').textContent='全球热点';$('#pageSubtitle').textContent='中文阅读全球宠物行业热点，日期以原文发布日期为准，并保留原始发布页面供核验。';
     $('#regionTabs').style.display='none';$('#filters').style.display='none';$('#hotspotFilters').classList.add('active');
     $('#stats').innerHTML='';$('#content').innerHTML='<div class="hotspot-empty"><strong>正在读取全球热点</strong>正在加载最新情报…</div>';loadHotspots();
   }
