@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="settings.css" />
+  <link rel="stylesheet" href="styles.css?v=20260923-2" />
+  <link rel="stylesheet" href="settings.css?v=20260923-2" />
 </head>
 <body>
   <div class="shell">
@@ -44,8 +44,8 @@
           <p id="pageSubtitle">每天扫描全球公开来源，追踪非中国宠物品牌新上市产品。</p>
         </div>
         <div class="topbar-actions">
-          <button id="settingsBtn" class="settings-btn" type="button">⚙ 设置 / 刷新</button>
-          <div class="scan-box">
+          <button id="settingsBtn" class="settings-btn" type="button" style="position:fixed;right:24px;top:18px;z-index:900;display:inline-flex;align-items:center;justify-content:center;">⚙ 设置 / 刷新</button>
+          <div class="scan-box" style="margin-right:132px;">
             <div class="pulse"></div>
             <div>
               <strong id="lastScan">等待数据</strong>
@@ -159,6 +159,6 @@
     </article>
   </template>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=20260923-2"></script>
 </body>
 </html>
