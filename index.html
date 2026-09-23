@@ -8,8 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260923-4" />
-  <link rel="stylesheet" href="settings.css?v=20260923-4" />
+  <link rel="stylesheet" href="styles.css?v=20260923-5" />
+  <link rel="stylesheet" href="settings.css?v=20260923-5" />
+  <link rel="stylesheet" href="hotspots.css?v=20260923-5" />
 </head>
 <body>
   <div class="shell">
@@ -26,13 +27,14 @@
         <button class="nav-item active" data-view="today"><span>⌁</span> 今日新品</button>
         <button class="nav-item" data-view="week"><span>◷</span> 近 7 天</button>
         <button class="nav-item" data-view="all"><span>▦</span> 全部新品</button>
+        <button id="hotspotNav" class="hotspot-nav" type="button"><span>✦</span> 全球热点</button>
         <button class="nav-item" data-view="brands"><span>◎</span> 品牌雷达</button>
         <button class="nav-item" data-view="coverage"><span>◉</span> 来源覆盖</button>
       </nav>
 
       <div class="sidebar-note">
         <div class="note-kicker">数据原则</div>
-        <p>仅展示非中国品牌。未知品牌原产地默认隐藏，待核验后进入主列表。</p>
+        <p>新品与全球热点分开监测。新品需验证新颖性；热点用于追踪全渠道趋势、新闻和新发现。</p>
       </div>
     </aside>
 
@@ -113,7 +115,7 @@
 
       <div class="settings-section">
         <h3>② 重新扫描外部渠道</h3>
-        <p>选择你想重新扫描的渠道。GitHub Pages 不能安全保存你的 GitHub 权限，所以真正启动扫描时会打开 GitHub Actions。</p>
+        <p>选择你想重新扫描的渠道。一次手动扫描会同时更新新品发现和全球热点。</p>
         <label class="field-label" for="scanScope">刷新范围</label>
         <select id="scanScope" class="settings-select">
           <option value="all">全部渠道</option>
@@ -132,7 +134,7 @@
 
       <div class="settings-section compact">
         <h3>自动刷新</h3>
-        <p>系统仍会每天自动执行全渠道扫描。手动扫描只是在你想立即检查某一类渠道时使用。</p>
+        <p>系统每天自动执行全渠道扫描；全球热点与新品雷达都会同步更新。</p>
       </div>
     </section>
   </div>
@@ -159,7 +161,8 @@
     </article>
   </template>
 
-  <script src="app.js?v=20260923-4"></script>
-  <script src="date-filter.js?v=20260923-4"></script>
+  <script src="app.js?v=20260923-5"></script>
+  <script src="date-filter.js?v=20260923-5"></script>
+  <script src="hotspots-ui.js?v=20260923-5"></script>
 </body>
 </html>
