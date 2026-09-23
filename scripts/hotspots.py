@@ -18,9 +18,13 @@ OUT = ROOT / "data" / "hotspots.json"
 STATE = ROOT / "data" / "hotspot-state.json"
 UA = "Mozilla/5.0 (compatible; PetLaunchRadar/1.0; +https://github.com/vinge777/pet-launch-radar)"
 VALID_CHANNELS = {"brand_official","specialty_retail","mass_retail","drugstore","marketplace","trade_media"}
-PET_TERMS = re.compile(r"pet|pets|dog|dogs|cat|cats|puppy|kitten|animal|canine|feline|pet food|petfood|pet care|veterinary|nutrition|treat|chew|tier|hund|katze|futter|haustier|chien|chat|animalerie|mascota|perro|gato|ração|cachorro|ペット|犬|猫|반려동물|강아지|고양이", re.I)
+PET_TERMS = re.compile(
+    r"(?:\b(?:pet|pets|dog|dogs|cat|cats|puppy|puppies|kitten|kittens|animal|animals|canine|feline|pet food|petfood|pet care|veterinary|nutrition|treat|treats|chew|chews|tier|hund|katze|futter|haustier|chien|chat|animalerie|mascota|perro|gato|ração|cachorro)\b|ペット|犬|猫|반려동물|강아지|고양이)",
+    re.I,
+)
 NEWS_TERMS = re.compile(r"launch|unveil|introduc|new |innovation|trend|market|growth|research|study|science|nutrition|ingredient|packag|sustainab|retail|store|channel|consumer|shopper|acqui|partner|expand|investment|report|survey|technology|AI|health|wellness|press|news|neu|neuheit|innovation|tendance|nouveau|lancement|新商品|新製品|発売|トレンド|혁신|신제품|tendência|lançamento|innovación|tendencia", re.I)
-SKIP_TERMS = re.compile(r"privacy|cookie|terms of use|contact us|careers|sign in|login|accessibility|sitemap|newsletter|facebook|instagram|linkedin|youtube|x.com|twitter", re.I)
+NEWS_PATH = re.compile(r"/(?:news|press|media|release|releases|article|articles|story|stories)(?:/|[-_])|news-details|press-releases", re.I)
+SKIP_TERMS = re.compile(r"privacy|cookie|terms of use|contact us|careers|sign in|login|accessibility|sitemap|newsletter|facebook|instagram|linkedin|youtube|x.com|twitter|purpose,? vision|values|about us|our purpose", re.I)
 
 
 def now_iso():
@@ -137,14 +141,21 @@ def translate_to_zh(text):
 def scan_html(source):
     html=fetch(source["url"]); parser=AnchorParser(); parser.feed(html); out=[]
     pet_specific=bool(source.get("pet_specific"))
+    include_all=bool(source.get("include_all_pet_news"))
+    patterns=source.get("link_patterns") or []
     for href,text in parser.links:
         url=clean_url(source["url"],href)
         if not url or (source.get("same_domain_only",True) and not same_host(url,source["url"])): continue
+        if patterns and not any(pat in url for pat in patterns): continue
         text=re.sub(r"\s+"," ",text).strip()
         if len(text)<12 or len(text)>260 or SKIP_TERMS.search(text): continue
-        combined=text+" "+urllib.parse.unquote(urllib.parse.urlparse(url).path)
+        path=urllib.parse.unquote(urllib.parse.urlparse(url).path)
+        combined=text+" "+path
         if not pet_specific and not PET_TERMS.search(combined): continue
-        if not NEWS_TERMS.search(combined) and not source.get("include_all_pet_news",False): continue
+        if include_all:
+            if not NEWS_TERMS.search(combined) and not NEWS_PATH.search(path): continue
+        elif not NEWS_TERMS.search(combined):
+            continue
         out.append({"title":text[:240],"url":url,"published_at":infer_date_from_text_url(text,url),"publisher":source["name"]})
     dedup={}
     for x in out: dedup.setdefault(x["url"],x)
