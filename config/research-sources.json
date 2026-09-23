@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "purpose": "Research institutions, universities, industry associations and market-data firms that publish pet and pet-food research, reports, surveys and science updates.",
+  "sources": [
+    {
+      "id": "research-waltham",
+      "name": "WALTHAM Petcare Science Institute",
+      "region": "Global",
+      "country": "United Kingdom",
+      "focus": "food",
+      "query": "site:waltham.com (pet nutrition OR dog nutrition OR cat nutrition OR microbiome OR feeding) (study OR research OR science)"
+    },
+    {
+      "id": "research-purina-institute",
+      "name": "Purina Institute",
+      "region": "Global",
+      "country": "United States",
+      "focus": "food",
+      "query": "site:purinainstitute.com (pet nutrition OR dog nutrition OR cat nutrition OR pet food) (research OR study OR report OR handbook OR science)"
+    },
+    {
+      "id": "research-kstate-petfood",
+      "name": "Kansas State University Pet Food Program",
+      "region": "North America",
+      "country": "United States",
+      "focus": "food",
+      "query": "site:k-state.edu (pet food OR companion animal nutrition) (research OR study OR science OR processing OR ingredient)"
+    },
+    {
+      "id": "research-fediaf",
+      "name": "FEDIAF EuropeanPetFood",
+      "region": "Europe",
+      "country": "Europe",
+      "focus": "food",
+      "query": "site:fediaf.org (pet food OR nutritional guidelines OR facts figures) (report OR research OR guideline OR data)"
+    },
+    {
+      "id": "research-appa",
+      "name": "APPA Research & Insights",
+      "region": "North America",
+      "country": "United States",
+      "focus": "industry",
+      "query": "site:americanpetproducts.org (pet industry OR pet food OR dog OR cat) (report OR research OR survey OR insights OR data)"
+    },
+    {
+      "id": "research-circana",
+      "name": "Circana Pet Care Insights",
+      "region": "North America",
+      "country": "United States",
+      "focus": "industry",
+      "query": "site:circana.com pet (food OR wellness OR care) (insights OR report OR data OR trend OR research)"
+    },
+    {
+      "id": "research-mintel",
+      "name": "Mintel Pet Food Research",
+      "region": "Global",
+      "country": "Global",
+      "focus": "food",
+      "query": "(site:mintel.com OR site:store.mintel.com) pet food (report OR trends OR innovation OR research)"
+    },
+    {
+      "id": "research-euromonitor",
+      "name": "Euromonitor Pet Care Research",
+      "region": "Global",
+      "country": "Global",
+      "focus": "industry",
+      "query": "site:euromonitor.com pet care (report OR trend OR market OR research)"
+    },
+    {
+      "id": "research-habri",
+      "name": "Human Animal Bond Research Institute",
+      "region": "North America",
+      "country": "United States",
+      "focus": "industry",
+      "query": "site:habri.org (pet OR human animal bond) (report OR research OR survey OR study)"
+    },
+    {
+      "id": "research-morris",
+      "name": "Morris Animal Foundation",
+      "region": "North America",
+      "country": "United States",
+      "focus": "industry",
+      "query": "site:morrisanimalfoundation.org (dog OR cat) (study OR research) (nutrition OR kidney OR gut OR health OR disease)"
+    }
+  ],
+  "seed_items": [
+    {
+      "source_id": "research-appa",
+      "title": "U.S. Pet Industry Reaches $158 Billion in 2025, Poised for Continued Growth in 2026",
+      "url": "https://americanpetproducts.org/news/u.s.-pet-industry-reaches-158-billion-in-2025-poised-for-continued-growth-in-2026",
+      "published_at": "2026-03-26T00:00:00Z",
+      "summary": "APPA's 2026 State of the Industry Report analyzes U.S. pet-industry spending, ownership trends, consumer behavior and generational shifts, including category expenditure outlooks.",
+      "segment": "industry",
+      "subcategory_zh": "市场研究 / 消费数据"
+    },
+    {
+      "source_id": "research-circana",
+      "title": "The Feeling’s Mutual: How Pet Wellness Benefits Both Pets and Their Humans",
+      "url": "https://www.circana.com/post/the-feelings-mutual-how-pet-wellness-benefits-both-pets-and-their-humans",
+      "published_at": "2026-04-08T00:00:00Z",
+      "summary": "Circana data highlights pet wellness and humanization trends, including sustained double-digit growth in refrigerated and frozen pet food and rising demand for supplements and preventive-care products.",
+      "segment": "food",
+      "subcategory_zh": "食品市场 / 消费趋势"
+    },
+    {
+      "source_id": "research-mintel",
+      "title": "The Future of Pet Food 2026",
+      "url": "https://store.mintel.com/report/the-future-of-pet-food",
+      "published_at": "2026-02-10T12:01:35Z",
+      "summary": "Mintel examines the next five years of pet-food development, including environment-first nutrition, fresh food, personalization, playful treat formats and nutrient-dense upcycled ingredients.",
+      "segment": "food",
+      "subcategory_zh": "食品趋势 / 创新"
+    },
+    {
+      "source_id": "research-mintel",
+      "title": "A Year of Innovation in Pet Food 2026",
+      "url": "https://store.mintel.com/report/a-year-of-innovation-in-pet-food",
+      "published_at": "2026-03-12T14:01:06Z",
+      "summary": "Mintel reviews pet-food innovation across regions, including high-protein claims, novel ingredients, functionality, sustainability and fortified-product launches.",
+      "segment": "food",
+      "subcategory_zh": "新品 / 配方创新"
+    },
+    {
+      "source_id": "research-euromonitor",
+      "title": "The World Market for Pet Care",
+      "url": "https://www.euromonitor.com/the-world-market-for-pet-care/report",
+      "published_at": null,
+      "summary": "Euromonitor's July 2026 global report examines pet-care growth, premiumisation, channel evolution, changing pet demographics and category opportunities through 2031.",
+      "segment": "food",
+      "subcategory_zh": "全球市场 / 趋势"
+    },
+    {
+      "source_id": "research-euromonitor",
+      "title": "Top Five Trends in Pet Care",
+      "url": "https://www.euromonitor.com/top-five-trends-in-pet-care/report",
+      "published_at": null,
+      "summary": "Euromonitor's September 2026 report analyzes affordability pressure, premiumisation, changing pet demographics, challenger brands and AI-enabled consumer engagement in pet care.",
+      "segment": "industry",
+      "subcategory_zh": "市场趋势 / 战略"
+    },
+    {
+      "source_id": "research-fediaf",
+      "title": "FEDIAF Nutritional Guidelines for Complete and Complementary Pet Food for Cats and Dogs",
+      "url": "https://www.fediaf.org/self-regulation/nutritional-guidelines/",
+      "published_at": null,
+      "summary": "FEDIAF's peer-reviewed nutritional guidelines summarize nutrient requirements and provide a practical reference for evaluating complete and complementary cat and dog foods in Europe.",
+      "segment": "food",
+      "subcategory_zh": "营养标准 / 法规参考"
+    },
+    {
+      "source_id": "research-kstate-petfood",
+      "title": "Animal Feed and Pet Food Research",
+      "url": "https://www.grains.k-state.edu/research/animalfeedandpetfood/",
+      "published_at": null,
+      "summary": "Kansas State University's pet-food research covers processing effects on resistant starch and digestibility, microbiome health, grain ingredients, probiotics, food safety, wet pet food and shelf life.",
+      "segment": "food",
+      "subcategory_zh": "加工 / 原料科研"
+    }
+  ]
+}
