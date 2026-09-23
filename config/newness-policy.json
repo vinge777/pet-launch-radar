@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "principle": "First discovery by Pet Launch Radar is not the same as product launch date.",
+  "main_list_statuses": ["verified", "variant"],
+  "types": {
+    "new_product": "全新品",
+    "new_product_line": "新产品线",
+    "new_flavor": "新口味",
+    "new_formula": "新配方",
+    "new_sku": "新SKU/规格",
+    "new_packaging": "新包装",
+    "new_market": "新市场上市",
+    "new_retailer_listing": "渠道新上架",
+    "existing_product": "既有产品"
+  },
+  "rules": [
+    "Official launch announcement or dated official evidence is high-confidence newness evidence.",
+    "Retailer New labels alone do not prove a brand-new product launch.",
+    "A new size, count, pack, flavor, formula or packaging must be labeled as a variant rather than a brand-new product.",
+    "Retailer-only new listings without independent launch evidence stay unverified and are hidden from the main new-product list.",
+    "Large historic rating volumes, old reviews, archived pages or evidence of multi-year sales are strong old-product signals.",
+    "If historic evidence conflicts with a retailer New badge, classify the item as existing or variant unless a specific new SKU/formula/market version is proven.",
+    "Launch date is shown only when supported by dated evidence; otherwise only first-seen date is shown."
+  ]
+}
