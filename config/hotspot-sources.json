@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "purpose": "Global pet-industry hotspot monitoring across official brands, specialty pet retail, mass retail, drugstores, marketplaces, trade media and broad web discovery.",
+  "sources": [
+    {"id":"hot-brand-purina","name":"Purina News Center","region":"North America","country":"United States","channel_type":"brand_official","mode":"html","url":"https://newscenter.purina.com/press-releases","same_domain_only":true},
+    {"id":"hot-brand-unicharm","name":"Unicharm Corporate News","region":"Asia","country":"Japan","channel_type":"brand_official","mode":"html","url":"https://www.unicharm.co.jp/ja/company/news.html","same_domain_only":true},
+
+    {"id":"hot-specialty-chewy","name":"Chewy Press Releases","region":"North America","country":"United States","channel_type":"specialty_retail","mode":"html","url":"https://investor.chewy.com/news-and-events/news/default.aspx/1000/","same_domain_only":true},
+    {"id":"hot-specialty-petco","name":"Petco Corporate News","region":"North America","country":"United States","channel_type":"specialty_retail","mode":"html","url":"https://corporate.petco.com/","same_domain_only":true},
+    {"id":"hot-specialty-pah","name":"Pets at Home News & Media","region":"Europe","country":"United Kingdom","channel_type":"specialty_retail","mode":"html","url":"https://www.petsathomeplc.com/news-and-media/","same_domain_only":true},
+
+    {"id":"hot-mass-walmart","name":"Walmart Corporate News","region":"North America","country":"United States","channel_type":"mass_retail","mode":"html","url":"https://corporate.walmart.com/content/corporate/en_us/news.html","same_domain_only":true},
+    {"id":"hot-mass-target","name":"Target Press","region":"North America","country":"United States","channel_type":"mass_retail","mode":"html","url":"https://corporate.target.com/press","same_domain_only":true},
+    {"id":"hot-mass-carrefour","name":"Carrefour Newsroom","region":"Europe","country":"France","channel_type":"mass_retail","mode":"html","url":"https://www.carrefour.com/en/newsroom","same_domain_only":true},
+
+    {"id":"hot-drugstore-dm","name":"dm Pet New Arrivals","region":"Europe","country":"Germany","channel_type":"drugstore","mode":"html","url":"https://www.dm.de/neu/tier-neuheiten","same_domain_only":true},
+    {"id":"hot-drugstore-rossmann","name":"Rossmann Press","region":"Europe","country":"Germany","channel_type":"drugstore","mode":"html","url":"https://unternehmen.rossmann.de/presse.html","same_domain_only":true},
+
+    {"id":"hot-market-rakuten","name":"Rakuten Press Releases","region":"Asia","country":"Japan","channel_type":"marketplace","mode":"html","url":"https://global.rakuten.com/corp/news/press/","same_domain_only":true},
+    {"id":"hot-market-amazon","name":"Amazon News","region":"North America","country":"United States","channel_type":"marketplace","mode":"html","url":"https://www.aboutamazon.com/news","same_domain_only":true},
+
+    {"id":"hot-trade-global","name":"Global pet industry discovery","region":"Global","country":"Global","channel_type":"trade_media","mode":"google_news","query":"pet industry trend OR pet food innovation OR pet nutrition trend OR pet retail trend OR pet care innovation"},
+    {"id":"hot-trade-us","name":"US pet industry discovery","region":"North America","country":"United States","channel_type":"trade_media","mode":"google_news","query":"US pet food trend OR pet retail innovation OR dog cat nutrition market"},
+    {"id":"hot-trade-eu","name":"Europe pet industry discovery","region":"Europe","country":"Europe","channel_type":"trade_media","mode":"google_news","query":"Europe pet food trend OR pet retail innovation OR dog cat nutrition market"},
+    {"id":"hot-trade-asia","name":"Asia pet industry discovery","region":"Asia","country":"Asia","channel_type":"trade_media","mode":"google_news","query":"Asia pet food trend OR pet retail innovation OR dog cat nutrition market"},
+    {"id":"hot-trade-sa","name":"South America pet industry discovery","region":"South America","country":"South America","channel_type":"trade_media","mode":"google_news","query":"Brazil pet food trend OR Latin America pet retail pet industry innovation"}
+  ]
+}
