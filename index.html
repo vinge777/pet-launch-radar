@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260923-11" />
-  <link rel="stylesheet" href="settings.css?v=20260923-11" />
-  <link rel="stylesheet" href="hotspots.css?v=20260923-11" />
+  <link rel="stylesheet" href="styles.css?v=20260923-12" />
+  <link rel="stylesheet" href="settings.css?v=20260923-12" />
+  <link rel="stylesheet" href="hotspots.css?v=20260923-12" />
 </head>
 <body>
   <div class="shell">
@@ -35,7 +35,7 @@
 
       <div class="sidebar-note">
         <div class="note-kicker">数据原则</div>
-        <p>新品与全球热点分开监测。全球热点默认优先宠物食品，宠物用品单独分类，并保留行业综合信息。</p>
+        <p>新品与全球热点分开监测。全球热点默认优先宠物食品，并补充研究机构、大学和数据机构发布的研究报告。</p>
       </div>
     </aside>
 
@@ -116,7 +116,7 @@
 
       <div class="settings-section">
         <h3>② 重新扫描外部渠道</h3>
-        <p>选择你想重新扫描的渠道。一次手动扫描会同时更新新品发现和全球热点。</p>
+        <p>选择你想重新扫描的渠道。选择“全部渠道”时会同时更新新品、全球热点和研究报告。</p>
         <label class="field-label" for="scanScope">刷新范围</label>
         <select id="scanScope" class="settings-select">
           <option value="all">全部渠道</option>
@@ -135,7 +135,7 @@
 
       <div class="settings-section compact">
         <h3>自动刷新</h3>
-        <p>系统每天自动执行全渠道扫描；全球热点与新品雷达都会同步更新。</p>
+        <p>系统每天自动执行全渠道扫描；新品、全球热点和研究机构报告会同步更新。</p>
       </div>
     </section>
   </div>
@@ -162,8 +162,9 @@
     </article>
   </template>
 
-  <script src="app.js?v=20260923-11"></script>
-  <script src="date-filter.js?v=20260923-11"></script>
-  <script src="hotspots-ui.js?v=20260923-11"></script>
+  <script src="app.js?v=20260923-12"></script>
+  <script src="date-filter.js?v=20260923-12"></script>
+  <script src="hotspots-ui.js?v=20260923-12"></script>
+  <script src="research-ui.js?v=20260923-12"></script>
 </body>
 </html>
