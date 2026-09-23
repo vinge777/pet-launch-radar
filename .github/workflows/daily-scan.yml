@@ -57,5 +57,6 @@ jobs:
             echo "No scan changes"
           else
             git commit -m "chore: update pet launch discovery"
+            git pull --rebase origin main
             git push
           fi
