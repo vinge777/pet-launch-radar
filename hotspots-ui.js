@@ -43,16 +43,16 @@
   function renderStatsHot(arr){
     const sources=new Set(arr.map(x=>x.publisher||x.source_name));const channels=new Set(arr.map(x=>x.channel_type));
     const today=new Date().toISOString().slice(0,10);const todayN=arr.filter(x=>itemDate(x)===today).length;
-    $('#stats').innerHTML=[['热点结果',arr.length,'按当前筛选条件'],['来源',sources.size,'去重后的发布来源'],['渠道类型',channels.size,'覆盖来源类型'],['今日发布',todayN,'原文发布日期为今天']].map(x=>`<div class="stat-card"><div class="stat-label">${x[0]}</div><div class="stat-value">${x[1]}</div><div class="stat-foot">${x[2]}</div></div>`).join('');
+    $('#stats').innerHTML=[['热点结果',arr.length,'仅保留宠物行业相关信息'],['来源',sources.size,'去重后的发布来源'],['渠道类型',channels.size,'覆盖来源类型'],['今日发布',todayN,'原文发布日期为今天']].map(x=>`<div class="stat-card"><div class="stat-label">${x[0]}</div><div class="stat-value">${x[1]}</div><div class="stat-foot">${x[2]}</div></div>`).join('');
   }
 
   function renderHotspots(){
     if(!active)return;const arr=filtered();renderStatsHot(arr);const root=$('#content');
     if(!arr.length){root.innerHTML='<div class="hotspot-empty"><strong>当前筛选下暂无热点</strong>可以清空筛选，或在“设置 / 刷新”中重新扫描对应渠道。</div>';return}
     root.innerHTML=`<div class="hotspot-list">${arr.map(x=>{
-      const date=itemDate(x);const title=x.title_zh||x.title||'未命名热点';const summary=x.summary_zh||x.summary||'';
+      const date=itemDate(x);const title=x.title_zh||x.title||'未命名热点';const summary=x.summary_zh||'原文摘要暂未识别。';
       const dateText=date?`原文发布日期 ${date}`:'发布日期未识别';
-      return `<article class="hotspot-card"><div><div class="hotspot-kicker"><span class="hotspot-badge hotspot-topic">${x.topic||'行业新闻'}</span><span class="hotspot-badge">${channelCN[x.channel_type]||x.channel_type}</span><span class="hotspot-badge">${regionCN[x.region]||x.region||'全球'}</span></div><h3>${escapeHtml(title)}</h3>${summary?`<p class="hotspot-summary">${escapeHtml(summary)}</p>`:''}<div class="hotspot-meta">${escapeHtml(x.publisher||x.source_name||'未知来源')} · ${dateText}${x.country?` · ${escapeHtml(x.country)}`:''}</div></div><a class="hotspot-link" href="${escapeAttr(x.url||'#')}" target="_blank" rel="noopener noreferrer" title="打开原始发布页面">查看原文 ↗</a></article>`
+      return `<article class="hotspot-card"><div class="hotspot-main"><div class="hotspot-kicker"><span class="hotspot-badge hotspot-topic">${x.topic||'行业新闻'}</span><span class="hotspot-badge">${channelCN[x.channel_type]||x.channel_type}</span><span class="hotspot-badge">${regionCN[x.region]||x.region||'全球'}</span></div><div class="hotspot-headline-row"><h3>${escapeHtml(title)}</h3><p class="hotspot-summary">${escapeHtml(summary)}</p></div><div class="hotspot-meta">${escapeHtml(x.publisher||x.source_name||'未知来源')} · ${dateText}${x.country?` · ${escapeHtml(x.country)}`:''}</div></div><a class="hotspot-link" href="${escapeAttr(x.url||'#')}" target="_blank" rel="noopener noreferrer" title="打开原始发布页面">查看原文 ↗</a></article>`
     }).join('')}</div>`;
   }
 
@@ -66,7 +66,7 @@
 
   function openHotspots(){
     active=true;ensureFilters();document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));$('#hotspotNav').classList.add('active');
-    $('#pageTitle').textContent='全球热点';$('#pageSubtitle').textContent='中文阅读全球宠物行业热点，日期以原文发布日期为准，并保留原始发布页面供核验。';
+    $('#pageTitle').textContent='全球热点';$('#pageSubtitle').textContent='只保留与宠物产品、消费、市场、渠道、营养、研发、包装和产业变化直接相关的公开信息；过滤品牌内部行政与人事变动。';
     $('#regionTabs').style.display='none';$('#filters').style.display='none';$('#hotspotFilters').classList.add('active');
     $('#stats').innerHTML='';$('#content').innerHTML='<div class="hotspot-empty"><strong>正在读取全球热点</strong>正在加载最新情报…</div>';loadHotspots();
   }
