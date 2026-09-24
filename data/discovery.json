@@ -1,7 +1,72 @@
 {
-  "generated_at": "2026-09-24T00:44:36Z",
+  "generated_at": "2026-09-24T09:08:48Z",
   "last_scan_scope": "all",
   "candidates": [
+    {
+      "id": "us-news-3046815922691198422",
+      "title": "GIS Q3 Deep Dive: Volumes Decline as General Mills Prioritizes Innovation and Mix - TradingView",
+      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOUHA5MnN5S2FqbHRwcUt0cVNzSjgwZzhxZnhtSVN6NklCMGFpV3lESXZpc0d0b0s3QnlsdVhzcmpubnkwZ0JGZ0xHODNvX3RJb2N4eHJORE1wNDhwVHlpOVdzWk1GRXl4TWNCbkpaQjVPOGx1c215TURkdnFHeWlicGVUeVNRajBEY1JTZUgzZi1VSnBpdW9HMWZtcE1yOXhIdFJKUEtFM1NueC0wYTZvbFB3Vm5hRzV6S1Mzd2ExQTVRSGpIS0tNeDZ3VE5YQzVmVFZPS0kxdXE?oc=5",
+      "source_id": "us-news",
+      "source_name": "US web discovery",
+      "region": "North America",
+      "country": "United States",
+      "channel_type": "trade_media",
+      "discovered_at": "2026-09-24T09:08:48Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
+    {
+      "id": "us-news-5256699565287424611",
+      "title": "My Dogs Kept Interrupting My Work Calls. This Toy Chilled Them Out. - The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1xdXZacTZ5djZicXFkY3c4ZXAwSV9aTHUtNFlRNnM2TG1RMC1UMmtnV0pJcURmZjNtZG1RQXdtZ0ZHVTZRNTViNG9NVlQ3dG42ZmhxMVlaaGRZVlYyNVVVUUFKNlItQjM3elBpOWg4b3g0Zw?oc=5",
+      "source_id": "us-news",
+      "source_name": "US web discovery",
+      "region": "North America",
+      "country": "United States",
+      "channel_type": "trade_media",
+      "discovered_at": "2026-09-24T09:08:48Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
+    {
+      "id": "us-news-578154038497835114",
+      "title": "The Honest Kitchen launches campaign to celebrate 'natural' canines - PetfoodIndustry",
+      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQRzF3XzBSQVo4WTFiT3lveFdhMTk3U3k3WGdSWDc5S3QweUFyZW56V0pFVGlqSV9meGJrUHFadnVVRS15UTlmb1lpYjlSeldmdTV0bFh0YVhxT2RnV3l5Mm95cm9sMnlSNkRtQk5VckQ4NEx5eklWa3FqX0wxRUFKR3luZHBmRXB3cFVaTkh4eEcySER6emVMSGxxV0hfRHcwTDRFcWFTeWRfVkxtZmljb3R5cFV2djlZVkp6VkEtRFl5aGtPT0wzR01BN3F0UTF2bkFfVHNvb19zODA?oc=5",
+      "source_id": "us-news",
+      "source_name": "US web discovery",
+      "region": "North America",
+      "country": "United States",
+      "channel_type": "trade_media",
+      "discovered_at": "2026-09-24T09:08:48Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
+    {
+      "id": "asia-news-en-7188073686192300179",
+      "title": "Pet Food Market Size, Share, Trends | Growth Analysis [2034] - fortunebusinessinsights.com",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPLVZkcWJvZHZuMjlleWhIUWdxWG9MS1NnTF9DNXBnTW1MdHdmWkEyVHVyaHB2aTVPUUd2M0R6VWk0MG9ha2ZwNVJsRF9ScmsydU5RaUFtWnI1c2RhSERnNm1mV0JFTkdvLWhZVzcxRlp1eS1GNjhSUVFTMjlpaVZsZ1JiM1ZxZw?oc=5",
+      "source_id": "asia-news-en",
+      "source_name": "Asia web discovery EN",
+      "region": "Asia",
+      "country": "Asia",
+      "channel_type": "trade_media",
+      "discovered_at": "2026-09-24T09:08:48Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
+    {
+      "id": "asia-news-en-8908839167189117884",
+      "title": "Cat food trends highlight variety and functional health benefits - PetfoodIndustry",
+      "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxOX3dBU2k1QlplOHZEMWl5a3o4MFlLSTE2NVRhRzF3X3QycmoxTVFiVi1JQ2N2VjlhZWNJcWViRzBqWVhmZTBNencwcWNaNWdwUnVDeDB2TVlNZ1V1dWRwR1hsUDRISmpRVDAxRnkycXZ6VFJoOXp3OTg2UUxYZF9Eb0FERGE3Z3FwQWpSNUZkWDdGb1Awb0JKYUEzOW5vVUE0R2oyQnh4LThOTWZ2STRIaHhHbEMzSkxUNXZzSTROZFgyM2NNbUhGWDdFR2pIVFFlMUhLQTJ4cENDWGJLQnREZW5aaFE5UWZsMW1n?oc=5",
+      "source_id": "asia-news-en",
+      "source_name": "Asia web discovery EN",
+      "region": "Asia",
+      "country": "Asia",
+      "channel_type": "trade_media",
+      "discovered_at": "2026-09-24T09:08:48Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
     {
       "id": "us-news-1650196462155672036",
       "title": "Bunnings removes pet treat from sale after dog needed emergency surgery - 1News",
