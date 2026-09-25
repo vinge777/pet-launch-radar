@@ -1,7 +1,72 @@
 {
-  "generated_at": "2026-09-24T09:08:48Z",
+  "generated_at": "2026-09-25T00:44:35Z",
   "last_scan_scope": "all",
   "candidates": [
+    {
+      "id": "us-walmart-7115471909738318584",
+      "title": "Reduced price, The Farmer's Dog Snap Sticks, All Natural Human Grade Dog Treats, Chicken & Apple 3oz, $10.78, Was $11.98",
+      "url": "https://www.walmart.com/ip/The-Farmer-s-Dog-Snap-Sticks-All-Natural-Training-Treats-for-Dogs-Chicken-Apple-3oz/20558613523?classType=VARIANT&athbdg=L1700",
+      "source_id": "us-walmart",
+      "source_name": "Walmart Pets New Arrivals",
+      "region": "North America",
+      "country": "United States",
+      "channel_type": "mass_retail",
+      "discovered_at": "2026-09-25T00:44:35Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
+    {
+      "id": "us-news-3083541695274148344",
+      "title": "Pooch & Mutt launches new fish-based treats - Pet Business World",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPOUZJZmdPek05MnFIMkYwUGVQTVhybG1uMW1xc2ROVEFHaEIzZUFPa3BXOWxlWlh1aWFWNElmbFMyMHhmZTNlcDhCOU5OclVwSGJrUFU3WVljTzNVbGltWWFBT19IeHByUWNDMy04cjVqNDlxQVpzMGtISGVyOFpFT1otX2VHYWJYcTlXQlFyelloX01Xbk1KbFNVYnBTb2RQ?oc=5",
+      "source_id": "us-news",
+      "source_name": "US web discovery",
+      "region": "North America",
+      "country": "United States",
+      "channel_type": "trade_media",
+      "discovered_at": "2026-09-25T00:44:35Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
+    {
+      "id": "eu-news-fr-1176027503799145192",
+      "title": "Bactéries, toxines, PFAS… Les scandales sanitaires entrent dans une nouvelle ère - lefigaro.fr",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPLThBdW1nUTdSNS1icHJ2Zy1xd3VpMjdYellVYXRTenRGbEM5aE04Sy15LUMwaHVfUEt4TW5MUl9RNzZqcnMzSE1fOVZaamdQeE5UTzVoTlVzS21nR0NIY1h0cXlTckh4dDRFM3hyMFdhZzR5SzNmM1VrTWhSdVVRNHVpUVRIRVNJTU8xSFhCaG1pM3pLQzVJN0NMNEx2cU9rQzBxQnIxTTY0Ykd5d3lKTEdJaXAwYnpYdU9Z?oc=5",
+      "source_id": "eu-news-fr",
+      "source_name": "Europe web discovery FR",
+      "region": "Europe",
+      "country": "France",
+      "channel_type": "trade_media",
+      "discovered_at": "2026-09-25T00:44:35Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
+    {
+      "id": "asia-news-en-2739059162074978667",
+      "title": "5 trends driving pet food innovation in 2026 - PetfoodIndustry",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOb2xkaHNsUFRCRl9yLUg5cjZ0TXVaNjdodjNaVXJkWFg3eWdKeXMtZmNSMV9RclIzLVFNVnM2ck9hSU05d0Njb2ZBYWxJbUFNZWpOVkhpVkVYVmNQdjk0ajB3TDdQTUsxRHdnOFRXZndoaERTVG91UENFMDQ4Z2h0aTlXeHRrX2tsX0xiSmh5ZWJlbDJmVFZ0Zmh4eXdtb0VJZzVyMlJBblVuelFoM0gzbXVqbEhxLWZ1SnFXMHBnNTRqbmhQcUE1X1VvZVQ?oc=5",
+      "source_id": "asia-news-en",
+      "source_name": "Asia web discovery EN",
+      "region": "Asia",
+      "country": "Asia",
+      "channel_type": "trade_media",
+      "discovered_at": "2026-09-25T00:44:35Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
+    {
+      "id": "sa-cobasi-7025255398141628493",
+      "title": "pesquisa",
+      "url": "https://www.cobasi.com.br/pesquisa?hotsite=601&BANNER=20260921_home_geral_sq_promo_antipulgas35off",
+      "source_id": "sa-cobasi",
+      "source_name": "Cobasi",
+      "region": "South America",
+      "country": "Brazil",
+      "channel_type": "specialty_retail",
+      "discovered_at": "2026-09-25T00:44:35Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
     {
       "id": "us-news-3046815922691198422",
       "title": "GIS Q3 Deep Dive: Volumes Decline as General Mills Prioritizes Innovation and Mix - TradingView",
