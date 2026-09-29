@@ -1,115 +1,115 @@
 {
-  "generated_at": "2026-09-28T00:48:19Z",
+  "generated_at": "2026-09-29T00:47:28Z",
   "last_scan_scope": "all",
   "sources": {
     "hot-brand-purina": {
       "status": "ok",
-      "checked_at": "2026-09-28T00:48:19Z",
-      "items_found": 8
+      "checked_at": "2026-09-29T00:47:28Z",
+      "items_found": 7
     },
     "hot-brand-unicharm": {
       "status": "ok",
-      "checked_at": "2026-09-28T00:48:19Z",
+      "checked_at": "2026-09-29T00:47:28Z",
       "items_found": 8
     },
     "hot-specialty-chewy": {
       "status": "ok",
-      "checked_at": "2026-09-28T00:48:19Z",
+      "checked_at": "2026-09-29T00:47:28Z",
       "items_found": 3
     },
     "hot-specialty-petco": {
       "status": "ok",
-      "checked_at": "2026-09-28T00:48:19Z",
+      "checked_at": "2026-09-29T00:47:28Z",
       "items_found": 10
     },
     "hot-specialty-pah": {
       "status": "ok",
-      "checked_at": "2026-09-28T00:48:19Z",
+      "checked_at": "2026-09-29T00:47:28Z",
       "items_found": 1
     },
     "hot-mass-walmart": {
       "status": "ok",
-      "checked_at": "2026-09-28T00:48:19Z",
+      "checked_at": "2026-09-29T00:47:28Z",
       "items_found": 0
     },
     "hot-mass-target": {
       "status": "ok",
-      "checked_at": "2026-09-28T00:48:19Z",
+      "checked_at": "2026-09-29T00:47:28Z",
       "items_found": 0
     },
     "hot-mass-carrefour": {
       "status": "error",
-      "checked_at": "2026-09-28T00:48:19Z",
+      "checked_at": "2026-09-29T00:47:28Z",
       "error": "HTTP Error 403: Forbidden"
     },
     "hot-drugstore-dm": {
       "status": "ok",
-      "checked_at": "2026-09-28T00:48:19Z",
+      "checked_at": "2026-09-29T00:47:28Z",
       "items_found": 0
     },
     "hot-drugstore-rossmann": {
       "status": "ok",
-      "checked_at": "2026-09-28T00:48:19Z",
+      "checked_at": "2026-09-29T00:47:28Z",
       "items_found": 0
     },
     "hot-market-rakuten": {
       "status": "ok",
-      "checked_at": "2026-09-28T00:48:19Z",
+      "checked_at": "2026-09-29T00:47:28Z",
       "items_found": 0
     },
     "hot-market-amazon": {
       "status": "ok",
-      "checked_at": "2026-09-28T00:48:19Z",
+      "checked_at": "2026-09-29T00:47:28Z",
       "items_found": 0
     },
     "hot-trade-global": {
       "status": "ok",
-      "checked_at": "2026-09-28T00:48:19Z",
-      "items_found": 73
+      "checked_at": "2026-09-29T00:47:28Z",
+      "items_found": 71
     },
     "hot-trade-us": {
       "status": "ok",
-      "checked_at": "2026-09-28T00:48:19Z",
-      "items_found": 97
+      "checked_at": "2026-09-29T00:47:28Z",
+      "items_found": 96
     },
     "hot-trade-eu": {
       "status": "ok",
-      "checked_at": "2026-09-28T00:48:19Z",
+      "checked_at": "2026-09-29T00:47:28Z",
       "items_found": 66
     },
     "hot-trade-asia": {
       "status": "ok",
-      "checked_at": "2026-09-28T00:48:19Z",
-      "items_found": 59
+      "checked_at": "2026-09-29T00:47:28Z",
+      "items_found": 60
     },
     "hot-trade-sa": {
       "status": "ok",
-      "checked_at": "2026-09-28T00:48:19Z",
-      "items_found": 69
+      "checked_at": "2026-09-29T00:47:28Z",
+      "items_found": 70
     },
     "hot-food-global": {
       "status": "ok",
-      "checked_at": "2026-09-28T00:48:19Z",
-      "items_found": 95
+      "checked_at": "2026-09-29T00:47:28Z",
+      "items_found": 93
     },
     "hot-food-us": {
       "status": "ok",
-      "checked_at": "2026-09-28T00:48:19Z",
+      "checked_at": "2026-09-29T00:47:28Z",
       "items_found": 98
     },
     "hot-food-eu": {
       "status": "ok",
-      "checked_at": "2026-09-28T00:48:19Z",
-      "items_found": 97
+      "checked_at": "2026-09-29T00:47:28Z",
+      "items_found": 92
     },
     "hot-food-asia": {
       "status": "ok",
-      "checked_at": "2026-09-28T00:48:19Z",
-      "items_found": 64
+      "checked_at": "2026-09-29T00:47:28Z",
+      "items_found": 65
     },
     "hot-food-sa": {
       "status": "ok",
-      "checked_at": "2026-09-28T00:48:19Z",
+      "checked_at": "2026-09-29T00:47:28Z",
       "items_found": 74
     }
   }
