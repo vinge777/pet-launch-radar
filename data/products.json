@@ -1,6 +1,74 @@
 {
-  "generated_at": "2026-10-08T13:50:56Z",
+  "generated_at": "2026-10-08T23:30:06Z",
   "products": [
+    {
+      "id": "auto-417950536310379294",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "veterinary diet multifunction adult dry dog food   satiety  hydrolyzed protein 92271.html",
+      "species": "Multi",
+      "category": "Supplements",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-08T23:29:35Z",
+      "newness_status": "candidate_verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "medium",
+      "summary": "自动扫描从 PetSmart New & Featured 发现。已确认品牌原产地为非中国，并通过单品页与新品信号核验。 当前识别到 3 条评分/评论。",
+      "tags": [
+        "Auto-verified",
+        "New Arrival"
+      ],
+      "image_url": "",
+      "evidence": [
+        "retailer"
+      ],
+      "product_url": "https://www.petsmart.com/dog/food/veterinary-diets/royal-canin-veterinary-diet-multifunction-adult-dry-dog-food---satiety--hydrolyzed-protein-92271.html",
+      "sources": [
+        {
+          "name": "PetSmart New & Featured",
+          "url": "https://www.petsmart.com/dog/food/veterinary-diets/royal-canin-veterinary-diet-multifunction-adult-dry-dog-food---satiety--hydrolyzed-protein-92271.html",
+          "page_type": "product_detail"
+        }
+      ]
+    },
+    {
+      "id": "auto-7846530273064115386",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "veterinary diet multifunction adult dry dog food   urinary so  aging 76173.html",
+      "species": "Multi",
+      "category": "Treats",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-08T23:29:35Z",
+      "newness_status": "candidate_verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "medium",
+      "summary": "自动扫描从 PetSmart New & Featured 发现。已确认品牌原产地为非中国，并通过单品页与新品信号核验。 当前识别到 3 条评分/评论。",
+      "tags": [
+        "Auto-verified",
+        "New Arrival"
+      ],
+      "image_url": "",
+      "evidence": [
+        "retailer"
+      ],
+      "product_url": "https://www.petsmart.com/dog/food/veterinary-diets/royal-canin-veterinary-diet-multifunction-adult-dry-dog-food---urinary-so--aging-76173.html",
+      "sources": [
+        {
+          "name": "PetSmart New & Featured",
+          "url": "https://www.petsmart.com/dog/food/veterinary-diets/royal-canin-veterinary-diet-multifunction-adult-dry-dog-food---urinary-so--aging-76173.html",
+          "page_type": "product_detail"
+        }
+      ]
+    },
     {
       "id": "auto-1394402029142390236",
       "brand": "Blue Buffalo",
