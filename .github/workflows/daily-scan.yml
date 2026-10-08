@@ -2,7 +2,7 @@ name: Daily multi-channel pet intelligence scan
 
 on:
   schedule:
-    - cron: '30 0 * * *' # 08:30 China Standard Time
+    - cron: '30 0,6,12,18 * * *' # every 6h; reduces delay risk of scheduled runs
   workflow_dispatch:
     inputs:
       channel_scope:
@@ -24,6 +24,7 @@ on:
       - 'config/hotspot-sources.json'
       - 'config/research-sources.json'
       - 'scripts/scan.py'
+      - 'scripts/promote_candidates.py'
       - 'scripts/hotspots.py'
       - 'scripts/hotspot_research.py'
       - 'scripts/hotspot_quality.py'
@@ -53,6 +54,9 @@ jobs:
       - name: Scan product launch channels
         run: python scripts/scan.py --channels "${{ github.event.inputs.channel_scope || 'all' }}"
 
+      - name: Promote verified product candidates
+        run: python scripts/promote_candidates.py
+
       - name: Scan global hotspots
         run: python scripts/hotspots.py --channels "${{ github.event.inputs.channel_scope || 'all' }}"
 
@@ -68,6 +72,7 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
 
           mkdir -p /tmp/pet-intelligence-data
+          cp data/products.json /tmp/pet-intelligence-data/
           cp data/source-status.json /tmp/pet-intelligence-data/
           cp data/discovery.json /tmp/pet-intelligence-data/
           cp data/discovered-links.json /tmp/pet-intelligence-data/
@@ -77,13 +82,14 @@ jobs:
           git fetch origin main
           git reset --hard origin/main
 
+          cp /tmp/pet-intelligence-data/products.json data/
           cp /tmp/pet-intelligence-data/source-status.json data/
           cp /tmp/pet-intelligence-data/discovery.json data/
           cp /tmp/pet-intelligence-data/discovered-links.json data/
           cp /tmp/pet-intelligence-data/hotspots.json data/
           cp /tmp/pet-intelligence-data/hotspot-state.json data/
 
-          git add data/source-status.json data/discovery.json data/discovered-links.json data/hotspots.json data/hotspot-state.json
+          git add data/products.json data/source-status.json data/discovery.json data/discovered-links.json data/hotspots.json data/hotspot-state.json
           if git diff --cached --quiet; then
             echo "No intelligence changes"
           else
