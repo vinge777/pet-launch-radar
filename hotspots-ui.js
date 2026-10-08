@@ -69,7 +69,7 @@
         <button type="button" class="hotspot-segment-btn" data-segment="industry"><strong>行业综合</strong><span>宏观与产业</span></button>
         <button type="button" class="hotspot-segment-btn" data-segment="all"><strong>全部</strong><span>合并查看</span></button>
       </div>
-      <div class="hotspot-search"><span>⌕</span><input id="hotspotSearch" placeholder="搜索趋势、新闻、品牌、渠道、关键词…"></div>
+      <div class="hotspot-search"><span>⌕</span><input id="hotspotSearch" placeholder="搜索中文标题 / English title / 摘要 / 品牌…" title="支持中文标题、英文原标题、摘要、品牌和来源关键词搜索"></div>
       <select id="hotspotChannel"><option value="all">全部来源类型</option>${Object.entries(channelCN).map(([k,v])=>`<option value="${k}">${v}</option>`).join('')}</select>
       <select id="hotspotRegion"><option value="all">全部地区</option><option value="North America">美国</option><option value="Europe">欧洲</option><option value="Asia">亚洲</option><option value="South America">南美</option><option value="Global">全球</option></select>
       <label class="hotspot-date-label">开始日期<input id="hotspotStart" type="date"></label>
@@ -77,7 +77,7 @@
       <button id="hotspotClear" type="button">清空</button>`;
     $('#stats').insertAdjacentElement('afterend',box);
     box.querySelectorAll('.hotspot-segment-btn').forEach(btn=>btn.onclick=()=>{filters.segment=btn.dataset.segment;syncSegmentButtons();renderCurrent()});
-    $('#hotspotSearch').oninput=e=>{filters.search=e.target.value.trim().toLowerCase();renderCurrent()};
+    $('#hotspotSearch').oninput=e=>{filters.search=e.target.value.trim();renderCurrent()};
     $('#hotspotChannel').onchange=e=>{filters.channel=e.target.value;renderCurrent()};
     $('#hotspotRegion').onchange=e=>{filters.region=e.target.value;renderCurrent()};
     $('#hotspotStart').onchange=e=>{filters.start=e.target.value;if(filters.end&&filters.start>filters.end){filters.end=filters.start;$('#hotspotEnd').value=filters.end}renderCurrent()};
@@ -89,6 +89,25 @@
   const publishedTime=x=>x.published_at?new Date(x.published_at).getTime():0;
   const itemSegment=x=>x.segment||'industry';
 
+  function normalizeSearchText(value){
+    return String(value??'').normalize('NFKC').toLowerCase().replace(/[‐‑‒–—―]/g,'-').replace(/\s+/g,' ').trim();
+  }
+
+  function compactSearchText(value){
+    return normalizeSearchText(value).replace(/[\s\-_/.,:;"'“”‘’()\[\]{}!?&+]+/g,'');
+  }
+
+  function matchesSearch(x,query){
+    const q=normalizeSearchText(query);if(!q)return true;
+    const qc=compactSearchText(query);
+    const fields=[x.title_zh,x.title,x.summary_zh,x.summary,x.publisher,x.source_name,x.topic,x.country,x.segment_zh,x.subcategory_zh,channelCN[x.channel_type]];
+    return fields.some(value=>{
+      const normalized=normalizeSearchText(value);
+      if(normalized.includes(q))return true;
+      return qc.length>=2&&compactSearchText(value).includes(qc);
+    });
+  }
+
   function filtered(){
     const source=view==='favorites'?favorites:data.items;
     return source.filter(x=>{
@@ -98,10 +117,7 @@
       const d=itemDate(x);
       if((filters.start||filters.end)&&!d)return false;
       if(filters.start&&d<filters.start)return false;if(filters.end&&d>filters.end)return false;
-      if(filters.search){
-        const hay=JSON.stringify([x.title_zh,x.title,x.summary_zh,x.summary,x.publisher,x.source_name,x.topic,x.country,x.segment_zh,x.subcategory_zh,channelCN[x.channel_type]]).toLowerCase();
-        if(!hay.includes(filters.search))return false;
-      }
+      if(filters.search&&!matchesSearch(x,filters.search))return false;
       return true;
     }).sort((a,b)=>publishedTime(b)-publishedTime(a));
   }
@@ -164,14 +180,14 @@
 
   function openHotspots(){
     view='hotspots';filters.segment='food';prepareSpecialView();syncSegmentButtons();$('#hotspotNav').classList.add('active');
-    $('#pageTitle').textContent='全球热点';$('#pageSubtitle').textContent='宠物食品与宠物用品分开监测；默认优先展示宠物食品，并提高食品新品、营养、原料、加工与市场趋势的采集权重。';
+    $('#pageTitle').textContent='全球热点';$('#pageSubtitle').textContent='宠物食品与宠物用品分开监测；支持按中文标题和英文原标题搜索，默认优先展示宠物食品。';
     $('#content').innerHTML='<div class="hotspot-empty"><strong>正在读取全球热点</strong>正在加载最新情报…</div>';loadHotspots();
   }
 
   function openFavorites(){
     view='favorites';filters.segment='all';prepareSpecialView();syncSegmentButtons();$('#favoriteNav').classList.add('active');
-    $('#pageTitle').textContent='我的收藏夹';$('#pageSubtitle').textContent='你在“全球热点”中收藏的文章，可继续按宠物食品、宠物用品和行业综合分类查看。';
-    renderCurrent();
+    $('#pageTitle').textContent='我的收藏夹';$('#pageSubtitle').textContent='收藏文章支持按中文标题和英文原标题搜索，并可继续按宠物食品、宠物用品和行业综合分类查看。';
+    loadHotspots();renderCurrent();
   }
 
   function leaveSpecialViews(){view='none';$('#hotspotNav')?.classList.remove('active');$('#favoriteNav')?.classList.remove('active');$('#hotspotFilters')?.classList.remove('active')}
@@ -185,6 +201,6 @@
       const source=(view==='favorites'?favorites:data.items);const item=source.find(x=>favoriteKey(x)===key)||favorites.find(x=>favoriteKey(x)===key);
       if(item)toggleFavorite(item);
     });
-    $('#refreshDataBtn')?.addEventListener('click',()=>{if(view==='hotspots')setTimeout(loadHotspots,700);if(view==='favorites')setTimeout(renderCurrent,700)});
+    $('#refreshDataBtn')?.addEventListener('click',()=>{if(view==='hotspots')setTimeout(loadHotspots,700);if(view==='favorites')setTimeout(loadHotspots,700)});
   });
 })();
