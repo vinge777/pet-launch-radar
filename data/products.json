@@ -1,6 +1,239 @@
 {
-  "generated_at": "2026-09-23T02:10:00Z",
+  "generated_at": "2026-10-08T02:01:01Z",
   "products": [
+    {
+      "id": "auto-5094435010868780245",
+      "brand": "Blue Buffalo",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "fresh pet food category in US",
+      "species": "Cat",
+      "category": "Food",
+      "market_region": "Asia",
+      "country": "Asia",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-07T06:18:23Z",
+      "newness_status": "candidate_verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "medium",
+      "summary": "自动扫描从 Asia web discovery EN 发现。已确认品牌原产地为非中国；存在明确新品发布信号。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "trade_media"
+      ],
+      "sources": [
+        {
+          "name": "Asia web discovery EN",
+          "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPVlRhWEIzSUgxdnpxdEZFdl9IejNBeXcxSTd0Yk11aGREeXE0WjFoR2pNTWpCck1qY3JaTUdGSUFLODRfdmhpd1VUREVPTE5SaXkwanExZmNYTENReDE0eTdZQ3BpLUxvdjBqbGV0X2t6ckx2VG53QnJ2NEM3NHF2WWh2YWVranh6ak5SQzdDNGRGbDFpeFBnR3VUT0lBVTM3cGlzSGYydjVVdDBxQzZyX3pZckhPSzd4dWRLOWh1MU5QdHRlb0xiZDJLME81S3lQeGdjUTZwYWh5dDFX?oc=5",
+          "page_type": "launch_announcement"
+        }
+      ]
+    },
+    {
+      "id": "auto-2165124097585296174",
+      "brand": "Blue Buffalo",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "holiday dog treats",
+      "species": "Dog",
+      "category": "Treats",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-03T00:46:59Z",
+      "newness_status": "candidate_verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "medium",
+      "summary": "自动扫描从 US web discovery 发现。已确认品牌原产地为非中国；存在明确新品发布信号。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "trade_media"
+      ],
+      "sources": [
+        {
+          "name": "US web discovery",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPY1NwNUs2QTloN1lGVm43bHRPcHpPZWpsdk1YejFnZE9zR2hCdHdPakxpRS1BUWJiN3M0SWJvT3RWQk9KcDVwVXBNNFZaTmFTaTZOMFphSU93bjhXZEloV0VhcklySVloQ25POTVxUmdoTHBLcnpkVUhNNnNHWGNJTjRpSndWOElneklhR2kzT0I4Z0k?oc=5",
+          "page_type": "launch_announcement"
+        }
+      ]
+    },
+    {
+      "id": "auto-1394402029142390236",
+      "brand": "Blue Buffalo",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "boo bits soft and chewy halloween dog treats chicken recipe 45 oz 98543.html",
+      "species": "Multi",
+      "category": "Treats",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-02T00:47:30Z",
+      "newness_status": "candidate_verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "medium",
+      "summary": "自动扫描从 PetSmart New & Featured 发现。已确认品牌原产地为非中国；已验证为单品详情页。",
+      "tags": [
+        "Auto-verified",
+        "New Arrival"
+      ],
+      "image_url": "",
+      "evidence": [
+        "retailer"
+      ],
+      "sources": [
+        {
+          "name": "PetSmart New & Featured",
+          "url": "https://www.petsmart.com/dog/treats/soft-and-chewy-treats/blue-buffalo-boo-bits-soft-and-chewy-halloween-dog-treats-chicken-recipe-45-oz-98543.html",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.petsmart.com/dog/treats/soft-and-chewy-treats/blue-buffalo-boo-bits-soft-and-chewy-halloween-dog-treats-chicken-recipe-45-oz-98543.html"
+    },
+    {
+      "id": "auto-2456508131686714293",
+      "brand": "Stella & Chewy's",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "Freeze-Dried Raw Meal Mixers Dog Food Topper - Chewy's Chicken Recipe",
+      "species": "Multi",
+      "category": "Treats",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-01T00:49:34Z",
+      "newness_status": "candidate_verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "medium",
+      "summary": "自动扫描从 Walmart Pets New Arrivals 发现。已确认品牌原产地为非中国；已验证为单品详情页。",
+      "tags": [
+        "Auto-verified",
+        "New Arrival"
+      ],
+      "image_url": "",
+      "evidence": [
+        "retailer"
+      ],
+      "sources": [
+        {
+          "name": "Walmart Pets New Arrivals",
+          "url": "https://www.walmart.com/ip/Stella-Chewy-s-Meal-Mixers-Grain-Free-Chicken-Dry-Dog-Food-Topper-3-5-oz/727059435?classType=VARIANT",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.walmart.com/ip/Stella-Chewy-s-Meal-Mixers-Grain-Free-Chicken-Dry-Dog-Food-Topper-3-5-oz/727059435?classType=VARIANT"
+    },
+    {
+      "id": "auto-2940824859325952690",
+      "brand": "Purina",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "'s Fancy Feast announces national launch of Gems",
+      "species": "Other",
+      "category": "Food",
+      "market_region": "Asia",
+      "country": "Asia",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-01T00:49:34Z",
+      "newness_status": "candidate_verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "medium",
+      "summary": "自动扫描从 Asia web discovery EN 发现。已确认品牌原产地为非中国；存在明确新品发布信号。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "trade_media"
+      ],
+      "sources": [
+        {
+          "name": "Asia web discovery EN",
+          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQZG93OEd4eHJlNzRTNGNodkFEWmk4Z1dzQ0NRTkhDUHpBQ2QzT21UdENhSlVaWmxVLXFmM0NUaVJqWmFWWFdhQTUzWkpSeXNUWFZicDdDcDd3X2syUC1CZ1dVMzIzMThnaFZXVkZCUHE4Qmp2X2czVXViLXUxd3pYd3k2N2g3bi1VRkk5STVEOTRoY0FrOVptT3dCbEc5SzVkeEYzaG9XUHVWQ3VrUzA5SmRoNWpGSktMaWN1bEt3RGFKSWpJbWV6MXZB?oc=5",
+          "page_type": "launch_announcement"
+        }
+      ]
+    },
+    {
+      "id": "auto-3381886761463818654",
+      "brand": "Nulo",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "New pet treats may have a stronger chance of success if product developers answer these five questions first.",
+      "species": "Other",
+      "category": "Treats",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-09-28T00:47:49Z",
+      "newness_status": "candidate_verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "medium",
+      "summary": "自动扫描从 US web discovery 发现。已确认品牌原产地为非中国；存在明确新品发布信号。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "trade_media"
+      ],
+      "sources": [
+        {
+          "name": "US web discovery",
+          "url": "https://news.google.com/rss/articles/CBMingJBVV95cUxPcG1RcGNVZENKNFBnd0x2ZWU1UWJqQS03Y0UtSVg2ME1sUzN5UVpvN0l5YUNfRHpQNzBHczV2Q0NnbkxEREJWSFdIOFZWejJkby1HS0paaXFnVG9pcWMzdS1wc0lBei1uX3RzMFk4REtHUG4xd2VSVm5jZkd4Rnp4TElZRi1kQVpsR0RuTTN3RXNTaUNPWkQ2Zm5QZTc4UEhfMEZoeEhVZXBkeVlqQ3Y1R3lteWFxSE1HNEthNUlod1ZVdU1MR1NyRVk4MklDSGpXb1B6aFBwSU1CUlBXaWplMk9mQnRnOHpKRmVpS2M0bjB5dkt2ZEd2eFhWSVl3YWZBdjRsMnJXeHhxTndJZER1NWx3NGVhVmFQSTZvTG13?oc=5",
+          "page_type": "launch_announcement"
+        }
+      ]
+    },
+    {
+      "id": "auto-5825792456527737681",
+      "brand": "Blue Buffalo",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "'Love Made Fresh Dog Tax Credit' promotion",
+      "species": "Dog",
+      "category": "Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-09-23T00:28:16Z",
+      "newness_status": "candidate_verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "medium",
+      "summary": "自动扫描从 US web discovery 发现。已确认品牌原产地为非中国；存在明确新品发布信号。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "trade_media"
+      ],
+      "sources": [
+        {
+          "name": "US web discovery",
+          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOUVVZMHFYQ2kta3NoZDd1Vm5YeVVKZ1NyQzREYjktV21tSFcxQkYtb1RCQUlyMU1idzU0QVBzNF9Jbnc4X0pvQ1BlUVBfUXRpdkRtRjMxTVVVVjA2cTFMU1pOUGxBYUFVRjg3VkpkYjBMLUJDNzNlRTU3RThmT0xoOHNwSnR2UUtCeVdYVUxZUE03OFJPYThHVmVYeDFXZHJCQ1FrblV3NXBYczNvT01fV1gwa2hRMUhQcThXQ1BGTWNOcklCTHlyMG5EZmpKajRscjdHNlZxVQ?oc=5",
+          "page_type": "launch_announcement"
+        }
+      ]
+    },
     {
       "id": "chewy-beggin-ghoulish-ghost-20260922",
       "brand": "Beggin'",
@@ -18,13 +251,26 @@
       "newness_type": "new_product",
       "newness_confidence": "medium",
       "summary": "Chewy 明确标记为 New 的万圣节季节限定犬用培根肉干 SKU；截至 2026-09-23 仅有少量评分，未发现明显长期销售痕迹。",
-      "tags": ["Seasonal", "Jerky"],
+      "tags": [
+        "Seasonal",
+        "Jerky"
+      ],
       "image_url": "",
-      "evidence": ["retailer"],
+      "evidence": [
+        "retailer"
+      ],
       "product_url": "https://www.chewy.com/purina-beggin-ghoulish-ghost-indoor/dp/4573334",
       "sources": [
-        {"name": "Chewy product page", "url": "https://www.chewy.com/purina-beggin-ghoulish-ghost-indoor/dp/4573334", "page_type": "product_detail"},
-        {"name": "Chewy New Arrivals", "url": "https://www.chewy.com/b/dog-2669", "page_type": "discovery"}
+        {
+          "name": "Chewy product page",
+          "url": "https://www.chewy.com/purina-beggin-ghoulish-ghost-indoor/dp/4573334",
+          "page_type": "product_detail"
+        },
+        {
+          "name": "Chewy New Arrivals",
+          "url": "https://www.chewy.com/b/dog-2669",
+          "page_type": "discovery"
+        }
       ]
     },
     {
@@ -44,13 +290,27 @@
       "newness_type": "new_sku",
       "newness_confidence": "medium",
       "summary": "Chewy 标记为 New 的 30-count 新 SKU/规格。Wuffes Hip & Joint Chews 产品线本身已销售多年，因此不再归类为全新品。",
-      "tags": ["Joint Health", "Soft Chew", "New SKU"],
+      "tags": [
+        "Joint Health",
+        "Soft Chew",
+        "New SKU"
+      ],
       "image_url": "",
-      "evidence": ["retailer"],
+      "evidence": [
+        "retailer"
+      ],
       "product_url": "https://www.chewy.com/wuffes-advanced-glucosamine/dp/4880398",
       "sources": [
-        {"name": "Chewy product page", "url": "https://www.chewy.com/wuffes-advanced-glucosamine/dp/4880398", "page_type": "product_detail"},
-        {"name": "Chewy Wuffes brand page", "url": "https://www.chewy.com/brands/wuffes-4312302", "page_type": "brand_context"}
+        {
+          "name": "Chewy product page",
+          "url": "https://www.chewy.com/wuffes-advanced-glucosamine/dp/4880398",
+          "page_type": "product_detail"
+        },
+        {
+          "name": "Chewy Wuffes brand page",
+          "url": "https://www.chewy.com/brands/wuffes-4312302",
+          "page_type": "brand_context"
+        }
       ]
     },
     {
@@ -70,13 +330,28 @@
       "newness_type": "new_retailer_listing",
       "newness_confidence": "low",
       "summary": "zooplus 新品栏目中的新上架商品，但暂未找到品牌官方新品发布日期，因此从正式新品主列表隐藏，保留待核验。",
-      "tags": ["Grain Free", "Sensitive", "Retailer New"],
+      "tags": [
+        "Grain Free",
+        "Sensitive",
+        "Retailer New"
+      ],
       "image_url": "",
-      "evidence": ["official", "retailer"],
+      "evidence": [
+        "official",
+        "retailer"
+      ],
       "product_url": "https://www.prolife-pet.it/catalogo/cane/secco/grain-free/grain-free-adult-sensitive-fish-potato-medium-large",
       "sources": [
-        {"name": "Prolife official product page", "url": "https://www.prolife-pet.it/catalogo/cane/secco/grain-free/grain-free-adult-sensitive-fish-potato-medium-large", "page_type": "product_detail"},
-        {"name": "zooplus Dog New Products", "url": "https://www.zooplus.com/specials/dogs/new_products/dry_food/496028", "page_type": "discovery"}
+        {
+          "name": "Prolife official product page",
+          "url": "https://www.prolife-pet.it/catalogo/cane/secco/grain-free/grain-free-adult-sensitive-fish-potato-medium-large",
+          "page_type": "product_detail"
+        },
+        {
+          "name": "zooplus Dog New Products",
+          "url": "https://www.zooplus.com/specials/dogs/new_products/dry_food/496028",
+          "page_type": "discovery"
+        }
       ]
     },
     {
@@ -96,116 +371,27 @@
       "newness_type": "new_retailer_listing",
       "newness_confidence": "low",
       "summary": "zooplus 当前标记为 new，但暂缺品牌官方新品发布日期，因此仅作为渠道新上架候选，不进入正式新品主列表。",
-      "tags": ["Puppy", "Chicken & Salmon", "Retailer New"],
+      "tags": [
+        "Puppy",
+        "Chicken & Salmon",
+        "Retailer New"
+      ],
       "image_url": "",
-      "evidence": ["retailer"],
+      "evidence": [
+        "retailer"
+      ],
       "product_url": "https://www.zooplus.com/shop/dogs/dry_dog_food/happy_dog/1583126",
       "sources": [
-        {"name": "zooplus product page", "url": "https://www.zooplus.com/shop/dogs/dry_dog_food/happy_dog/1583126", "page_type": "product_detail"},
-        {"name": "zooplus Dog New Products", "url": "https://www.zooplus.com/specials/dogs/new_products/dry_food/496028", "page_type": "discovery"}
-      ]
-    },
-    {
-      "id": "npf-wanmucho-chicken-20260901",
-      "brand": "Nippon Pet Food",
-      "brand_origin_country": "Japan",
-      "origin_verified": true,
-      "product_name": "Wan Mucho Chicken Flavor",
-      "species": "Dog",
-      "category": "Treats",
-      "market_region": "Asia",
-      "country": "Japan",
-      "launch_date": "2026-09-01",
-      "launch_date_verified": true,
-      "first_seen_at": "2026-09-01T06:00:00Z",
-      "newness_status": "verified",
-      "newness_type": "new_flavor",
-      "newness_confidence": "high",
-      "summary": "日本ペットフード与湖池屋共同开发的犬用非油炸薯类零食，2026年9月新增鸡肉口味。",
-      "tags": ["New Flavor", "Non-fried"],
-      "image_url": "",
-      "evidence": ["official"],
-      "product_url": "https://www.npf.co.jp/dog-products/dog-detail/nkdo3",
-      "sources": [
-        {"name": "Nippon Pet Food product page", "url": "https://www.npf.co.jp/dog-products/dog-detail/nkdo3", "page_type": "product_detail"},
-        {"name": "Launch announcement", "url": "https://prtimes.jp/main/html/rd/p/000000021.000159904.html", "page_type": "launch_announcement"}
-      ]
-    },
-    {
-      "id": "npf-wanmucho-beef-20260901",
-      "brand": "Nippon Pet Food",
-      "brand_origin_country": "Japan",
-      "origin_verified": true,
-      "product_name": "Wan Mucho Beef Flavor",
-      "species": "Dog",
-      "category": "Treats",
-      "market_region": "Asia",
-      "country": "Japan",
-      "launch_date": "2026-09-01",
-      "launch_date_verified": true,
-      "first_seen_at": "2026-09-01T06:00:00Z",
-      "newness_status": "verified",
-      "newness_type": "new_flavor",
-      "newness_confidence": "high",
-      "summary": "日本ペットフード与湖池屋共同开发的犬用非油炸薯类零食，2026年9月新增牛肉口味。",
-      "tags": ["New Flavor", "Non-fried"],
-      "image_url": "",
-      "evidence": ["official"],
-      "product_url": "https://www.npf.co.jp/dog-products/dog-detail/nkdo4",
-      "sources": [
-        {"name": "Nippon Pet Food product page", "url": "https://www.npf.co.jp/dog-products/dog-detail/nkdo4", "page_type": "product_detail"},
-        {"name": "Launch announcement", "url": "https://prtimes.jp/main/html/rd/p/000000021.000159904.html", "page_type": "launch_announcement"}
-      ]
-    },
-    {
-      "id": "npf-wanmucho-fish-20260901",
-      "brand": "Nippon Pet Food",
-      "brand_origin_country": "Japan",
-      "origin_verified": true,
-      "product_name": "Wan Mucho Fish Flavor",
-      "species": "Dog",
-      "category": "Treats",
-      "market_region": "Asia",
-      "country": "Japan",
-      "launch_date": "2026-09-01",
-      "launch_date_verified": true,
-      "first_seen_at": "2026-09-01T06:00:00Z",
-      "newness_status": "verified",
-      "newness_type": "new_flavor",
-      "newness_confidence": "high",
-      "summary": "日本ペットフード与湖池屋共同开发的犬用非油炸薯类零食，2026年9月新增鱼肉口味。",
-      "tags": ["New Flavor", "Non-fried"],
-      "image_url": "",
-      "evidence": ["official"],
-      "product_url": "https://www.npf.co.jp/dog-products/dog-detail/nkdo5",
-      "sources": [
-        {"name": "Nippon Pet Food product page", "url": "https://www.npf.co.jp/dog-products/dog-detail/nkdo5", "page_type": "product_detail"},
-        {"name": "Launch announcement", "url": "https://prtimes.jp/main/html/rd/p/000000021.000159904.html", "page_type": "launch_announcement"}
-      ]
-    },
-    {
-      "id": "unicharm-frecious-realcraft-20260901",
-      "brand": "Unicharm",
-      "brand_origin_country": "Japan",
-      "origin_verified": true,
-      "product_name": "Frecious Real Craft",
-      "species": "Dog",
-      "category": "Dry Food",
-      "market_region": "Asia",
-      "country": "Japan",
-      "launch_date": "2026-09-01",
-      "launch_date_verified": true,
-      "first_seen_at": "2026-09-01T03:00:00Z",
-      "newness_status": "verified",
-      "newness_type": "new_product_line",
-      "newness_confidence": "high",
-      "summary": "Frecious premium dog food line with visible freeze-dried and air-dried meat and vegetable ingredients.",
-      "tags": ["Freeze-dried", "Air-dried"],
-      "image_url": "",
-      "evidence": ["official"],
-      "sources": [
-        {"name": "Unicharm launch announcement", "url": "https://www.unicharm.co.jp/ja/company/news/2026/0817-01.html", "page_type": "launch_announcement"},
-        {"name": "Unicharm Direct product catalogue", "url": "https://www.d-unicharm.jp/product/catalog/n/120/t/category/v/b/ca/pet01_dogfood/s/newer", "page_type": "catalog"}
+        {
+          "name": "zooplus product page",
+          "url": "https://www.zooplus.com/shop/dogs/dry_dog_food/happy_dog/1583126",
+          "page_type": "product_detail"
+        },
+        {
+          "name": "zooplus Dog New Products",
+          "url": "https://www.zooplus.com/specials/dogs/new_products/dry_food/496028",
+          "page_type": "discovery"
+        }
       ]
     },
     {
@@ -225,12 +411,175 @@
       "newness_type": "existing_product",
       "newness_confidence": "excluded",
       "summary": "已确认不是新品。Petlove 评论记录显示消费者在 2025 年已购买，且有用户表示该产品已使用多年；从正式新品主列表排除。",
-      "tags": ["Existing Product"],
+      "tags": [
+        "Existing Product"
+      ],
       "image_url": "",
-      "evidence": ["retailer"],
+      "evidence": [
+        "retailer"
+      ],
       "product_url": "https://www.petlove.com.br/racao-royal-canin-exigent-para-gatos-adultos-com-paladar-exigente/p?sku=1876035",
       "sources": [
-        {"name": "Petlove product page", "url": "https://www.petlove.com.br/racao-royal-canin-exigent-para-gatos-adultos-com-paladar-exigente/p?sku=1876035", "page_type": "product_detail"}
+        {
+          "name": "Petlove product page",
+          "url": "https://www.petlove.com.br/racao-royal-canin-exigent-para-gatos-adultos-com-paladar-exigente/p?sku=1876035",
+          "page_type": "product_detail"
+        }
+      ]
+    },
+    {
+      "id": "npf-wanmucho-chicken-20260901",
+      "brand": "Nippon Pet Food",
+      "brand_origin_country": "Japan",
+      "origin_verified": true,
+      "product_name": "Wan Mucho Chicken Flavor",
+      "species": "Dog",
+      "category": "Treats",
+      "market_region": "Asia",
+      "country": "Japan",
+      "launch_date": "2026-09-01",
+      "launch_date_verified": true,
+      "first_seen_at": "2026-09-01T06:00:00Z",
+      "newness_status": "verified",
+      "newness_type": "new_flavor",
+      "newness_confidence": "high",
+      "summary": "日本ペットフード与湖池屋共同开发的犬用非油炸薯类零食，2026年9月新增鸡肉口味。",
+      "tags": [
+        "New Flavor",
+        "Non-fried"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "product_url": "https://www.npf.co.jp/dog-products/dog-detail/nkdo3",
+      "sources": [
+        {
+          "name": "Nippon Pet Food product page",
+          "url": "https://www.npf.co.jp/dog-products/dog-detail/nkdo3",
+          "page_type": "product_detail"
+        },
+        {
+          "name": "Launch announcement",
+          "url": "https://prtimes.jp/main/html/rd/p/000000021.000159904.html",
+          "page_type": "launch_announcement"
+        }
+      ]
+    },
+    {
+      "id": "npf-wanmucho-beef-20260901",
+      "brand": "Nippon Pet Food",
+      "brand_origin_country": "Japan",
+      "origin_verified": true,
+      "product_name": "Wan Mucho Beef Flavor",
+      "species": "Dog",
+      "category": "Treats",
+      "market_region": "Asia",
+      "country": "Japan",
+      "launch_date": "2026-09-01",
+      "launch_date_verified": true,
+      "first_seen_at": "2026-09-01T06:00:00Z",
+      "newness_status": "verified",
+      "newness_type": "new_flavor",
+      "newness_confidence": "high",
+      "summary": "日本ペットフード与湖池屋共同开发的犬用非油炸薯类零食，2026年9月新增牛肉口味。",
+      "tags": [
+        "New Flavor",
+        "Non-fried"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "product_url": "https://www.npf.co.jp/dog-products/dog-detail/nkdo4",
+      "sources": [
+        {
+          "name": "Nippon Pet Food product page",
+          "url": "https://www.npf.co.jp/dog-products/dog-detail/nkdo4",
+          "page_type": "product_detail"
+        },
+        {
+          "name": "Launch announcement",
+          "url": "https://prtimes.jp/main/html/rd/p/000000021.000159904.html",
+          "page_type": "launch_announcement"
+        }
+      ]
+    },
+    {
+      "id": "npf-wanmucho-fish-20260901",
+      "brand": "Nippon Pet Food",
+      "brand_origin_country": "Japan",
+      "origin_verified": true,
+      "product_name": "Wan Mucho Fish Flavor",
+      "species": "Dog",
+      "category": "Treats",
+      "market_region": "Asia",
+      "country": "Japan",
+      "launch_date": "2026-09-01",
+      "launch_date_verified": true,
+      "first_seen_at": "2026-09-01T06:00:00Z",
+      "newness_status": "verified",
+      "newness_type": "new_flavor",
+      "newness_confidence": "high",
+      "summary": "日本ペットフード与湖池屋共同开发的犬用非油炸薯类零食，2026年9月新增鱼肉口味。",
+      "tags": [
+        "New Flavor",
+        "Non-fried"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "product_url": "https://www.npf.co.jp/dog-products/dog-detail/nkdo5",
+      "sources": [
+        {
+          "name": "Nippon Pet Food product page",
+          "url": "https://www.npf.co.jp/dog-products/dog-detail/nkdo5",
+          "page_type": "product_detail"
+        },
+        {
+          "name": "Launch announcement",
+          "url": "https://prtimes.jp/main/html/rd/p/000000021.000159904.html",
+          "page_type": "launch_announcement"
+        }
+      ]
+    },
+    {
+      "id": "unicharm-frecious-realcraft-20260901",
+      "brand": "Unicharm",
+      "brand_origin_country": "Japan",
+      "origin_verified": true,
+      "product_name": "Frecious Real Craft",
+      "species": "Dog",
+      "category": "Dry Food",
+      "market_region": "Asia",
+      "country": "Japan",
+      "launch_date": "2026-09-01",
+      "launch_date_verified": true,
+      "first_seen_at": "2026-09-01T03:00:00Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_line",
+      "newness_confidence": "high",
+      "summary": "Frecious premium dog food line with visible freeze-dried and air-dried meat and vegetable ingredients.",
+      "tags": [
+        "Freeze-dried",
+        "Air-dried"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Unicharm launch announcement",
+          "url": "https://www.unicharm.co.jp/ja/company/news/2026/0817-01.html",
+          "page_type": "launch_announcement"
+        },
+        {
+          "name": "Unicharm Direct product catalogue",
+          "url": "https://www.d-unicharm.jp/product/catalog/n/120/t/category/v/b/ca/pet01_dogfood/s/newer",
+          "page_type": "catalog"
+        }
       ]
     }
   ]

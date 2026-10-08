@@ -1,7 +1,137 @@
 {
-  "generated_at": "2026-10-07T06:18:23Z",
+  "generated_at": "2026-10-08T02:01:01Z",
   "last_scan_scope": "all",
   "candidates": [
+    {
+      "id": "us-petsmart-3813687718148139279",
+      "title": "top fin cube aquarium essentials starter kit   10 gallon 100213.html",
+      "url": "https://www.petsmart.com/fish/starter-kits/top-fin-cube-aquarium-essentials-starter-kit---10-gallon-100213.html",
+      "source_id": "us-petsmart",
+      "source_name": "PetSmart New & Featured",
+      "region": "North America",
+      "country": "United States",
+      "channel_type": "specialty_retail",
+      "discovered_at": "2026-10-08T02:00:31Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
+    {
+      "id": "us-petsmart-6053022919420201435",
+      "title": "thrills and chills drop dead delicious dog chews variety pack   chicken feet wings hearts and necks 96476.html",
+      "url": "https://www.petsmart.com/dog/treats/bones-bully-sticks-and-chews/thrills-and-chills-drop-dead-delicious-dog-chews-variety-pack---chicken-feet-wings-hearts-and-necks-96476.html",
+      "source_id": "us-petsmart",
+      "source_name": "PetSmart New & Featured",
+      "region": "North America",
+      "country": "United States",
+      "channel_type": "specialty_retail",
+      "discovered_at": "2026-10-08T02:00:31Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
+    {
+      "id": "us-news-2310104269077070085",
+      "title": "Does your dog love treats? Pub launches hunt for Chief Doggie Treat Tester - Hampshire Chronicle",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNZmJfNGMtX3dFYkduY0wtSkhUSjE1TlBmc3dVMl9HYTRSNjRKNnk5NW1XQzgxdXg3eTEtQUkyR1hsX2ZKYnVZNHl0QkNXZXRnSHY0OGRPTDQyMmxlbFc5c245bm1xcHNtRjI5ZlFaWUpzaDd6MW56dk1CVEJHMGZBUXNuR3ZqMVdxd0JTTmFNb3A3UE1jeUdEekJ3cmZQeE5RS1h6MWJvYw?oc=5",
+      "source_id": "us-news",
+      "source_name": "US web discovery",
+      "region": "North America",
+      "country": "United States",
+      "channel_type": "trade_media",
+      "discovered_at": "2026-10-08T02:00:31Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
+    {
+      "id": "us-news-5272558017504865247",
+      "title": "Genius Dog launches to bring curated experiences to dogs, their owners - Pet Food Processing",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNc3VwMGRjTHV6ckVBR0F4eG1qTjZLU0tCaHh5RzlXaXppZFZkSVl0eUl5NTBaTVBRWmdHUUgyWE8teDNBSjZSOWFXajhTSDZqSjRVbmpSb3VIS09mQlFiZ3BJTEdtcXFGZXpHeDNfdGk1M2daQlBRdVMzZHVGWTRxY3Vmb3BOUmdJRVFNSjVwWHN0OUxDbkEwWVVlZXU3c3owNnlPaVNGWGc5a2FxQkdtWEU2a1RiRERRZWc?oc=5",
+      "source_id": "us-news",
+      "source_name": "US web discovery",
+      "region": "North America",
+      "country": "United States",
+      "channel_type": "trade_media",
+      "discovered_at": "2026-10-08T02:00:31Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
+    {
+      "id": "us-news-5273155210517842519",
+      "title": "Kevin Hart launches freeze-dried dog food brand - Pet Food Processing",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNWm40TGZxTDFESnFCM3J4dUdtMlN4WUlpQktGbk1hN085N0JZaWxLUG5WakR1c2FNZnVKYTh0a3QwWWhfMmxjS0dUNU5fbU5yT1drcVM3UE8yZnZVa0ZWbnB5MDNyRlVZN24ySFJkRkhROWh5QnlSQjNGeHBtbWRPbGJ3RlFCREFlOXVXYzQ0OW5yckpQRUhRVkVlbno?oc=5",
+      "source_id": "us-news",
+      "source_name": "US web discovery",
+      "region": "North America",
+      "country": "United States",
+      "channel_type": "trade_media",
+      "discovered_at": "2026-10-08T02:00:31Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
+    {
+      "id": "eu-news-en-8380365865034068875",
+      "title": "New Zealand pet food brand introduces ‘granola for dogs’ - Pet Food Processing",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQVTVVdlZub282bDVBVVNNQnlUODktQ05HSTdiRmtaeE1jZTk1blZXZ2dfdWs3NS0zRkRrZmF5UHBWaXVBYTQtNm9ZSFA1V0V4dzJWSUxQOWpxVy0yZUdFNm1SZ3IzMzdOelh4OEg4ODJqUGtZLTZaLUR4Umt0S3hOaTYzaDRjWU81Z3VMSzlQU0s5QXpxQVVmZnNIU1RkR3VTUHNFUVBR?oc=5",
+      "source_id": "eu-news-en",
+      "source_name": "Europe web discovery EN",
+      "region": "Europe",
+      "country": "Europe",
+      "channel_type": "trade_media",
+      "discovered_at": "2026-10-08T02:00:31Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
+    {
+      "id": "eu-news-en-2500999645545368900",
+      "title": "Hurayra HALAL Pet Food launches UK’s first HMC halal-certified premium cat food - Retail Times",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNUVFrdEVYQXNscjhob1M5eDh2bVJZSmM5U1JLSkUtSGt0QkpaU09wVXVia3NGTWtZT09pZmZTSUh0c2hLSS1DMnRrUEF0S0xqZ2dVQ2toTmlsZnF4Nlhpb2VuWExWRVVOMFJDdG5iWURja0xwYndaVFRWcW9zVkF0dFIzZGVsTGpmSkdpZXplMjE0MVJRWGRnelc5dEFrTlNvUU9MZlhXY2c?oc=5",
+      "source_id": "eu-news-en",
+      "source_name": "Europe web discovery EN",
+      "region": "Europe",
+      "country": "Europe",
+      "channel_type": "trade_media",
+      "discovered_at": "2026-10-08T02:00:31Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
+    {
+      "id": "eu-news-fr-4337726562094916974",
+      "title": "ICI Télé - Radio-Canada",
+      "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE5hS2hxaXFiVVdDRlB0Z1NITVVobks2Vk1HeVFhSEVrQV9zQnhMbHlWWUIzLVlJTTRqQ0hYZGhGN0dvYWpJbk1v?oc=5",
+      "source_id": "eu-news-fr",
+      "source_name": "Europe web discovery FR",
+      "region": "Europe",
+      "country": "France",
+      "channel_type": "trade_media",
+      "discovered_at": "2026-10-08T02:00:31Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
+    {
+      "id": "asia-news-en-5144556348066666065",
+      "title": "Molino Chacabuco launches MaxPet and Pampa pet food brands - PetfoodIndustry",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNc0FxRWUwZkswcW5jSXdkUmJCV3loZUxaX0t4TFJsMHBIVE5XdWpPeFBEZEQ2U29jWDJrUGI5d2RNX3l0RjdVc3czYnRpeXh2c0RETzU0NV9zX1pDLVQzMk8xQ0t4OXhnRDVFWXlWdHhscGNrN29IdDBwYl9GTHB3QXZGN0V1VHZFcW5NRmcwMFBNenJNYzA3RnB4V1JMM1VPdXlXZUZ4a2RRZ1ZzaHhpam5IRk9TWDdydEhjRw?oc=5",
+      "source_id": "asia-news-en",
+      "source_name": "Asia web discovery EN",
+      "region": "Asia",
+      "country": "Asia",
+      "channel_type": "trade_media",
+      "discovered_at": "2026-10-08T02:00:31Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
+    {
+      "id": "asia-news-en-9020650707341392794",
+      "title": "US dominates pet food market new product launches - PetfoodIndustry",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOc28xWEJVekNOQVEzQUg0QXF5R3Z1UWluaGxsNDQ1SWdjdlprblFYdUVMNXRJdG5lSUg5aDRyRGpSYTFzQjdQQ0VGY25VdG9YSjdhS0hkbVdxS2RlM1RzRkh6SFIxRzdONEgyZzlud29taVEyZjZvQ2NRX2g3R0lBcU1HYXFySmp4SVJhTHBiTTg5aG4tUUEtRTMtLW1mZ2VPdXBSSVM5Uk5JOGZtYV93bVpvekdINE0yc3FiTA?oc=5",
+      "source_id": "asia-news-en",
+      "source_name": "Asia web discovery EN",
+      "region": "Asia",
+      "country": "Asia",
+      "channel_type": "trade_media",
+      "discovered_at": "2026-10-08T02:00:31Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
     {
       "id": "us-news-1867941128841419011",
       "title": "The Farmer's Dog Brings Real Food to Treat Time with New Crunchy Biscuits - Morningstar",
@@ -103,8 +233,9 @@
       "country": "Asia",
       "channel_type": "trade_media",
       "discovered_at": "2026-10-07T06:18:23Z",
-      "review_status": "pending",
-      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+      "review_status": "promoted_auto",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json.",
+      "promoted_at": "2026-10-08T02:01:01.438669Z"
     },
     {
       "id": "asia-news-en-4093704442872555197",
@@ -987,8 +1118,9 @@
       "country": "United States",
       "channel_type": "trade_media",
       "discovered_at": "2026-10-03T00:46:59Z",
-      "review_status": "pending",
-      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+      "review_status": "promoted_auto",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json.",
+      "promoted_at": "2026-10-08T02:01:01.438669Z"
     },
     {
       "id": "eu-zooplus-3441409811999556801",
@@ -1247,8 +1379,9 @@
       "country": "United States",
       "channel_type": "specialty_retail",
       "discovered_at": "2026-10-02T00:47:30Z",
-      "review_status": "pending",
-      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+      "review_status": "promoted_auto",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json.",
+      "promoted_at": "2026-10-08T02:01:01.438669Z"
     },
     {
       "id": "us-walmart-4122906528883258452",
@@ -1455,8 +1588,9 @@
       "country": "United States",
       "channel_type": "mass_retail",
       "discovered_at": "2026-10-01T00:49:34Z",
-      "review_status": "pending",
-      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+      "review_status": "promoted_auto",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json.",
+      "promoted_at": "2026-10-08T02:01:01.438669Z"
     },
     {
       "id": "us-news-1346803587153162125",
@@ -1598,8 +1732,9 @@
       "country": "Asia",
       "channel_type": "trade_media",
       "discovered_at": "2026-10-01T00:49:34Z",
-      "review_status": "pending",
-      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+      "review_status": "promoted_auto",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json.",
+      "promoted_at": "2026-10-08T02:01:01.438669Z"
     },
     {
       "id": "us-news-7913728950166860881",
@@ -2196,8 +2331,9 @@
       "country": "United States",
       "channel_type": "trade_media",
       "discovered_at": "2026-09-28T00:47:49Z",
-      "review_status": "pending",
-      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+      "review_status": "promoted_auto",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json.",
+      "promoted_at": "2026-10-08T02:01:01.438669Z"
     },
     {
       "id": "us-news-3148186995103876635",
@@ -3171,8 +3307,9 @@
       "country": "United States",
       "channel_type": "trade_media",
       "discovered_at": "2026-09-23T00:28:16Z",
-      "review_status": "pending",
-      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+      "review_status": "promoted_auto",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json.",
+      "promoted_at": "2026-10-08T02:01:01.438669Z"
     },
     {
       "id": "us-news-149533640753700973",
