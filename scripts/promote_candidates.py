@@ -16,6 +16,7 @@ UA = 'Mozilla/5.0 (compatible; PetLaunchRadar/1.0; +https://github.com/vinge777/
 STRONG_NEWNESS = re.compile(r'\b(new|newly|launch(?:ed|es|ing)?|introduc(?:e|ed|es|ing)|unveil(?:ed|s|ing)?|debut(?:ed|s|ing)?|new arrival|new at)\b|neuheit|nouveau|nouveaut|新商品|新製品|発売|신제품|lançamento|lanzamiento', re.I)
 PRODUCT_HINT = re.compile(r'food|treat|chew|supplement|diet|formula|recipe|wet|dry|freeze[- ]?dried|air[- ]?dried|kibble|broth|mousse|pouch|can|snack|toy|collar|leash|litter|bed|shampoo|groom|bowl|feeder', re.I)
 PRODUCT_URL_HINT = re.compile(r'/(?:product|products|ip|p|shop|dog-products|cat-products)/|/dp/\d+', re.I)
+OFFICIAL_SOURCE_BRANDS = {'asia-petio': 'Petio'}
 
 
 def load_json(path, default):
@@ -29,7 +30,7 @@ def save_json(path, obj):
     path.write_text(json.dumps(obj, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
 
-def fetch(url, timeout=10):
+def fetch(url, timeout=7):
     req = urllib.request.Request(url, headers={'User-Agent': UA, 'Accept-Language': 'en-US,en;q=0.8'})
     with urllib.request.urlopen(req, timeout=timeout) as resp:
         return resp.read().decode(resp.headers.get_content_charset() or 'utf-8', errors='replace')
@@ -70,16 +71,14 @@ def infer_category(text):
 def looks_like_product_page(url, html=''):
     if PRODUCT_URL_HINT.search(urllib.parse.urlparse(url).path):
         return True
-    sample = html[:500000]
+    sample = html[:350000]
     return bool(re.search(r'"@type"\s*:\s*"Product"|itemtype=["\'][^"\']*schema\.org/Product|"productID"\s*:|"sku"\s*:', sample, re.I))
 
 
 def find_brand(text, brands):
     low = (text or '').lower()
     matches = [b for b in brands if b.get('name','').lower() in low]
-    if not matches:
-        return None
-    return sorted(matches, key=lambda x: len(x.get('name','')), reverse=True)[0]
+    return sorted(matches, key=lambda x: len(x.get('name','')), reverse=True)[0] if matches else None
 
 
 def clean_product_name(title, brand_name):
@@ -97,6 +96,7 @@ def main():
 
     brands = [b for b in brands_doc.get('brands', []) if b.get('active', True) and b.get('origin_country') != 'China']
     source_map = {s.get('id'): s for s in sources_doc.get('sources', [])}
+    brand_by_name = {b.get('name'): b for b in brands}
     products = products_doc.get('products', [])
     existing_urls = {p.get('product_url') for p in products if p.get('product_url')}
     existing_keys = {norm((p.get('brand') or '') + ' ' + (p.get('product_name') or '')) for p in products}
@@ -105,23 +105,29 @@ def main():
     cutoff = now - timedelta(days=21)
     promoted = 0
     checked = 0
+    fetched = 0
 
     for c in sorted(discovery.get('candidates', []), key=lambda x: x.get('discovered_at',''), reverse=True):
-        if c.get('review_status') not in (None, '', 'pending'):
-            continue
-        if parse_dt(c.get('discovered_at')) < cutoff:
+        if c.get('review_status') not in (None, '', 'pending') or parse_dt(c.get('discovered_at')) < cutoff:
             continue
         checked += 1
         src = source_map.get(c.get('source_id'), {})
         title = c.get('title', '')
         url = c.get('url', '')
-        source_name = (src.get('name') or c.get('source_name') or '')
+        source_name = src.get('name') or c.get('source_name') or ''
         dedicated_new_source = bool(re.search(r'new|neuheit|nouveau|新品|新商品|new arrivals|new at', source_name, re.I))
         official_source = src.get('channel_type') == 'brand_official'
         strong_launch = bool(STRONG_NEWNESS.search(title))
-
-        # Generic category/home pages are discovery-only. Auto promotion requires an explicit newness signal.
         if not (dedicated_new_source or official_source or strong_launch):
+            continue
+
+        pre_hay = ' '.join([title, urllib.parse.unquote(url)])
+        brand = find_brand(pre_hay, brands)
+        if not brand and c.get('source_id') in OFFICIAL_SOURCE_BRANDS:
+            brand = brand_by_name.get(OFFICIAL_SOURCE_BRANDS[c.get('source_id')])
+        if not brand:
+            continue
+        if not PRODUCT_HINT.search(pre_hay) and src.get('channel_type') == 'trade_media':
             continue
 
         page = ''
@@ -129,18 +135,14 @@ def main():
         if not url.startswith('https://news.google.com/'):
             try:
                 page = fetch(url)
+                fetched += 1
                 product_page = looks_like_product_page(url, page)
             except Exception:
                 product_page = bool(PRODUCT_URL_HINT.search(urllib.parse.urlparse(url).path))
 
-        hay = ' '.join([title, urllib.parse.unquote(url), re.sub(r'<[^>]+>', ' ', page[:120000])])
-        brand = find_brand(hay, brands)
-        if not brand:
-            continue
+        hay = ' '.join([pre_hay, re.sub(r'<[^>]+>', ' ', page[:100000])])
         if not PRODUCT_HINT.search(hay):
             continue
-
-        # Retail/ecommerce entries must resolve to a product detail page. Launch/news signals can enter as announcement evidence.
         ch = src.get('channel_type')
         if ch in {'specialty_retail','mass_retail','drugstore','marketplace'} and not product_page:
             continue
@@ -155,41 +157,31 @@ def main():
         page_type = 'product_detail' if product_page else 'launch_announcement'
         p = {
             'id': f"auto-{abs(hash(url))}",
-            'brand': brand['name'],
-            'brand_origin_country': brand['origin_country'],
-            'origin_verified': True,
-            'product_name': product_name,
-            'species': infer_species(hay),
-            'category': infer_category(hay),
-            'market_region': c.get('region') or (brand.get('market_regions') or [''])[0],
-            'country': c.get('country') or '',
-            'launch_date': None,
-            'launch_date_verified': False,
+            'brand': brand['name'], 'brand_origin_country': brand['origin_country'], 'origin_verified': True,
+            'product_name': product_name, 'species': infer_species(hay), 'category': infer_category(hay),
+            'market_region': c.get('region') or (brand.get('market_regions') or [''])[0], 'country': c.get('country') or '',
+            'launch_date': None, 'launch_date_verified': False,
             'first_seen_at': c.get('discovered_at') or now.isoformat().replace('+00:00','Z'),
             'newness_status': 'verified' if (official_source and strong_launch) else 'candidate_verified',
-            'newness_type': 'new_product_or_sku',
-            'newness_confidence': 'high' if (official_source and strong_launch) else 'medium',
+            'newness_type': 'new_product_or_sku', 'newness_confidence': 'high' if (official_source and strong_launch) else 'medium',
             'summary': f"自动扫描从 {source_name} 发现。已确认品牌原产地为非中国；{'已验证为单品详情页' if product_page else '存在明确新品发布信号'}。",
-            'tags': ['Auto-verified', 'New Arrival' if dedicated_new_source else 'Launch Signal'],
-            'image_url': '',
-            'evidence': [evidence],
-            'sources': [{'name': source_name, 'url': url, 'page_type': page_type}]
+            'tags': ['Auto-verified', 'New Arrival' if dedicated_new_source else 'Launch Signal'], 'image_url': '',
+            'evidence': [evidence], 'sources': [{'name': source_name, 'url': url, 'page_type': page_type}]
         }
-        if product_page:
-            p['product_url'] = url
+        if product_page: p['product_url'] = url
         products.append(p)
         existing_keys.add(key)
         if product_page: existing_urls.add(url)
         c['review_status'] = 'promoted_auto'
         c['promoted_at'] = now.isoformat().replace('+00:00','Z')
         promoted += 1
-        if promoted >= 80:
-            break
+        if promoted >= 80: break
 
     products.sort(key=lambda x: x.get('first_seen_at',''), reverse=True)
-    save_json(PRODUCTS, {'generated_at': now.replace(microsecond=0).isoformat().replace('+00:00','Z'), 'products': products[:2500]})
-    save_json(DISCOVERY, {**discovery, 'generated_at': now.replace(microsecond=0).isoformat().replace('+00:00','Z')})
-    print(f'Candidate promotion: checked={checked}; promoted={promoted}; products={len(products)}')
+    stamp = now.replace(microsecond=0).isoformat().replace('+00:00','Z')
+    save_json(PRODUCTS, {'generated_at': stamp, 'products': products[:2500]})
+    save_json(DISCOVERY, {**discovery, 'generated_at': stamp})
+    print(f'Candidate promotion: checked={checked}; fetched={fetched}; promoted={promoted}; products={len(products)}')
 
 
 if __name__ == '__main__':
