@@ -1,7 +1,20 @@
 {
-  "generated_at": "2026-10-09T13:37:51Z",
+  "generated_at": "2026-10-09T22:47:52Z",
   "last_scan_scope": "all",
   "candidates": [
+    {
+      "id": "asia-news-en-1968402147182824811",
+      "title": "PetPlate launches metaverse site promoting dog food, supplements - PetfoodIndustry",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPeF9oVEJmWFBsNURPQjF2a2JsbmZfaDVTamNUb05mZHF1QThCTVdKNGdUdmhpRHVheHMteFJYN1pyWjJKTTNNT24yY1J1UjluQnIzeGE4M0xfaXkxN1I1N09MQ3ZCbW5MR3ZEdUR0NFdVamduUHNyQjB5Q3hCODRaWGZFamxVTXRDOVFlV09UbWgtYlFrN2UwMXhHVFZoYy1pUHlneUVPZE05ODdpNzVnOUdYXzVTMzg?oc=5",
+      "source_id": "asia-news-en",
+      "source_name": "Asia web discovery EN",
+      "region": "Asia",
+      "country": "Asia",
+      "channel_type": "trade_media",
+      "discovered_at": "2026-10-09T22:47:21Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
     {
       "id": "us-news-6962500206095799438",
       "title": "Zignature launches Essence and Inception dog food lines - PetfoodIndustry",
