@@ -1,7 +1,20 @@
 {
-  "generated_at": "2026-10-08T23:30:06Z",
+  "generated_at": "2026-10-09T06:27:54Z",
   "last_scan_scope": "all",
   "candidates": [
+    {
+      "id": "eu-zooplus-3482269624462410213",
+      "title": "1814555",
+      "url": "https://www.zooplus.com/shop/cats/dry_cat_food/purizon_cat/purizon_singlemeat/1814555?activeVariant=1814555.0",
+      "source_id": "eu-zooplus",
+      "source_name": "zooplus",
+      "region": "Europe",
+      "country": "European Union",
+      "channel_type": "specialty_retail",
+      "discovered_at": "2026-10-09T06:27:26Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
     {
       "id": "us-petsmart-1043581718676284603",
       "title": "Whisker City (17)",
