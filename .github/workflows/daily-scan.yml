@@ -25,6 +25,7 @@ on:
       - 'config/research-sources.json'
       - 'scripts/scan.py'
       - 'scripts/promote_candidates.py'
+      - 'scripts/product_quality.py'
       - 'scripts/hotspots.py'
       - 'scripts/hotspot_research.py'
       - 'scripts/hotspot_quality.py'
@@ -56,6 +57,9 @@ jobs:
 
       - name: Promote verified product candidates
         run: python scripts/promote_candidates.py
+
+      - name: Refine formal product feed
+        run: python scripts/product_quality.py
 
       - name: Scan global hotspots
         run: python scripts/hotspots.py --channels "${{ github.event.inputs.channel_scope || 'all' }}"
