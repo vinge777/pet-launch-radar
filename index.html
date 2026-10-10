@@ -8,9 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261010-3" />
-  <link rel="stylesheet" href="settings.css?v=20261010-3" />
-  <link rel="stylesheet" href="hotspots.css?v=20261010-3" />
+  <link rel="stylesheet" href="styles.css?v=20261010-4" />
+  <link rel="stylesheet" href="settings.css?v=20261010-4" />
+  <link rel="stylesheet" href="hotspots.css?v=20261010-4" />
 </head>
 <body>
   <div class="shell">
@@ -25,12 +25,12 @@
         <button class="nav-item" data-view="brands"><span>◎</span> 品牌雷达</button>
         <button class="nav-item" data-view="coverage"><span>◉</span> 来源覆盖</button>
       </nav>
-      <div class="sidebar-note"><div class="note-kicker">数据原则</div><p>新品与全球热点分开监测。新品经过新品信号、评论历史与质量闸门后进入正式列表；全球热点优先宠物食品。</p></div>
+      <div class="sidebar-note"><div class="note-kicker">新品监测</div><p>品牌官网、电商平台、宠物专业渠道、商超与行业媒体并行扫描；Spectrum Brands 宠物食品/零食设为最高优先级专项监测。</p></div>
     </aside>
 
     <main class="main">
       <header class="topbar">
-        <div><div class="eyebrow">DAILY MARKET INTELLIGENCE</div><h1 id="pageTitle">今日新品</h1><p id="pageSubtitle">每 6 小时扫描全球公开来源，按北京时间归档非中国宠物品牌新品。</p></div>
+        <div><div class="eyebrow">DAILY MARKET INTELLIGENCE</div><h1 id="pageTitle">今日新品</h1><p id="pageSubtitle">每 6 小时并发扫描全球公开来源，按北京时间归档非中国宠物品牌新品。</p></div>
         <div class="topbar-actions"><button id="settingsBtn" class="settings-btn" type="button" style="position:fixed;right:24px;top:18px;z-index:900;display:inline-flex;align-items:center;justify-content:center;">⚙ 设置 / 刷新</button><div class="scan-box" style="margin-right:132px;"><div class="pulse"></div><div><strong id="lastScan">等待数据</strong><span>最近扫描</span></div></div></div>
       </header>
 
@@ -59,7 +59,7 @@
       <div class="settings-head"><div><div class="eyebrow">MANUAL CONTROL</div><h2 id="settingsTitle">设置 / 手动刷新</h2></div><button id="settingsClose" class="icon-btn" type="button" aria-label="关闭">×</button></div>
       <div class="settings-section"><h3>① 刷新当前页面数据</h3><p>重新读取 GitHub Pages 已经发布的数据，不重新扫描外部网站。</p><button id="refreshDataBtn" class="primary-btn" type="button">立即刷新页面数据</button><div id="refreshDataStatus" class="settings-status"></div></div>
       <div class="settings-section"><h3>② 重新扫描外部渠道</h3><p>选择你想重新扫描的渠道。选择“全部渠道”时会同时更新新品、全球热点和研究报告。</p><label class="field-label" for="scanScope">刷新范围</label><select id="scanScope" class="settings-select"><option value="all">全部渠道</option><option value="brand_official">品牌官网 / 官方新品</option><option value="specialty_retail">宠物专业渠道 / 连锁 / 垂直电商</option><option value="mass_retail">商超 / 综合零售</option><option value="drugstore">药妆 / 药房</option><option value="marketplace">综合电商 / Marketplace</option><option value="trade_media">行业媒体 / 展会 / 全网发现</option></select><a id="scanConsoleBtn" class="primary-btn link-btn" href="https://github.com/vinge777/pet-launch-radar/actions/workflows/daily-scan.yml" target="_blank" rel="noopener noreferrer">打开手动扫描控制台 ↗</a><div class="howto-box">打开后点 <strong>Run workflow</strong>，在 <strong>Refresh scope / 刷新范围</strong> 里选择同样的范围，再点绿色 <strong>Run workflow</strong>。</div></div>
-      <div class="settings-section compact"><h3>自动刷新</h3><p>系统每 6 小时自动执行全渠道扫描；新品会经过正式质量闸门，全球热点和研究报告同步更新。</p></div>
+      <div class="settings-section compact"><h3>自动刷新</h3><p>系统每 6 小时自动执行全渠道并发扫描；Spectrum Brands 宠物食品/零食优先审核，新品仍需通过质量闸门。</p></div>
     </section>
   </div>
 
@@ -67,9 +67,10 @@
     <article class="product-card"><div class="product-image-wrap"><img class="product-image" alt="" loading="lazy" /><div class="region-pill"></div></div><div class="product-body"><div class="card-meta-row"><div class="brand-name"></div><div class="launch-date"></div></div><h3 class="product-name"></h3><p class="product-summary"></p><div class="chips"></div><div class="card-footer"><div class="source-stack"></div><a class="source-link" target="_blank" rel="noopener noreferrer">查看来源 ↗</a></div></div></article>
   </template>
 
-  <script src="app.js?v=20261010-3"></script>
-  <script src="date-filter.js?v=20261010-3"></script>
-  <script src="hotspots-ui.js?v=20261010-3"></script>
-  <script src="research-ui.js?v=20261010-3"></script>
+  <script src="app.js?v=20261010-4"></script>
+  <script src="date-filter.js?v=20261010-4"></script>
+  <script src="spectrum-ui.js?v=20261010-4"></script>
+  <script src="hotspots-ui.js?v=20261010-4"></script>
+  <script src="research-ui.js?v=20261010-4"></script>
 </body>
 </html>
