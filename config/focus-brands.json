@@ -1,0 +1,13 @@
+{
+  "brands": [
+    {"name":"DreamBone","origin_country":"United States","market_regions":["North America","Asia"],"categories":["Treats","Chews"],"active":true,"parent_company":"Spectrum Brands","focus_group":"spectrum_pet_food","priority":100},
+    {"name":"SmartBones","origin_country":"United States","market_regions":["North America","Europe","Asia"],"categories":["Treats","Chews"],"active":true,"parent_company":"Spectrum Brands","focus_group":"spectrum_pet_food","priority":100},
+    {"name":"Better Belly","origin_country":"United States","market_regions":["North America"],"categories":["Treats","Chews"],"active":true,"parent_company":"Spectrum Brands","focus_group":"spectrum_pet_food","priority":100},
+    {"name":"Good'n'Fun","origin_country":"United States","market_regions":["North America"],"categories":["Treats","Chews","Wet Food"],"active":true,"parent_company":"Spectrum Brands","focus_group":"spectrum_pet_food","priority":100},
+    {"name":"Dingo","origin_country":"United States","market_regions":["North America","Asia"],"categories":["Treats","Chews"],"active":true,"parent_company":"Spectrum Brands","focus_group":"spectrum_pet_food","priority":100},
+    {"name":"Good Boy","origin_country":"United Kingdom","market_regions":["Europe","North America"],"categories":["Treats","Food","Toppers"],"active":true,"parent_company":"Spectrum Brands","focus_group":"spectrum_pet_food","priority":100},
+    {"name":"Meowee!","origin_country":"United Kingdom","market_regions":["Europe","North America"],"categories":["Treats","Toppers"],"active":true,"parent_company":"Spectrum Brands","focus_group":"spectrum_pet_food","priority":100},
+    {"name":"IAMS","origin_country":"United States","market_regions":["Europe"],"categories":["Food","Wet Food","Dry Food"],"active":true,"parent_company":"Spectrum Brands","ownership_scope":"Europe only","focus_group":"spectrum_pet_food","priority":100},
+    {"name":"EUKANUBA","origin_country":"United States","market_regions":["Europe"],"categories":["Food","Dry Food"],"active":true,"parent_company":"Spectrum Brands","ownership_scope":"Europe only","focus_group":"spectrum_pet_food","priority":100}
+  ]
+}
