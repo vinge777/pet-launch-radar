@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-10-10T02:02:26Z",
+  "generated_at": "2026-10-10T06:11:02Z",
   "last_scan_scope": "all",
   "candidates": [
+    {
+      "id": "us-news-481712fa56952002",
+      "title": "9 Best Supplements for Senior Dogs in 2026, Recommended by Vets - PetMD",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5aV0tWSHJoX0ZLMU8tV2ZwWUd3bXVUZXA0TWtsYzBjS2tsTWZZelFqYmVWbDl2RnNwY1JRbjBveW16MTlxcGd5SnFtMlhPR2YyclF6cjFDVng2NFVFTUJ5dVhOaVByTXZSQWVnUGpNb2NVQW4w?oc=5",
+      "source_id": "us-news",
+      "source_name": "US web discovery",
+      "region": "North America",
+      "country": "United States",
+      "channel_type": "trade_media",
+      "published_at": "2026-09-28T07:00:00Z",
+      "discovered_at": "2026-10-10T06:10:18Z",
+      "review_status": "pending",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
     {
       "id": "us-pfp-new-73b1cade984aeefa",
       "title": "E-Zines",
