@@ -27,6 +27,7 @@ on:
       - 'config/research-sources.json'
       - 'scripts/merge_monitoring_config.py'
       - 'scripts/scan.py'
+      - 'scripts/scan_parallel.py'
       - 'scripts/promote_candidates.py'
       - 'scripts/product_quality.py'
       - 'scripts/hotspots.py'
@@ -58,8 +59,8 @@ jobs:
       - name: Merge expanded monitoring config
         run: python scripts/merge_monitoring_config.py
 
-      - name: Scan product launch channels
-        run: python scripts/scan.py --channels "${{ github.event.inputs.channel_scope || 'all' }}"
+      - name: Scan product launch channels in parallel
+        run: python scripts/scan_parallel.py --channels "${{ github.event.inputs.channel_scope || 'all' }}"
 
       - name: Promote verified product candidates
         run: python scripts/promote_candidates.py
