@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse
+import hashlib
 import json
 import re
 import time
@@ -7,6 +8,7 @@ import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
+from email.utils import parsedate_to_datetime
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -24,6 +26,10 @@ VALID_CHANNELS = {
 
 def now_iso():
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
+def stable_id(prefix, value):
+    return f"{prefix}-{hashlib.sha1(value.encode('utf-8')).hexdigest()[:16]}"
 
 
 def load_json(path, default):
@@ -117,11 +123,23 @@ def scan_html(source):
             text = urllib.parse.unquote(urllib.parse.urlparse(url).path.rstrip("/").split("/")[-1]).replace("-", " ")
         if len(text) < 3:
             continue
-        out.append({"url": url, "title": text[:240]})
+        out.append({"url": url, "title": text[:240], "published_at": None})
     dedup = {}
     for item in out:
         dedup.setdefault(item["url"], item)
     return list(dedup.values())
+
+
+def parse_rss_date(raw):
+    if not raw:
+        return None
+    try:
+        dt = parsedate_to_datetime(raw)
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+    except Exception:
+        return None
 
 
 def scan_google_news(source):
@@ -130,11 +148,20 @@ def scan_google_news(source):
     xml = fetch(url)
     root = ET.fromstring(xml)
     out = []
+    max_age_days = int(source.get("max_age_days", 45))
+    freshness_cutoff = datetime.now(timezone.utc) - timedelta(days=max_age_days)
     for item in root.findall(".//item"):
         title = (item.findtext("title") or "").strip()
         link = (item.findtext("link") or "").strip()
+        published_at = parse_rss_date((item.findtext("pubDate") or "").strip())
+        if published_at:
+            try:
+                if datetime.fromisoformat(published_at.replace("Z", "+00:00")) < freshness_cutoff:
+                    continue
+            except Exception:
+                pass
         if title and link:
-            out.append({"url": link, "title": title[:240]})
+            out.append({"url": link, "title": title[:240], "published_at": published_at})
     return out
 
 
@@ -189,18 +216,19 @@ def main():
 
         scanned_count += 1
         try:
-            if source.get("mode") == "google_news":
-                items = scan_google_news(source)
-            else:
-                items = scan_html(source)
+            items = scan_google_news(source) if source.get("mode") == "google_news" else scan_html(source)
             current_urls = [x["url"] for x in items]
             previous = set(seen_sources.get(sid, []))
             first_run = sid not in seen_sources
-            new_items = [] if first_run else [x for x in items if x["url"] not in previous]
+            if first_run and source.get("backfill_on_first_run"):
+                limit = int(source.get("backfill_limit", 30))
+                new_items = items[:limit]
+            else:
+                new_items = [] if first_run else [x for x in items if x["url"] not in previous]
 
             for x in new_items:
                 candidates.append({
-                    "id": f"{sid}-{abs(hash(x['url']))}",
+                    "id": stable_id(sid, x["url"]),
                     "title": x["title"],
                     "url": x["url"],
                     "source_id": sid,
@@ -208,6 +236,7 @@ def main():
                     "region": source["region"],
                     "country": source.get("country"),
                     "channel_type": channel,
+                    "published_at": x.get("published_at"),
                     "discovered_at": checked_at,
                     "review_status": "pending",
                     "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
@@ -246,7 +275,7 @@ def main():
                 "error": str(exc)[:300],
                 "selected_in_last_run": True
             })
-        time.sleep(0.4)
+        time.sleep(0.25)
 
     cutoff = datetime.now(timezone.utc) - timedelta(days=180)
     by_url = {}
