@@ -1,12 +1,16 @@
 {
-  "generated_at": "2026-10-10T01:52:26Z",
+  "generated_at": "2026-10-10T01:58:29Z",
+  "quality_gate": {
+    "removed": 8,
+    "kept": 16
+  },
   "products": [
     {
       "id": "auto-b4f978be4991b579",
       "brand": "Blue Buffalo",
       "brand_origin_country": "United States",
       "origin_verified": true,
-      "product_name": "20961 blue buffalo halloween themed treats",
+      "product_name": "halloween themed treats",
       "species": "Other",
       "category": "Treats",
       "market_region": "North America",
@@ -39,7 +43,7 @@
       "brand": "RAWZ",
       "brand_origin_country": "United States",
       "origin_verified": true,
-      "product_name": "20959 rawz lickable cat treats",
+      "product_name": "lickable cat treats",
       "species": "Cat",
       "category": "Treats",
       "market_region": "North America",
@@ -72,7 +76,7 @@
       "brand": "Native Pet",
       "brand_origin_country": "United States",
       "origin_verified": true,
-      "product_name": "20948 native pet first line of cat supplements",
+      "product_name": "first line of cat supplements",
       "species": "Cat",
       "category": "Supplements",
       "market_region": "North America",
@@ -105,7 +109,7 @@
       "brand": "Nylabone",
       "brand_origin_country": "United States",
       "origin_verified": true,
-      "product_name": "20932 nylabone chews for adult dogs puppies with real meats",
+      "product_name": "chews for adult dogs puppies with real meats",
       "species": "Dog",
       "category": "Treats",
       "market_region": "North America",
@@ -134,146 +138,11 @@
       ]
     },
     {
-      "id": "auto-f6a2e2194a8e7e4f",
-      "brand": "Wuffes",
-      "brand_origin_country": "United States",
-      "origin_verified": true,
-      "product_name": "new brand identity",
-      "species": "Other",
-      "category": "Food",
-      "market_region": "North America",
-      "country": "United States",
-      "launch_date": null,
-      "launch_date_verified": false,
-      "first_seen_at": "2026-10-10T01:51:44Z",
-      "newness_status": "candidate_verified",
-      "newness_type": "new_product_or_line",
-      "newness_confidence": "medium",
-      "summary": "自动扫描从 US web discovery 发现。品牌官方或行业新品发布信号明确。",
-      "tags": [
-        "Auto-verified",
-        "Launch Signal"
-      ],
-      "image_url": "",
-      "evidence": [
-        "trade_media"
-      ],
-      "sources": [
-        {
-          "name": "US web discovery",
-          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNcDB5a1ZmYjRhSUtuMEZmUEVqblAzelh1d2hIZkltT2FHYjIycmo0RF9QVEc4S05wdTRkaUpqS3hyREY0cjA0RWF4N2lfbUlaZk1aYVVuTDgtcDR6dy11VTJkY04xM2picmYySjlmWGlnSExUcjNBSVYza2VxaUhIMmNJMURfT1Vpd1E?oc=5",
-          "page_type": "launch_announcement"
-        }
-      ],
-      "source_published_at": "2026-10-08T12:00:00Z"
-    },
-    {
-      "id": "auto-80ada7b8193c210a",
-      "brand": "Royal Canin",
-      "brand_origin_country": "France",
-      "origin_verified": true,
-      "product_name": "Dry Dog Food",
-      "species": "Dog",
-      "category": "Food",
-      "market_region": "Europe",
-      "country": "European Union",
-      "launch_date": null,
-      "launch_date_verified": false,
-      "first_seen_at": "2026-10-10T01:51:44Z",
-      "newness_status": "retailer_new",
-      "newness_type": "new_retailer_listing",
-      "newness_confidence": "low",
-      "summary": "自动扫描从 zooplus Cat New Products · Treats 发现。该商品位于渠道新品页；属于渠道新上架，尚不等同于品牌全球首发。",
-      "tags": [
-        "Auto-verified",
-        "Retailer New"
-      ],
-      "image_url": "",
-      "evidence": [
-        "retailer"
-      ],
-      "sources": [
-        {
-          "name": "zooplus Cat New Products · Treats",
-          "url": "https://www.zooplus.com/shop/dogs/dry_dog_food/155444",
-          "page_type": "product_detail"
-        }
-      ],
-      "product_url": "https://www.zooplus.com/shop/dogs/dry_dog_food/155444"
-    },
-    {
-      "id": "auto-ba90ae6c1f68c17a",
-      "brand": "Zignature",
-      "brand_origin_country": "United States",
-      "origin_verified": true,
-      "product_name": "Essence and Inception dog food lines",
-      "species": "Dog",
-      "category": "Food",
-      "market_region": "North America",
-      "country": "United States",
-      "launch_date": null,
-      "launch_date_verified": false,
-      "first_seen_at": "2026-10-09T13:37:20Z",
-      "newness_status": "candidate_verified",
-      "newness_type": "new_product_or_line",
-      "newness_confidence": "medium",
-      "summary": "自动扫描从 US web discovery 发现。品牌官方或行业新品发布信号明确。",
-      "tags": [
-        "Auto-verified",
-        "Launch Signal"
-      ],
-      "image_url": "",
-      "evidence": [
-        "trade_media"
-      ],
-      "sources": [
-        {
-          "name": "US web discovery",
-          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOOWdHVTZYN0VTQVFLTlNmaXRlWjR2N1VpaVFiZ2ZjVTNIb1drUENoUFpKMnFkbnFzbkdZWERkX1JubVBzeWJkOEZ3U0RQOXZFdmxFNmxRRVdROElNdk9oYnhERnZCVTM5bHRLaWN2dmNwLWNSbm04SWo1LTlNVWdRR3c3XzlKdVNBeWZrVE9MS25Kc1h2OGVNQ3FYNVVMUjVfT0p5a3lFcWdKSjN5Y2paSWpNcnIyajBnSThSYjFYdUlaekFYT2RYbUg1UlI5amtLQXlqREstMzcwQQ?oc=5",
-          "page_type": "launch_announcement"
-        }
-      ]
-    },
-    {
-      "id": "auto-dea13aea339b35f5",
-      "brand": "PetSafe",
-      "brand_origin_country": "United States",
-      "origin_verified": true,
-      "product_name": "® ScoopFree OpenSky Self-Cleaning Cat Litter Box W/ Remote App Monitoring",
-      "species": "Cat",
-      "category": "Accessories",
-      "market_region": "North America",
-      "country": "United States",
-      "launch_date": null,
-      "launch_date_verified": false,
-      "first_seen_at": "2026-10-09T13:37:20Z",
-      "newness_status": "retailer_new",
-      "newness_type": "new_retailer_listing",
-      "newness_confidence": "low",
-      "summary": "自动扫描从 PetSmart New & Featured 发现。该商品位于渠道新品页；属于渠道新上架，尚不等同于品牌全球首发。",
-      "tags": [
-        "Auto-verified",
-        "Retailer New"
-      ],
-      "image_url": "",
-      "evidence": [
-        "retailer"
-      ],
-      "sources": [
-        {
-          "name": "PetSmart New & Featured",
-          "url": "https://www.petsmart.com/cat/litter-and-waste-disposal/litter-boxes/petsafe-scoopfree-opensky-self-cleaning-cat-litter-box-w-remote-app-monitoring-100756.html",
-          "page_type": "product_detail"
-        }
-      ],
-      "product_url": "https://www.petsmart.com/cat/litter-and-waste-disposal/litter-boxes/petsafe-scoopfree-opensky-self-cleaning-cat-litter-box-w-remote-app-monitoring-100756.html"
-    },
-    {
       "id": "auto-8e04cad1310e01c9",
       "brand": "Hill's",
       "brand_origin_country": "United States",
       "origin_verified": true,
-      "product_name": "Hill&#x27;s Prescription Diet c/d Urinary + Metabolic Weight Dry Dog Food",
+      "product_name": "Hill's Prescription Diet c/d Urinary + Metabolic Weight Dry Dog Food",
       "species": "Dog",
       "category": "Food",
       "market_region": "North America",
@@ -304,46 +173,11 @@
       "review_count_at_detection": 22
     },
     {
-      "id": "auto-9e8ec87e96447cb2",
-      "brand": "Hill's",
-      "brand_origin_country": "United States",
-      "origin_verified": true,
-      "product_name": "Hill&#x27;s Science Diet Urinary Hairball Control Adult Wet Cat food",
-      "species": "Cat",
-      "category": "Supplements",
-      "market_region": "North America",
-      "country": "United States",
-      "launch_date": null,
-      "launch_date_verified": false,
-      "first_seen_at": "2026-10-08T23:29:35Z",
-      "newness_status": "retailer_new",
-      "newness_type": "new_retailer_listing",
-      "newness_confidence": "low",
-      "summary": "自动扫描从 PetSmart New & Featured 发现。该商品位于渠道新品页；属于渠道新上架，尚不等同于品牌全球首发。 当前识别到 33 条评分/评论。",
-      "tags": [
-        "Auto-verified",
-        "Retailer New"
-      ],
-      "image_url": "",
-      "evidence": [
-        "retailer"
-      ],
-      "sources": [
-        {
-          "name": "PetSmart New & Featured",
-          "url": "https://www.petsmart.com/cat/food-and-treats/wet-food/hills-science-diet-urinary-hairball-control-adult-wet-cat-food---variety-pack-24-ct-8603-oz-99219.html",
-          "page_type": "product_detail"
-        }
-      ],
-      "product_url": "https://www.petsmart.com/cat/food-and-treats/wet-food/hills-science-diet-urinary-hairball-control-adult-wet-cat-food---variety-pack-24-ct-8603-oz-99219.html",
-      "review_count_at_detection": 33
-    },
-    {
       "id": "auto-c1fd975ee28e06da",
       "brand": "Nylabone",
       "brand_origin_country": "United States",
       "origin_verified": true,
-      "product_name": "Thrills &amp; Chills Drop Dead Delicious Dog Chews Variety Pack",
+      "product_name": "Thrills & Chills Drop Dead Delicious Dog Chews Variety Pack",
       "species": "Dog",
       "category": "Treats",
       "market_region": "North America",
@@ -372,39 +206,6 @@
       ],
       "product_url": "https://www.petsmart.com/dog/treats/bones-bully-sticks-and-chews/thrills-and-chills-drop-dead-delicious-dog-chews-variety-pack---chicken-feet-wings-hearts-and-necks-96476.html",
       "review_count_at_detection": 2
-    },
-    {
-      "id": "auto-49b1af9ad0c8f871",
-      "brand": "Pooch & Mutt",
-      "brand_origin_country": "United Kingdom",
-      "origin_verified": true,
-      "product_name": "enters freeze-dried category with new treats, toppers",
-      "species": "Cat",
-      "category": "Treats",
-      "market_region": "North America",
-      "country": "United States",
-      "launch_date": null,
-      "launch_date_verified": false,
-      "first_seen_at": "2026-10-06T00:50:51Z",
-      "newness_status": "candidate_verified",
-      "newness_type": "new_product_or_line",
-      "newness_confidence": "medium",
-      "summary": "自动扫描从 US web discovery 发现。品牌官方或行业新品发布信号明确。",
-      "tags": [
-        "Auto-verified",
-        "Launch Signal"
-      ],
-      "image_url": "",
-      "evidence": [
-        "trade_media"
-      ],
-      "sources": [
-        {
-          "name": "US web discovery",
-          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPTklYVVNjLTRGTExWSUgtLUdKX1lYNzFYeE5BV0EtYVktSVpCSTM5Rm9LSUh1Q3U3TURTR1YxNXhaOURXYkRzUU1qV1F4WUJoLUtUYm1QM0cxeTBIa1k2RV9uMmpFcTROSS12bnhQbk82RGZCcllWVXpzMU9vZzBzcHd6Mmo3ZE5NM1kwU0RvbVBnQ0NPczA4cnFMZkFLODZHWE1BaG1zMXJtMEFWekFWZWZwSnl1R2s?oc=5",
-          "page_type": "launch_announcement"
-        }
-      ]
     },
     {
       "id": "auto-1394402029142390236",
@@ -439,72 +240,6 @@
         }
       ],
       "product_url": "https://www.petsmart.com/dog/treats/soft-and-chewy-treats/blue-buffalo-boo-bits-soft-and-chewy-halloween-dog-treats-chicken-recipe-45-oz-98543.html"
-    },
-    {
-      "id": "auto-a0e89b8f04cbb599",
-      "brand": "RAWZ",
-      "brand_origin_country": "United States",
-      "origin_verified": true,
-      "product_name": "air-dried food for small dogs",
-      "species": "Dog",
-      "category": "Food",
-      "market_region": "North America",
-      "country": "United States",
-      "launch_date": null,
-      "launch_date_verified": false,
-      "first_seen_at": "2026-10-02T00:47:30Z",
-      "newness_status": "candidate_verified",
-      "newness_type": "new_product_or_line",
-      "newness_confidence": "medium",
-      "summary": "自动扫描从 US web discovery 发现。品牌官方或行业新品发布信号明确。",
-      "tags": [
-        "Auto-verified",
-        "Launch Signal"
-      ],
-      "image_url": "",
-      "evidence": [
-        "trade_media"
-      ],
-      "sources": [
-        {
-          "name": "US web discovery",
-          "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxObktkNDQ1THAydGxINEdBOUFnZ0thWjFxSTFrQktxTzU5bkRiRzN1Y0FxNmRBRlF2T25QSEtrQ2YwNDRwS3pkX1AwTURIdUMxcC10Q0s1cDRtS3RUMHlXS25Ha2lDUGdlY1duVWZGSmRVR1ZIT0w0ekNsUGlEQm5sbkFVT2VQWU94OGNJb1ZWaG9BUzE5bkY3b0tWNEtWZS15SGZVcTdLLXplZ0JiclFuRWdRajRvR0lydnljbnNIak42OFBhT1BONXRMb2ZSN1JDRUk3UG1rNTM?oc=5",
-          "page_type": "launch_announcement"
-        }
-      ]
-    },
-    {
-      "id": "auto-52ed3014536eb86a",
-      "brand": "Pooch & Mutt",
-      "brand_origin_country": "United Kingdom",
-      "origin_verified": true,
-      "product_name": "new fish-based treats",
-      "species": "Other",
-      "category": "Treats",
-      "market_region": "North America",
-      "country": "United States",
-      "launch_date": null,
-      "launch_date_verified": false,
-      "first_seen_at": "2026-09-25T00:44:35Z",
-      "newness_status": "candidate_verified",
-      "newness_type": "new_product_or_line",
-      "newness_confidence": "medium",
-      "summary": "自动扫描从 US web discovery 发现。品牌官方或行业新品发布信号明确。",
-      "tags": [
-        "Auto-verified",
-        "Launch Signal"
-      ],
-      "image_url": "",
-      "evidence": [
-        "trade_media"
-      ],
-      "sources": [
-        {
-          "name": "US web discovery",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPOUZJZmdPek05MnFIMkYwUGVQTVhybG1uMW1xc2ROVEFHaEIzZUFPa3BXOWxlWlh1aWFWNElmbFMyMHhmZTNlcDhCOU5OclVwSGJrUFU3WVljTzNVbGltWWFBT19IeHByUWNDMy04cjVqNDlxQVpzMGtISGVyOFpFT1otX2VHYWJYcTlXQlFyelloX01Xbk1KbFNVYnBTb2RQ?oc=5",
-          "page_type": "launch_announcement"
-        }
-      ]
     },
     {
       "id": "chewy-beggin-ghoulish-ghost-20260922",

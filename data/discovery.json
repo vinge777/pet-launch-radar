@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T01:52:26Z",
+  "generated_at": "2026-10-10T01:58:04Z",
   "last_scan_scope": "all",
   "candidates": [
     {
@@ -409,7 +409,7 @@
       "channel_type": "trade_media",
       "published_at": "2026-10-08T12:00:00Z",
       "discovered_at": "2026-10-10T01:51:44Z",
-      "review_status": "promoted_auto",
+      "review_status": "rejected_quality_gate",
       "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json.",
       "promoted_at": "2026-10-10T01:52:26.526864Z"
     },
@@ -732,7 +732,7 @@
       "channel_type": "specialty_retail",
       "published_at": null,
       "discovered_at": "2026-10-10T01:51:44Z",
-      "review_status": "promoted_auto",
+      "review_status": "rejected_quality_gate",
       "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json.",
       "promoted_at": "2026-10-10T01:52:26.526864Z"
     },
@@ -1263,7 +1263,7 @@
       "country": "United States",
       "channel_type": "trade_media",
       "discovered_at": "2026-10-09T13:37:20Z",
-      "review_status": "promoted_auto",
+      "review_status": "rejected_quality_gate",
       "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json.",
       "promoted_at": "2026-10-10T01:52:26.526864Z"
     },
@@ -1290,7 +1290,7 @@
       "country": "United States",
       "channel_type": "specialty_retail",
       "discovered_at": "2026-10-09T13:37:20Z",
-      "review_status": "promoted_auto",
+      "review_status": "rejected_quality_gate",
       "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json.",
       "promoted_at": "2026-10-10T01:52:26.526864Z"
     },
@@ -1827,7 +1827,7 @@
       "country": "United States",
       "channel_type": "specialty_retail",
       "discovered_at": "2026-10-08T23:29:35Z",
-      "review_status": "promoted_auto",
+      "review_status": "rejected_quality_gate",
       "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json.",
       "promoted_at": "2026-10-10T01:52:26.526864Z"
     },
@@ -2428,7 +2428,7 @@
       "country": "United States",
       "channel_type": "trade_media",
       "discovered_at": "2026-10-06T00:50:51Z",
-      "review_status": "promoted_auto",
+      "review_status": "rejected_quality_gate",
       "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json.",
       "promoted_at": "2026-10-10T01:52:26.526864Z"
     },
@@ -3510,7 +3510,7 @@
       "country": "United States",
       "channel_type": "trade_media",
       "discovered_at": "2026-10-02T00:47:30Z",
-      "review_status": "promoted_auto",
+      "review_status": "rejected_quality_gate",
       "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json.",
       "promoted_at": "2026-10-10T01:52:26.526864Z"
     },
@@ -4970,7 +4970,7 @@
       "country": "United States",
       "channel_type": "trade_media",
       "discovered_at": "2026-09-25T00:44:35Z",
-      "review_status": "promoted_auto",
+      "review_status": "rejected_quality_gate",
       "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json.",
       "promoted_at": "2026-10-10T01:52:26.526864Z"
     },
