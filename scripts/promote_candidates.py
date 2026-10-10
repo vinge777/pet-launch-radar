@@ -149,6 +149,10 @@ def add_product(products, existing_keys, existing_urls, c, src, brand, title, ur
         c['review_status'] = 'duplicate'
         return False
     published = parse_dt(c.get('published_at'))
+    is_focus = src.get('focus_group') == 'spectrum_pet_food' or brand.get('focus_group') == 'spectrum_pet_food'
+    tags = ['Auto-verified', 'Launch Signal' if evidence != 'retailer' else 'Retailer New']
+    if is_focus:
+        tags.insert(0, 'Spectrum Focus')
     p = {
         'id': stable_id(url),
         'brand': brand['name'],
@@ -167,14 +171,20 @@ def add_product(products, existing_keys, existing_urls, c, src, brand, title, ur
         'newness_confidence': confidence,
         'summary': (
             f"自动扫描从 {src.get('name') or c.get('source_name') or '公开来源'} 发现。"
+            + ("Spectrum Brands 宠物食品/零食重点监测。" if is_focus else "")
             + ("品牌官方或行业新品发布信号明确。" if evidence in {'official','trade_media'} else "该商品位于渠道新品页；属于渠道新上架，尚不等同于品牌全球首发。")
             + (f" 当前识别到 {review_count} 条评分/评论。" if review_count is not None else '')
         ),
-        'tags': ['Auto-verified', 'Launch Signal' if evidence != 'retailer' else 'Retailer New'],
+        'tags': tags,
         'image_url': '',
         'evidence': [evidence],
         'sources': [{'name': src.get('name') or c.get('source_name') or '', 'url': url, 'page_type': page_type}]
     }
+    if is_focus:
+        p['focus_group'] = 'spectrum_pet_food'
+        p['parent_company'] = 'Spectrum Brands'
+    elif brand.get('parent_company'):
+        p['parent_company'] = brand.get('parent_company')
     if published:
         p['source_published_at'] = published.replace(microsecond=0).isoformat().replace('+00:00','Z')
     if product_page:
@@ -210,7 +220,15 @@ def main():
     fetched = 0
     rejected_old = 0
 
-    for c in sorted(discovery.get('candidates', []), key=lambda x: x.get('discovered_at',''), reverse=True):
+    def candidate_sort_key(c):
+        src = source_map.get(c.get('source_id'), {})
+        try:
+            priority = int(src.get('priority', 0))
+        except Exception:
+            priority = 0
+        return (priority, c.get('discovered_at', ''))
+
+    for c in sorted(discovery.get('candidates', []), key=candidate_sort_key, reverse=True):
         if c.get('review_status') not in (None, '', 'pending'):
             continue
         discovered = parse_dt(c.get('discovered_at'))
@@ -226,8 +244,8 @@ def main():
         high_signal_launch = bool(src.get('high_signal_launch_source'))
         strong_launch = bool(STRONG_NEWNESS.search(title))
         pre_hay = ' '.join([title, urllib.parse.unquote(url)])
+        mapped_brand = brand_by_name.get(src.get('brand_name')) if src.get('brand_name') else None
 
-        # Fresh trade-media product launches can enter when a verified non-China brand is named.
         if ch == 'trade_media':
             published = parse_dt(c.get('published_at'))
             if published and published < news_cutoff:
@@ -237,24 +255,22 @@ def main():
                 continue
             if not PRODUCT_HINT.search(title) or NON_PRODUCT_NEWS.search(title):
                 continue
-            brand = find_brand(title, brands)
+            brand = mapped_brand or find_brand(title, brands)
             if not brand:
                 continue
             if add_product(products, existing_keys, existing_urls, c, src, brand, title, url,
                            'trade_media', 'launch_announcement', now,
                            product_page=False, newness_type='new_product_or_line', confidence='medium'):
                 promoted += 1
-            if promoted >= 60: break
+            if promoted >= 100: break
             continue
 
-        # Retail/marketplace candidates only get opened if they came from an explicit New Arrivals source
-        # and look like a single-product URL. This is the key change that prevents the prefilter deadlock.
         if not (official_source or new_source):
             continue
         if not official_source and not likely_product_url(url):
             continue
 
-        brand = find_brand(pre_hay, brands)
+        brand = mapped_brand or find_brand(pre_hay, brands)
         if not brand and c.get('source_id') in OFFICIAL_SOURCE_BRANDS:
             brand = brand_by_name.get(OFFICIAL_SOURCE_BRANDS[c.get('source_id')])
 
@@ -285,7 +301,6 @@ def main():
         if ch in {'specialty_retail','mass_retail','drugstore','marketplace'}:
             if not product_page or not new_source:
                 continue
-            # Large review history is strong evidence that this is an old SKU newly surfaced by a retailer.
             if review_count is not None and review_count > 100:
                 c['review_status'] = 'rejected_old_reviews'
                 rejected_old += 1
@@ -305,13 +320,14 @@ def main():
                            newness_type='new_product_or_sku', confidence='high'):
                 promoted += 1
 
-        if promoted >= 60: break
+        if promoted >= 100: break
 
     products.sort(key=lambda x: x.get('first_seen_at',''), reverse=True)
     stamp = now.replace(microsecond=0).isoformat().replace('+00:00','Z')
     save_json(PRODUCTS, {'generated_at': stamp, 'products': products[:2500]})
     save_json(DISCOVERY, {**discovery, 'generated_at': stamp})
-    print(f'Candidate promotion: checked={checked}; fetched={fetched}; promoted={promoted}; rejected_old_reviews={rejected_old}; products={len(products)}')
+    spectrum_count = sum(1 for p in products if p.get('focus_group') == 'spectrum_pet_food')
+    print(f'Candidate promotion: checked={checked}; fetched={fetched}; promoted={promoted}; rejected_old_reviews={rejected_old}; products={len(products)}; spectrum_focus={spectrum_count}')
 
 
 if __name__ == '__main__':
