@@ -1,10 +1,452 @@
 {
-  "generated_at": "2026-10-10T12:52:49Z",
+  "generated_at": "2026-10-10T21:55:57Z",
   "quality_gate": {
-    "removed": 3,
-    "kept": 38
+    "removed": 0,
+    "kept": 51
   },
   "products": [
+    {
+      "id": "auto-a48da0ede3b13d95",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "Small Digestive Care Dry Dog Food Dry food for Dog From $23.74 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{color:var(--color-text-secon",
+      "species": "Dog",
+      "category": "Dry Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-10T21:54:55Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Dog Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Dog Products",
+          "url": "https://www.royalcanin.com/us/dogs/products/retail-products/small-digestive-care-2447",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/dogs/products/retail-products/small-digestive-care-2447"
+    },
+    {
+      "id": "auto-45b4ade5ade70518",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "French Bulldog Puppy Dry Dog Food Dry food for Dog From $25.64 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{color:var(--color-text-secon",
+      "species": "Dog",
+      "category": "Dry Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-10T21:54:55Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Dog Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Dog Products",
+          "url": "https://www.royalcanin.com/us/dogs/products/retail-products/french-bulldog-puppy-3990",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/dogs/products/retail-products/french-bulldog-puppy-3990"
+    },
+    {
+      "id": "auto-6853c6d294a771f1",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "German Shepherd Puppy Dry Dog Food Dry food for Dog From $99.74 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{color:var(--color-text-seco",
+      "species": "Dog",
+      "category": "Dry Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-10T21:54:55Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Dog Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Dog Products",
+          "url": "https://www.royalcanin.com/us/dogs/products/retail-products/german-shepherd-puppy-2519",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/dogs/products/retail-products/german-shepherd-puppy-2519"
+    },
+    {
+      "id": "auto-1b86daea0a05eccb",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "Adult In Gel Canned Dog Food Wet food for Dog From $44.35 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{color:var(--color-text-secondary)",
+      "species": "Dog",
+      "category": "Wet Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-10T21:54:55Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Dog Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Dog Products",
+          "url": "https://www.royalcanin.com/us/dogs/products/retail-products/adult-canned-in-gel-dog-food-4307",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/dogs/products/retail-products/adult-canned-in-gel-dog-food-4307"
+    },
+    {
+      "id": "auto-83e75e13159450f6",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "Puppy Loaf in Sauce Canned Dog Food Wet food for Dog From $63.61 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{color:var(--color-text-sec",
+      "species": "Dog",
+      "category": "Wet Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-10T21:54:55Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Dog Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Dog Products",
+          "url": "https://www.royalcanin.com/us/dogs/products/retail-products/puppy-loaf-in-sauce-4300/1",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/dogs/products/retail-products/puppy-loaf-in-sauce-4300/1"
+    },
+    {
+      "id": "auto-fd72fa8aaadb832c",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "French Bulldog Adult Dry Dog Food Dry food for Dog From $33.24 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{color:var(--color-text-secon",
+      "species": "Dog",
+      "category": "Dry Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-10T21:54:55Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Dog Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Dog Products",
+          "url": "https://www.royalcanin.com/us/dogs/products/retail-products/french-bulldog-adult-3991",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/dogs/products/retail-products/french-bulldog-adult-3991"
+    },
+    {
+      "id": "auto-48bdf4c9e0748cde",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "Poodle Puppy Dry Dog Food Dry food for Dog From $25.64 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{color:var(--color-text-secondary);di",
+      "species": "Dog",
+      "category": "Dry Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-10T21:54:55Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Dog Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Dog Products",
+          "url": "https://www.royalcanin.com/us/dogs/products/retail-products/poodle-puppy-3080",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/dogs/products/retail-products/poodle-puppy-3080"
+    },
+    {
+      "id": "auto-92aa8588d6745543",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "Maine Coon Adult Dry Cat Food Dry food for Cat From $43.69 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{color:var(--color-text-secondary",
+      "species": "Cat",
+      "category": "Dry Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-10T21:54:55Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Cat Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Cat Products",
+          "url": "https://www.royalcanin.com/us/cats/products/retail-products/maine-coon-adult-2550",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/cats/products/retail-products/maine-coon-adult-2550"
+    },
+    {
+      "id": "auto-c0087593066cfda7",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "Mother & Babycat Ultra Soft Mousse in Sauce Canned Cat Food Wet food for Cat From $52.21 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{co",
+      "species": "Cat",
+      "category": "Wet Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-10T21:54:55Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Cat Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Cat Products",
+          "url": "https://www.royalcanin.com/us/cats/products/retail-products/mother-%26-babycat-ultra-soft-mousse-in-sauce-4098/1",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/cats/products/retail-products/mother-%26-babycat-ultra-soft-mousse-in-sauce-4098/1"
+    },
+    {
+      "id": "auto-4cd3dd6b2b1d3a90",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "American Shorthair Adult Dry Cat Food Dry food for Cat From $43.69 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{color:var(--color-text-s",
+      "species": "Cat",
+      "category": "Dry Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-10T21:54:55Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Cat Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Cat Products",
+          "url": "https://www.royalcanin.com/us/cats/products/retail-products/american-shorthair-adult-4350",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/cats/products/retail-products/american-shorthair-adult-4350"
+    },
+    {
+      "id": "auto-fe07b15654f33393",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "Bengal Adult Dry Cat Food Dry food for Cat From $43.69 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{color:var(--color-text-secondary);di",
+      "species": "Cat",
+      "category": "Dry Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-10T21:54:55Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Cat Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Cat Products",
+          "url": "https://www.royalcanin.com/us/cats/products/retail-products/bengal-adult-4370",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/cats/products/retail-products/bengal-adult-4370"
+    },
+    {
+      "id": "auto-39d7bfc96aba3e0d",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "Persian Kitten Dry Cat Food Dry food for Cat From $30.39 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{color:var(--color-text-secondary);",
+      "species": "Cat",
+      "category": "Dry Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-10T21:54:55Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Cat Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Cat Products",
+          "url": "https://www.royalcanin.com/us/cats/products/retail-products/persian-kitten-2554",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/cats/products/retail-products/persian-kitten-2554"
+    },
+    {
+      "id": "auto-b153f458acc835ae",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "Persian Adult Dry Cat Food Dry food for Cat From $43.69 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{color:var(--color-text-secondary);d",
+      "species": "Cat",
+      "category": "Dry Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-10T21:54:55Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Cat Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Cat Products",
+          "url": "https://www.royalcanin.com/us/cats/products/retail-products/persian-adult-2552",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/cats/products/retail-products/persian-adult-2552"
+    },
     {
       "id": "auto-138cbc2fd4a1a1a7",
       "brand": "Royal Canin",
