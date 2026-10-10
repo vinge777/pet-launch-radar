@@ -21,8 +21,11 @@ on:
   push:
     paths:
       - 'config/sources.json'
+      - 'config/sources-expanded.json'
+      - 'config/focus-brands.json'
       - 'config/hotspot-sources.json'
       - 'config/research-sources.json'
+      - 'scripts/merge_monitoring_config.py'
       - 'scripts/scan.py'
       - 'scripts/promote_candidates.py'
       - 'scripts/product_quality.py'
@@ -51,6 +54,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
+      - name: Merge expanded monitoring config
+        run: python scripts/merge_monitoring_config.py
 
       - name: Scan product launch channels
         run: python scripts/scan.py --channels "${{ github.event.inputs.channel_scope || 'all' }}"
