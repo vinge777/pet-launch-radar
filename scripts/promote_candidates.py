@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import hashlib
 import json
 import re
 import urllib.parse
@@ -13,9 +14,10 @@ BRANDS = ROOT / 'data' / 'brands.json'
 SOURCES = ROOT / 'config' / 'sources.json'
 UA = 'Mozilla/5.0 (compatible; PetLaunchRadar/1.0; +https://github.com/vinge777/pet-launch-radar)'
 
-STRONG_NEWNESS = re.compile(r'\b(new|newly|launch(?:ed|es|ing)?|introduc(?:e|ed|es|ing)|unveil(?:ed|s|ing)?|debut(?:ed|s|ing)?|new arrival|new at)\b|neuheit|nouveau|nouveaut|新商品|新製品|発売|신제품|lançamento|lanzamiento', re.I)
-PRODUCT_HINT = re.compile(r'food|treat|chew|supplement|diet|formula|recipe|wet|dry|freeze[- ]?dried|air[- ]?dried|kibble|broth|mousse|pouch|can|snack|toy|collar|leash|litter|bed|shampoo|groom|bowl|feeder', re.I)
-PRODUCT_URL_HINT = re.compile(r'/(?:product|products|ip|p|shop|dog-products|cat-products)/|/dp/\d+', re.I)
+STRONG_NEWNESS = re.compile(r'\b(new|newly|launch(?:ed|es|ing)?|introduc(?:e|ed|es|ing)|unveil(?:ed|s|ing)?|debut(?:ed|s|ing)?|rolls? out|brings? back|reformulat(?:e|ed|es|ing))\b|neuheit|nouveau|nouveaut|新商品|新製品|発売|신제품|lançamento|lanzamiento', re.I)
+PRODUCT_HINT = re.compile(r'food|treat|chew|supplement|diet|formula|recipe|wet|dry|freeze[- ]?dried|air[- ]?dried|kibble|broth|mousse|pouch|can|snack|cat food|dog food|cat treat|dog treat|litter|toy|collar|leash|bed|bowl|feeder|shampoo|groom', re.I)
+NON_PRODUCT_NEWS = re.compile(r'\b(metaverse|website|site|campaign|promotion|partnership|appoint|president|ceo|cfo|executive|board|facility|factory|distribution|distributor|award|study|survey|report|congress|conference|event)\b', re.I)
+PRODUCT_URL_HINT = re.compile(r'/ip/|/dp/\d+|/product/|/products/|/shop/.+/\d+(?:\?|$)|\.html(?:\?|$)|/p/[^/]+', re.I)
 SEASONAL = re.compile(r'halloween|holiday|christmas|xmas|limited[- ]edition|seasonal|spooky|boo\b', re.I)
 OFFICIAL_SOURCE_BRANDS = {'asia-petio': 'Petio'}
 
@@ -31,7 +33,7 @@ def save_json(path, obj):
     path.write_text(json.dumps(obj, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
 
-def fetch(url, timeout=7):
+def fetch(url, timeout=8):
     req = urllib.request.Request(url, headers={'User-Agent': UA, 'Accept-Language': 'en-US,en;q=0.8'})
     with urllib.request.urlopen(req, timeout=timeout) as resp:
         return resp.read().decode(resp.headers.get_content_charset() or 'utf-8', errors='replace')
@@ -39,13 +41,18 @@ def fetch(url, timeout=7):
 
 def parse_dt(raw):
     try:
-        return datetime.fromisoformat((raw or '').replace('Z', '+00:00'))
+        dt = datetime.fromisoformat((raw or '').replace('Z', '+00:00'))
+        return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
     except Exception:
-        return datetime(1970, 1, 1, tzinfo=timezone.utc)
+        return None
 
 
 def norm(s):
     return re.sub(r'[^a-z0-9]+', '', (s or '').lower())
+
+
+def stable_id(url):
+    return 'auto-' + hashlib.sha1(url.encode('utf-8')).hexdigest()[:16]
 
 
 def infer_species(text):
@@ -60,19 +67,27 @@ def infer_species(text):
 
 def infer_category(text):
     t = (text or '').lower()
-    if re.search(r'supplement|probiotic|vitamin|joint|omega|calming', t): return 'Supplements'
+    if re.search(r'supplement|probiotic|vitamin|joint|omega|calming|hairball|immune', t): return 'Supplements'
     if re.search(r'treat|snack|chew|jerky|dental', t): return 'Treats'
-    if re.search(r'wet food|pouch|mousse|broth|stew|can(?:ned)? food', t): return 'Wet Food'
+    if re.search(r'wet food|pouch|mousse|broth|stew|can(?:ned)? food|pate|paté', t): return 'Wet Food'
     if re.search(r'dry food|kibble|baked food', t): return 'Dry Food'
     if re.search(r'freeze[- ]?dried', t): return 'Freeze-dried'
     if re.search(r'toy|collar|leash|bed|bowl|feeder|litter|groom|shampoo', t): return 'Accessories'
     return 'Food' if re.search(r'food|diet|formula|recipe|meal', t) else 'Other'
 
 
+def likely_product_url(url):
+    p = urllib.parse.urlparse(url)
+    text = p.path + ('?' + p.query if p.query else '')
+    if re.search(r'/f/brand/|/category/|/search|/pesquisa|/specials/', text, re.I):
+        return False
+    return bool(PRODUCT_URL_HINT.search(text))
+
+
 def looks_like_product_page(url, html=''):
-    if PRODUCT_URL_HINT.search(urllib.parse.urlparse(url).path):
+    if likely_product_url(url):
         return True
-    sample = html[:350000]
+    sample = html[:400000]
     return bool(re.search(r'"@type"\s*:\s*"Product"|itemtype=["\'][^"\']*schema\.org/Product|"productID"\s*:|"sku"\s*:', sample, re.I))
 
 
@@ -80,17 +95,28 @@ def extract_review_count(html):
     patterns = [
         r'"reviewCount"\s*:\s*"?(\d{1,7})',
         r'"ratingCount"\s*:\s*"?(\d{1,7})',
-        r'Rated[^<]{0,80}?([\d,]+)\s+Ratings',
         r'([\d,]+)\s+(?:ratings|reviews)\b',
+        r'Rating:[^<]{0,80}?\(([\d,]+)\)',
     ]
     counts = []
     for pat in patterns:
-        for raw in re.findall(pat, html[:500000], re.I):
-            try:
-                counts.append(int(str(raw).replace(',', '')))
-            except Exception:
-                pass
+        for raw in re.findall(pat, html[:650000], re.I):
+            try: counts.append(int(str(raw).replace(',', '')))
+            except Exception: pass
     return max(counts) if counts else None
+
+
+def extract_page_title(html):
+    patterns = [
+        r'<meta[^>]+property=["\']og:title["\'][^>]+content=["\']([^"\']+)',
+        r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:title["\']',
+        r'<title[^>]*>(.*?)</title>',
+    ]
+    for pat in patterns:
+        m = re.search(pat, html[:250000], re.I | re.S)
+        if m:
+            return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', m.group(1))).strip()[:240]
+    return ''
 
 
 def find_brand(text, brands):
@@ -100,20 +126,67 @@ def find_brand(text, brands):
 
 
 def clean_product_name(title, brand_name):
-    name = re.sub(r'\s+-\s+[^-]{2,80}$', '', (title or '').strip())
+    name = (title or '').strip()
+    name = re.sub(r'\s+[\-|–|—]\s+(?:PetfoodIndustry|Pet Food Processing|PR Newswire|Business Wire|[^-]{2,50})$', '', name, flags=re.I)
     name = re.sub(r'^(?:new\s+)?' + re.escape(brand_name) + r'\s*[:\-–—]?\s*', '', name, flags=re.I)
-    name = re.sub(r'\b(?:launches?|launched|introduces?|introduced|unveils?|unveiled|debuts?)\b\s*', '', name, flags=re.I)
+    name = re.sub(r'\b(?:launches?|launched|introduces?|introduced|unveils?|unveiled|debuts?|debuted|brings? back|reformulates?)\b\s*', '', name, flags=re.I)
     return name.strip(' :-–—')[:180] or title[:180]
 
 
 def keep_existing_auto(p):
     if not str(p.get('id','')).startswith('auto-'):
         return True
-    if 'official' in (p.get('evidence') or []):
+    if p.get('newness_status') in {'verified','candidate_verified','retailer_new'}:
         return True
-    sources = p.get('sources') or []
-    has_detail = any(s.get('page_type') == 'product_detail' for s in sources)
-    return bool(has_detail and SEASONAL.search(p.get('product_name','')))
+    return False
+
+
+def add_product(products, existing_keys, existing_urls, c, src, brand, title, url, evidence, page_type,
+                now, product_page=False, review_count=None, newness_type='new_product_or_line', confidence='medium'):
+    product_name = clean_product_name(title, brand['name'])
+    key = norm(brand['name'] + ' ' + product_name)
+    if key in existing_keys or (product_page and url in existing_urls):
+        c['review_status'] = 'duplicate'
+        return False
+    published = parse_dt(c.get('published_at'))
+    p = {
+        'id': stable_id(url),
+        'brand': brand['name'],
+        'brand_origin_country': brand['origin_country'],
+        'origin_verified': True,
+        'product_name': product_name,
+        'species': infer_species(title),
+        'category': infer_category(title),
+        'market_region': c.get('region') or (brand.get('market_regions') or [''])[0],
+        'country': c.get('country') or '',
+        'launch_date': None,
+        'launch_date_verified': False,
+        'first_seen_at': c.get('discovered_at') or now.isoformat().replace('+00:00','Z'),
+        'newness_status': 'verified' if evidence == 'official' else ('retailer_new' if evidence == 'retailer' else 'candidate_verified'),
+        'newness_type': newness_type,
+        'newness_confidence': confidence,
+        'summary': (
+            f"自动扫描从 {src.get('name') or c.get('source_name') or '公开来源'} 发现。"
+            + ("品牌官方或行业新品发布信号明确。" if evidence in {'official','trade_media'} else "该商品位于渠道新品页；属于渠道新上架，尚不等同于品牌全球首发。")
+            + (f" 当前识别到 {review_count} 条评分/评论。" if review_count is not None else '')
+        ),
+        'tags': ['Auto-verified', 'Launch Signal' if evidence != 'retailer' else 'Retailer New'],
+        'image_url': '',
+        'evidence': [evidence],
+        'sources': [{'name': src.get('name') or c.get('source_name') or '', 'url': url, 'page_type': page_type}]
+    }
+    if published:
+        p['source_published_at'] = published.replace(microsecond=0).isoformat().replace('+00:00','Z')
+    if product_page:
+        p['product_url'] = url
+    if review_count is not None:
+        p['review_count_at_detection'] = review_count
+    products.append(p)
+    existing_keys.add(key)
+    if product_page: existing_urls.add(url)
+    c['review_status'] = 'promoted_auto'
+    c['promoted_at'] = now.isoformat().replace('+00:00','Z')
+    return True
 
 
 def main():
@@ -125,43 +198,65 @@ def main():
     brands = [b for b in brands_doc.get('brands', []) if b.get('active', True) and b.get('origin_country') != 'China']
     source_map = {s.get('id'): s for s in sources_doc.get('sources', [])}
     brand_by_name = {b.get('name'): b for b in brands}
-    before_cleanup = len(products_doc.get('products', []))
     products = [p for p in products_doc.get('products', []) if keep_existing_auto(p)]
-    removed_old_auto = before_cleanup - len(products)
     existing_urls = {p.get('product_url') for p in products if p.get('product_url')}
     existing_keys = {norm((p.get('brand') or '') + ' ' + (p.get('product_name') or '')) for p in products}
 
     now = datetime.now(timezone.utc)
-    cutoff = now - timedelta(days=21)
+    candidate_cutoff = now - timedelta(days=30)
+    news_cutoff = now - timedelta(days=35)
     promoted = 0
     checked = 0
     fetched = 0
+    rejected_old = 0
 
     for c in sorted(discovery.get('candidates', []), key=lambda x: x.get('discovered_at',''), reverse=True):
-        if c.get('review_status') not in (None, '', 'pending') or parse_dt(c.get('discovered_at')) < cutoff:
+        if c.get('review_status') not in (None, '', 'pending'):
+            continue
+        discovered = parse_dt(c.get('discovered_at'))
+        if discovered and discovered < candidate_cutoff:
             continue
         checked += 1
         src = source_map.get(c.get('source_id'), {})
         title = c.get('title', '')
         url = c.get('url', '')
-        source_name = src.get('name') or c.get('source_name') or ''
-        ch = src.get('channel_type')
-        dedicated_new_source = bool(re.search(r'new|neuheit|nouveau|新品|新商品|new arrivals|new at', source_name, re.I))
+        ch = src.get('channel_type') or c.get('channel_type')
         official_source = ch == 'brand_official'
+        new_source = bool(src.get('new_arrivals_source'))
+        high_signal_launch = bool(src.get('high_signal_launch_source'))
         strong_launch = bool(STRONG_NEWNESS.search(title))
-
-        # News and trade-media hits are discovery evidence only, never automatic product entries.
-        if ch == 'trade_media':
-            continue
-        if not (dedicated_new_source or official_source):
-            continue
-
         pre_hay = ' '.join([title, urllib.parse.unquote(url)])
+
+        # Fresh trade-media product launches can enter when a verified non-China brand is named.
+        if ch == 'trade_media':
+            published = parse_dt(c.get('published_at'))
+            if published and published < news_cutoff:
+                c['review_status'] = 'rejected_stale_news'
+                continue
+            if not (strong_launch or high_signal_launch):
+                continue
+            if not PRODUCT_HINT.search(title) or NON_PRODUCT_NEWS.search(title):
+                continue
+            brand = find_brand(title, brands)
+            if not brand:
+                continue
+            if add_product(products, existing_keys, existing_urls, c, src, brand, title, url,
+                           'trade_media', 'launch_announcement', now,
+                           product_page=False, newness_type='new_product_or_line', confidence='medium'):
+                promoted += 1
+            if promoted >= 60: break
+            continue
+
+        # Retail/marketplace candidates only get opened if they came from an explicit New Arrivals source
+        # and look like a single-product URL. This is the key change that prevents the prefilter deadlock.
+        if not (official_source or new_source):
+            continue
+        if not official_source and not likely_product_url(url):
+            continue
+
         brand = find_brand(pre_hay, brands)
         if not brand and c.get('source_id') in OFFICIAL_SOURCE_BRANDS:
             brand = brand_by_name.get(OFFICIAL_SOURCE_BRANDS[c.get('source_id')])
-        if not brand:
-            continue
 
         page = ''
         product_page = False
@@ -172,59 +267,51 @@ def main():
             product_page = looks_like_product_page(url, page)
             review_count = extract_review_count(page)
         except Exception:
-            product_page = bool(PRODUCT_URL_HINT.search(urllib.parse.urlparse(url).path))
+            product_page = likely_product_url(url)
 
-        hay = ' '.join([pre_hay, re.sub(r'<[^>]+>', ' ', page[:100000])])
+        page_title = extract_page_title(page)
+        hay = ' '.join([pre_hay, page_title, re.sub(r'<[^>]+>', ' ', page[:150000])])
+        if not brand:
+            brand = find_brand(hay, brands)
+        if not brand:
+            continue
         if not PRODUCT_HINT.search(hay):
             continue
 
+        effective_title = title
+        if len(re.sub(r'\W+', '', title)) < 8 or title.lower().endswith('.html') or re.fullmatch(r'\d+', title.strip()):
+            effective_title = page_title or title
+
         if ch in {'specialty_retail','mass_retail','drugstore','marketplace'}:
-            if not product_page or not dedicated_new_source:
+            if not product_page or not new_source:
                 continue
-            # Avoid old SKUs that are merely newly listed by a retailer.
-            if review_count is not None and review_count > 50:
+            # Large review history is strong evidence that this is an old SKU newly surfaced by a retailer.
+            if review_count is not None and review_count > 100:
                 c['review_status'] = 'rejected_old_reviews'
+                rejected_old += 1
                 continue
-            if review_count is None and not SEASONAL.search(hay):
+            confidence = 'medium' if review_count is not None and review_count <= 25 else 'low'
+            newness_type = 'new_product_or_sku' if review_count is not None and review_count <= 25 else 'new_retailer_listing'
+            if add_product(products, existing_keys, existing_urls, c, src, brand, effective_title, url,
+                           'retailer', 'product_detail', now, product_page=True, review_count=review_count,
+                           newness_type=newness_type, confidence=confidence):
+                promoted += 1
+        else:
+            if not (strong_launch or product_page):
                 continue
+            if add_product(products, existing_keys, existing_urls, c, src, brand, effective_title, url,
+                           'official', 'product_detail' if product_page else 'launch_announcement', now,
+                           product_page=product_page, review_count=review_count,
+                           newness_type='new_product_or_sku', confidence='high'):
+                promoted += 1
 
-        if official_source and not (strong_launch or product_page):
-            continue
-
-        product_name = clean_product_name(title, brand['name'])
-        key = norm(brand['name'] + ' ' + product_name)
-        if key in existing_keys or (product_page and url in existing_urls):
-            c['review_status'] = 'duplicate'
-            continue
-
-        evidence = 'official' if official_source else 'retailer'
-        p = {
-            'id': f"auto-{abs(hash(url))}",
-            'brand': brand['name'], 'brand_origin_country': brand['origin_country'], 'origin_verified': True,
-            'product_name': product_name, 'species': infer_species(hay), 'category': infer_category(hay),
-            'market_region': c.get('region') or (brand.get('market_regions') or [''])[0], 'country': c.get('country') or '',
-            'launch_date': None, 'launch_date_verified': False,
-            'first_seen_at': c.get('discovered_at') or now.isoformat().replace('+00:00','Z'),
-            'newness_status': 'verified' if official_source else 'candidate_verified',
-            'newness_type': 'new_product_or_sku', 'newness_confidence': 'high' if official_source else 'medium',
-            'summary': f"自动扫描从 {source_name} 发现。已确认品牌原产地为非中国，并通过单品页与新品信号核验。" + (f" 当前识别到 {review_count} 条评分/评论。" if review_count is not None else ''),
-            'tags': ['Auto-verified', 'New Arrival'], 'image_url': '',
-            'evidence': [evidence], 'product_url': url,
-            'sources': [{'name': source_name, 'url': url, 'page_type': 'product_detail'}]
-        }
-        products.append(p)
-        existing_keys.add(key)
-        existing_urls.add(url)
-        c['review_status'] = 'promoted_auto'
-        c['promoted_at'] = now.isoformat().replace('+00:00','Z')
-        promoted += 1
-        if promoted >= 50: break
+        if promoted >= 60: break
 
     products.sort(key=lambda x: x.get('first_seen_at',''), reverse=True)
     stamp = now.replace(microsecond=0).isoformat().replace('+00:00','Z')
     save_json(PRODUCTS, {'generated_at': stamp, 'products': products[:2500]})
     save_json(DISCOVERY, {**discovery, 'generated_at': stamp})
-    print(f'Candidate promotion: checked={checked}; fetched={fetched}; promoted={promoted}; removed_weak_auto={removed_old_auto}; products={len(products)}')
+    print(f'Candidate promotion: checked={checked}; fetched={fetched}; promoted={promoted}; rejected_old_reviews={rejected_old}; products={len(products)}')
 
 
 if __name__ == '__main__':
