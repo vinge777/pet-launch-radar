@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T01:58:04Z",
+  "generated_at": "2026-10-10T02:02:26Z",
   "last_scan_scope": "all",
   "candidates": [
     {
@@ -41,7 +41,7 @@
       "channel_type": "trade_media",
       "published_at": null,
       "discovered_at": "2026-10-10T01:51:44Z",
-      "review_status": "promoted_auto",
+      "review_status": "rejected_quality_gate",
       "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json.",
       "promoted_at": "2026-10-10T01:52:26.526864Z"
     },

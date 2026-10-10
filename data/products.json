@@ -1,43 +1,10 @@
 {
-  "generated_at": "2026-10-10T01:58:29Z",
+  "generated_at": "2026-10-10T02:02:48Z",
   "quality_gate": {
-    "removed": 8,
-    "kept": 16
+    "removed": 1,
+    "kept": 15
   },
   "products": [
-    {
-      "id": "auto-b4f978be4991b579",
-      "brand": "Blue Buffalo",
-      "brand_origin_country": "United States",
-      "origin_verified": true,
-      "product_name": "halloween themed treats",
-      "species": "Other",
-      "category": "Treats",
-      "market_region": "North America",
-      "country": "United States",
-      "launch_date": null,
-      "launch_date_verified": false,
-      "first_seen_at": "2026-10-10T01:51:44Z",
-      "newness_status": "candidate_verified",
-      "newness_type": "new_product_or_line",
-      "newness_confidence": "medium",
-      "summary": "自动扫描从 Pet Food Processing · New Products 发现。品牌官方或行业新品发布信号明确。",
-      "tags": [
-        "Auto-verified",
-        "Launch Signal"
-      ],
-      "image_url": "",
-      "evidence": [
-        "trade_media"
-      ],
-      "sources": [
-        {
-          "name": "Pet Food Processing · New Products",
-          "url": "https://www.petfoodprocessing.net/articles/20961-blue-buffalo-brings-back-halloween-themed-treats",
-          "page_type": "launch_announcement"
-        }
-      ]
-    },
     {
       "id": "auto-6c16a96f0a27202f",
       "brand": "RAWZ",
