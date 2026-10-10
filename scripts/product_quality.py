@@ -11,6 +11,7 @@ PRODUCTS = ROOT / 'data' / 'products.json'
 DISCOVERY = ROOT / 'data' / 'discovery.json'
 
 NON_PRODUCT = re.compile(r'brand identity|rebrand|branding|visual identity|new logo|website|metaverse|campaign|promotion|partnership|appoint|executive|ceo|cfo|board', re.I)
+RETURNING_PRODUCT = re.compile(r'brings?[-\s]?back|returns?|returning|back[-\s]for|relaunch(?:es|ed)?', re.I)
 LAUNCH_VERBS = re.compile(r'\b(brings? back|launches?|launched|introduces?|introduced|unveils?|unveiled|debuts?|debuted|releases?|released)\b', re.I)
 
 
@@ -71,11 +72,17 @@ def keep(p, now):
 
     name = html.unescape(str(p.get('product_name') or ''))
     src_name = source_name(p)
+    src_url = source_url(p)
     evidence = set(p.get('evidence') or [])
     species = p.get('species') or ''
 
     if NON_PRODUCT.search(name):
         return False, 'non_product_news'
+
+    # A returning/relaunched old seasonal product is useful intelligence, but it belongs in
+    # Global Hotspots rather than the formal new-product feed.
+    if 'trade_media' in evidence and RETURNING_PRODUCT.search(name + ' ' + src_url):
+        return False, 'returning_existing_product'
 
     # Catch navigation pollution between species-specific new-product pages.
     if re.search(r'\bcat\b', src_name, re.I) and species == 'Dog':
@@ -98,13 +105,9 @@ def keep(p, now):
         reviews = p.get('review_count_at_detection')
         ntype = p.get('newness_type') or ''
         confidence = p.get('newness_confidence') or ''
-        # Formal feed only accepts stronger retailer evidence. Lower-confidence retailer
-        # listings remain candidates/discovery signals, not formal launches.
         if ntype == 'new_retailer_listing' or confidence == 'low':
             return False, 'retailer_low_confidence'
         if reviews is None:
-            # Curated historical entries are allowed, but newly auto-promoted retailer items
-            # need measurable evidence or a seasonal signal.
             if not re.search(r'halloween|holiday|christmas|xmas|seasonal|limited', name, re.I):
                 return False, 'retailer_no_review_signal'
         elif int(reviews) > 25:
@@ -128,7 +131,6 @@ def main():
         else:
             removed.append((p.get('id'), p.get('brand'), p.get('product_name'), reason))
 
-    # De-dupe by URL first, then brand + product name.
     seen_urls = set()
     seen_keys = set()
     deduped = []
@@ -146,11 +148,9 @@ def main():
     stamp = now.replace(microsecond=0).isoformat().replace('+00:00','Z')
     save_json(PRODUCTS, {'generated_at': stamp, 'quality_gate': {'removed': len(removed), 'kept': len(deduped)}, 'products': deduped[:2500]})
 
-    # Return rejected auto-promotions to a terminal reviewed state so they do not re-enter next run.
     removed_ids = {x[0] for x in removed if x[0]}
     if removed_ids:
         for c in discovery.get('candidates', []):
-            # IDs differ from product IDs, so match promoted URL when possible.
             url = c.get('url')
             if not url:
                 continue
