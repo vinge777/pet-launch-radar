@@ -1,10 +1,282 @@
 {
-  "generated_at": "2026-10-10T21:55:57Z",
+  "generated_at": "2026-10-11T06:08:55Z",
   "quality_gate": {
     "removed": 0,
-    "kept": 51
+    "kept": 59
   },
   "products": [
+    {
+      "id": "auto-74bf0a615750f90f",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "Cavalier King Charles Puppy Dry Dog Food Dry food for Dog From $25.64 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{color:var(--color-tex",
+      "species": "Dog",
+      "category": "Dry Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-11T06:07:59Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Dog Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Dog Products",
+          "url": "https://www.royalcanin.com/us/dogs/products/retail-products/cavalier-king-charles-puppy-4132",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/dogs/products/retail-products/cavalier-king-charles-puppy-4132"
+    },
+    {
+      "id": "auto-5a5f2af2ab032ea6",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "Miniature Schnauzer Puppy Dry Dog Food Dry food for Dog From $25.64 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{color:var(--color-text-",
+      "species": "Dog",
+      "category": "Dry Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-11T06:07:59Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Dog Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Dog Products",
+          "url": "https://www.royalcanin.com/us/dogs/products/retail-products/schnauzer-puppy-4131",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/dogs/products/retail-products/schnauzer-puppy-4131"
+    },
+    {
+      "id": "auto-7abdad675818c1e0",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "Dachshund Puppy Dry Dog Food Dry food for Dog From $25.64 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{color:var(--color-text-secondary)",
+      "species": "Dog",
+      "category": "Dry Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-11T06:07:59Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Dog Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Dog Products",
+          "url": "https://www.royalcanin.com/us/dogs/products/retail-products/dachshund-puppy-2437",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/dogs/products/retail-products/dachshund-puppy-2437"
+    },
+    {
+      "id": "auto-3127ca3a72bca37d",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "Jack Russell Terrier Puppy Dry Dog Food Dry food for Dog From $26.99 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{color:var(--color-text",
+      "species": "Dog",
+      "category": "Dry Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-11T06:07:59Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Dog Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Dog Products",
+          "url": "https://www.royalcanin.com/us/dogs/products/retail-products/jack-russell-terrier-puppy-2101",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/dogs/products/retail-products/jack-russell-terrier-puppy-2101"
+    },
+    {
+      "id": "auto-8e8a5f2eb0ea12f0",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "Rottweiler Puppy Dry Dog Food Dry food for Dog From $99.74 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{color:var(--color-text-secondary",
+      "species": "Dog",
+      "category": "Dry Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-11T06:07:59Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Dog Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Dog Products",
+          "url": "https://www.royalcanin.com/us/dogs/products/retail-products/rottweiler-puppy-3987",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/dogs/products/retail-products/rottweiler-puppy-3987"
+    },
+    {
+      "id": "auto-f2e1159a2f023df5",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "Fit And Active Dry Cat Food Dry food for Cat From $22.79 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{color:var(--color-text-secondary);",
+      "species": "Cat",
+      "category": "Dry Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-11T06:07:59Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Cat Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Cat Products",
+          "url": "https://www.royalcanin.com/us/cats/products/retail-products/fit-and-active-2520",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/cats/products/retail-products/fit-and-active-2520"
+    },
+    {
+      "id": "auto-3f7e83a7df1090e2",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "Indoor Adult Dry Cat Food Dry food for Cat From $22.79 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{color:var(--color-text-secondary);di",
+      "species": "Cat",
+      "category": "Dry Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-11T06:07:59Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Cat Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Cat Products",
+          "url": "https://www.royalcanin.com/us/cats/products/retail-products/indoor-adult-2529",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/cats/products/retail-products/indoor-adult-2529"
+    },
+    {
+      "id": "auto-17e7c7357bbc12d5",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "Siamese Adult Dry Cat Food Dry food for Cat From $43.69 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{color:var(--color-text-secondary);d",
+      "species": "Cat",
+      "category": "Dry Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-11T06:07:59Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Cat Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Cat Products",
+          "url": "https://www.royalcanin.com/us/cats/products/retail-products/siamese-adult-2551",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/cats/products/retail-products/siamese-adult-2551"
+    },
     {
       "id": "auto-a48da0ede3b13d95",
       "brand": "Royal Canin",
