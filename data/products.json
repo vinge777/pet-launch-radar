@@ -1,10 +1,78 @@
 {
-  "generated_at": "2026-10-11T06:08:55Z",
+  "generated_at": "2026-10-11T13:15:26Z",
   "quality_gate": {
-    "removed": 0,
-    "kept": 59
+    "removed": 1,
+    "kept": 61
   },
   "products": [
+    {
+      "id": "auto-e1a7d895134ba57f",
+      "brand": "Nulo",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "limited ingredient wet, dry cat food",
+      "species": "Cat",
+      "category": "Food",
+      "market_region": "North America",
+      "country": "Global",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-11T13:14:27Z",
+      "newness_status": "candidate_verified",
+      "newness_type": "new_product_or_line",
+      "newness_confidence": "medium",
+      "summary": "自动扫描从 Petfood Industry Launch Watch 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "trade_media"
+      ],
+      "sources": [
+        {
+          "name": "Petfood Industry Launch Watch",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOMk54ZzFsZmw5TmNNZkxMYWNybnItREJtSkxMV2dockpRSGE5Mm5NLWpweUVOemU5ZjVROURLUjJsSGZDejJCYXpBRy1VYUg3Z04ybHBabkxFdl9yYkRmWDN1bzUxSFljMURHLXpRUThfN2FZQ3dYSHEzdUc0NUFCWE9BZ3pWcTRxWXNtMWttUFh1STN1LUpycm9ZSTdEZ1BOdzNiZXNPUG1BNnBkNXNYcXRmMW1KZjFFbnVnM2pIbTRFMGpwSHhn?oc=5",
+          "page_type": "launch_announcement"
+        }
+      ],
+      "source_published_at": "2026-09-28T19:59:39Z"
+    },
+    {
+      "id": "auto-94b285a45be62541",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "Shih Tzu Puppy Dry Dog Food Dry food for Dog From $25.64 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{color:var(--color-text-secondary);",
+      "species": "Dog",
+      "category": "Dry Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-11T13:14:27Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Dog Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Dog Products",
+          "url": "https://www.royalcanin.com/us/dogs/products/retail-products/shih-tzu-puppy-2439",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/dogs/products/retail-products/shih-tzu-puppy-2439"
+    },
     {
       "id": "auto-74bf0a615750f90f",
       "brand": "Royal Canin",
