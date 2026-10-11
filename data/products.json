@@ -1,10 +1,44 @@
 {
-  "generated_at": "2026-10-11T13:15:26Z",
+  "generated_at": "2026-10-11T22:14:55Z",
   "quality_gate": {
-    "removed": 1,
-    "kept": 61
+    "removed": 0,
+    "kept": 62
   },
   "products": [
+    {
+      "id": "auto-f2fda9081fac164e",
+      "brand": "Royal Canin",
+      "brand_origin_country": "France",
+      "origin_verified": true,
+      "product_name": "Pug Puppy Dry Dog Food Dry food for Dog From $25.64 :host{align-items:center;display:inline-flex;justify-content:center;width:auto}.rc-stock{color:var(--color-text-secondary);displ",
+      "species": "Dog",
+      "category": "Dry Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-11T22:13:55Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Royal Canin Official Dog Products 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Royal Canin Official Dog Products",
+          "url": "https://www.royalcanin.com/us/dogs/products/retail-products/pug-puppy-4130",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.royalcanin.com/us/dogs/products/retail-products/pug-puppy-4130"
+    },
     {
       "id": "auto-e1a7d895134ba57f",
       "brand": "Nulo",
