@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-12T15:54:18Z",
+  "generated_at": "2026-10-13T00:54:40Z",
   "quality_gate": {
-    "removed": 20,
+    "removed": 1,
     "kept": 68
   },
   "products": [
