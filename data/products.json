@@ -1,10 +1,112 @@
 {
-  "generated_at": "2026-10-16T11:45:03Z",
+  "generated_at": "2026-10-16T16:52:22Z",
   "quality_gate": {
-    "removed": 0,
-    "kept": 75
+    "removed": 1,
+    "kept": 78
   },
   "products": [
+    {
+      "id": "auto-440e88937c6b3e70",
+      "brand": "Hill's",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "Kitten Sensitive Stomach & Skin Salmon & Vegetables Stew Cat Food Shop Now",
+      "species": "Cat",
+      "category": "Wet Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-16T16:50:59Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Hill's Official Cat Food 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Hill's Official Cat Food",
+          "url": "https://www.hillspet.com/cat-food/science-diet-kitten-sensitive-stomach-skin-salmon-veg-stew-pouch",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.hillspet.com/cat-food/science-diet-kitten-sensitive-stomach-skin-salmon-veg-stew-pouch"
+    },
+    {
+      "id": "auto-12de3e584543f1ec",
+      "brand": "Hill's",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "Adult Sensitive Stomach & Skin Chicken & Rice Recipe Cat Food Shop Now",
+      "species": "Cat",
+      "category": "Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-16T16:50:59Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Hill's Official Cat Food 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Hill's Official Cat Food",
+          "url": "https://www.hillspet.com/cat-food/science-diet-feline-adult-sensitive-stomach-skin-chicken-dry",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.hillspet.com/cat-food/science-diet-feline-adult-sensitive-stomach-skin-chicken-dry"
+    },
+    {
+      "id": "auto-a296558917fddb67",
+      "brand": "Hill's",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "Adult Sensitive Stomach & Skin Canned Cat Food Variety Pack Shop Now",
+      "species": "Cat",
+      "category": "Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-16T16:50:59Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Hill's Official Cat Food 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Hill's Official Cat Food",
+          "url": "https://www.hillspet.com/cat-food/science-diet-adult-sensitive-stomach-skin-variety-pack-canned",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.hillspet.com/cat-food/science-diet-adult-sensitive-stomach-skin-variety-pack-canned"
+    },
     {
       "id": "auto-c5c6e302961d3feb",
       "brand": "Royal Canin",
