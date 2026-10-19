@@ -3,6 +3,8 @@
   const regionCN={'North America':'美国','Europe':'欧洲','Asia':'亚洲','South America':'南美','Global':'全球'};
   const segmentCN={food:'宠物食品',supplies:'宠物用品',industry:'行业综合'};
   const FAVORITES_KEY='petLaunchRadar.hotspotFavorites.v1';
+  const FAVORITES_BACKUP_KEY='petLaunchRadar.hotspotFavorites.backup.v1';
+  let storageError='';
   let data={items:[],source_status:[],generated_at:null};
   let view='none';
   let favorites=loadFavorites();
@@ -11,14 +13,46 @@
 
   function loadFavorites(){
     try{
-      const raw=JSON.parse(localStorage.getItem(FAVORITES_KEY)||'[]');
-      return Array.isArray(raw)?raw:[];
-    }catch(e){return []}
+      const primary=localStorage.getItem(FAVORITES_KEY);
+      const backup=localStorage.getItem(FAVORITES_BACKUP_KEY);
+      const parsed=JSON.parse(primary===null?(backup||'[]'):primary);
+      return Array.isArray(parsed)?parsed:[];
+    }catch(e){
+      storageError='收藏读取失败，可能是浏览器限制了站点存储。';
+      return [];
+    }
+  }
+
+  function writeFavorites(next){
+    try{
+      const serialized=JSON.stringify(next);
+      localStorage.setItem(FAVORITES_KEY,serialized);
+      if(localStorage.getItem(FAVORITES_KEY)!==serialized)throw new Error('本地存储未确认写入');
+      try{localStorage.setItem(FAVORITES_BACKUP_KEY,serialized)}catch(e){}
+      storageError='';
+      return true;
+    }catch(e){
+      storageError='收藏未能保存到本机：浏览器可能禁止了站点存储或空间已满。请检查浏览器设置。';
+      return false;
+    }
   }
 
   function saveFavorites(){
-    try{localStorage.setItem(FAVORITES_KEY,JSON.stringify(favorites))}catch(e){}
+    const ok=writeFavorites(favorites);
     updateFavoriteCount();
+    if(!ok) showFavoriteNotice(storageError,'error');
+    return ok;
+  }
+
+  function showFavoriteNotice(message,kind='info'){
+    const el=$('#favoriteSaveStatus');
+    if(!el)return;
+    el.textContent=message;
+    el.dataset.kind=kind;
+  }
+
+  function showStorageInfo(){
+    showFavoriteNotice(storageError||'收藏保存在当前浏览器。不同浏览器或设备不会自动同步，可用右侧导出/导入备份。',storageError?'error':'info');
   }
 
   const favoriteKey=x=>String(x?.url||x?.id||'');
@@ -35,9 +69,18 @@
 
   function toggleFavorite(item){
     const key=favoriteKey(item);if(!key)return;
-    const index=favorites.findIndex(f=>favoriteKey(f)===key);
-    if(index>=0) favorites.splice(index,1); else favorites.unshift(favoriteSnapshot(item));
-    saveFavorites();renderCurrent();
+    const next=[...favorites];
+    const index=next.findIndex(f=>favoriteKey(f)===key);
+    const removing=index>=0;
+    if(removing)next.splice(index,1);else next.unshift(favoriteSnapshot(item));
+    if(!writeFavorites(next)){
+      showFavoriteNotice(storageError,'error');
+      return;
+    }
+    favorites=next;
+    updateFavoriteCount();
+    renderCurrent();
+    showFavoriteNotice(removing?'已取消收藏，并保存更改。':'收藏已保存到当前浏览器，可刷新页面检查。','success');
   }
 
   function updateFavoriteCount(){
@@ -74,7 +117,15 @@
       <select id="hotspotRegion"><option value="all">全部地区</option><option value="North America">美国</option><option value="Europe">欧洲</option><option value="Asia">亚洲</option><option value="South America">南美</option><option value="Global">全球</option></select>
       <label class="hotspot-date-label">开始日期<input id="hotspotStart" type="date"></label>
       <label class="hotspot-date-label">结束日期<input id="hotspotEnd" type="date"></label>
-      <button id="hotspotClear" type="button">清空</button>`;
+      <button id="hotspotClear" type="button">清空</button>
+      <div class="favorite-tools" id="favoriteTools">
+        <span id="favoriteSaveStatus" role="status" aria-live="polite"></span>
+        <div class="favorite-tool-buttons">
+          <button id="exportFavorites" type="button">导出收藏备份</button>
+          <button id="importFavorites" type="button">导入收藏备份</button>
+          <input id="favoriteImportFile" type="file" accept=".json,application/json" hidden>
+        </div>
+      </div>`;
     $('#stats').insertAdjacentElement('afterend',box);
     box.querySelectorAll('.hotspot-segment-btn').forEach(btn=>btn.onclick=()=>{filters.segment=btn.dataset.segment;syncSegmentButtons();renderCurrent()});
     $('#hotspotSearch').oninput=e=>{filters.search=e.target.value.trim();renderCurrent()};
@@ -83,6 +134,45 @@
     $('#hotspotStart').onchange=e=>{filters.start=e.target.value;if(filters.end&&filters.start>filters.end){filters.end=filters.start;$('#hotspotEnd').value=filters.end}renderCurrent()};
     $('#hotspotEnd').onchange=e=>{filters.end=e.target.value;if(filters.start&&filters.end<filters.start){filters.start=filters.end;$('#hotspotStart').value=filters.start}renderCurrent()};
     $('#hotspotClear').onclick=()=>{resetFilters();renderCurrent()};
+    $('#exportFavorites').onclick=exportFavorites;
+    $('#importFavorites').onclick=()=>$('#favoriteImportFile').click();
+    $('#favoriteImportFile').onchange=async e=>{
+      const file=e.target.files?.[0];
+      if(file)await importFavorites(file);
+      e.target.value='';
+    };
+    showStorageInfo();
+  }
+
+  function exportFavorites(){
+    if(!favorites.length){showFavoriteNotice('收藏夹为空，暂无可导出的文章。','info');return}
+    const documentData={version:1,exported_at:new Date().toISOString(),favorites};
+    const blob=new Blob([JSON.stringify(documentData,null,2)],{type:'application/json;charset=utf-8'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url;a.download='PetLaunchRadar-Favorites-'+new Date().toISOString().slice(0,10)+'.json';
+    document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);
+    showFavoriteNotice('已导出 '+favorites.length+' 篇文章的收藏备份。','success');
+  }
+
+  async function importFavorites(file){
+    try{
+      const parsed=JSON.parse(await file.text());
+      const incoming=Array.isArray(parsed)?parsed:parsed?.favorites;
+      if(!Array.isArray(incoming))throw new Error('备份格式不正确');
+      const merged=new Map(favorites.map(x=>[favoriteKey(x),x]));
+      let imported=0;
+      for(const x of incoming){
+        if(!x||typeof x!=='object'||typeof x.url!=='string'||!/^https?:\/\//i.test(x.url)||!(x.title||x.title_zh))continue;
+        const key=favoriteKey(x);
+        if(!merged.has(key)){merged.set(key,{...favoriteSnapshot(x),saved_at:x.saved_at||new Date().toISOString()});imported++}
+      }
+      const next=[...merged.values()];
+      if(!writeFavorites(next)){showFavoriteNotice(storageError,'error');return}
+      favorites=next;updateFavoriteCount();renderCurrent();
+      showFavoriteNotice('导入成功，新增 '+imported+' 篇，当前收藏 '+favorites.length+' 篇。','success');
+    }catch(e){showFavoriteNotice('导入失败：'+e.message,'error')}
   }
 
   const itemDate=x=>String(x.published_at||'').slice(0,10);
@@ -167,7 +257,12 @@
       const r=await fetch('data/hotspots.json?ts='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error('热点数据读取失败');data=await r.json();
       const latestByUrl=new Map((data.items||[]).map(x=>[favoriteKey(x),x]));
       let changed=false;
-      favorites=favorites.map(f=>{const latest=latestByUrl.get(favoriteKey(f));if(!latest)return f;changed=true;return {...favoriteSnapshot(latest),saved_at:f.saved_at||new Date().toISOString()}});
+      favorites=favorites.map(f=>{
+        const latest=latestByUrl.get(favoriteKey(f));if(!latest)return f;
+        const updated={...favoriteSnapshot(latest),saved_at:f.saved_at||new Date().toISOString()};
+        if(JSON.stringify(updated)!==JSON.stringify(f))changed=true;
+        return updated;
+      });
       if(changed)saveFavorites();
       renderCurrent();
     }catch(e){if(view==='hotspots')$('#content').innerHTML=`<div class="hotspot-empty"><strong>全球热点加载失败</strong>${escapeHtml(e.message)}</div>`}
@@ -185,9 +280,10 @@
   }
 
   function openFavorites(){
-    view='favorites';filters.segment='all';prepareSpecialView();syncSegmentButtons();$('#favoriteNav').classList.add('active');
-    $('#pageTitle').textContent='我的收藏夹';$('#pageSubtitle').textContent='收藏文章支持按中文标题和英文原标题搜索，并可继续按宠物食品、宠物用品和行业综合分类查看。';
-    loadHotspots();renderCurrent();
+    view='favorites';prepareSpecialView();resetFilters();$('#favoriteNav').classList.add('active');
+    $('#pageTitle').textContent='我的收藏夹';$('#pageSubtitle').textContent='已自动清空上一个页面的筛选条件，展示当前浏览器保存的全部收藏。';
+    showStorageInfo();
+    renderCurrent();loadHotspots();
   }
 
   function leaveSpecialViews(){view='none';$('#hotspotNav')?.classList.remove('active');$('#favoriteNav')?.classList.remove('active');$('#hotspotFilters')?.classList.remove('active')}
@@ -195,6 +291,11 @@
   document.addEventListener('DOMContentLoaded',()=>{
     ensureFilters();updateFavoriteCount();$('#hotspotNav').onclick=openHotspots;$('#favoriteNav').onclick=openFavorites;
     document.querySelectorAll('.nav-item').forEach(n=>n.addEventListener('click',leaveSpecialViews));
+    window.addEventListener('storage',e=>{
+      if(e.key!==FAVORITES_KEY&&e.key!==FAVORITES_BACKUP_KEY)return;
+      favorites=loadFavorites();updateFavoriteCount();renderCurrent();
+      showFavoriteNotice('收藏已与其他标签页同步。','success');
+    });
     $('#content').addEventListener('click',e=>{
       const btn=e.target.closest('.favorite-btn');if(!btn)return;
       const key=btn.dataset.favoriteUrl||'';
