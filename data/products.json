@@ -1,10 +1,44 @@
 {
-  "generated_at": "2026-10-22T17:30:45Z",
+  "generated_at": "2026-10-22T21:53:27Z",
   "quality_gate": {
-    "removed": 0,
-    "kept": 82
+    "removed": 2,
+    "kept": 83
   },
   "products": [
+    {
+      "id": "auto-d0f12d2377b74fde",
+      "brand": "Hill's",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "Adult 7+ Tender Tuna Dinner Cat Food",
+      "species": "Cat",
+      "category": "Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-22T21:49:53Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Hill's Official Cat Food 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Hill's Official Cat Food",
+          "url": "https://www.hillspet.com/cat-food/science-diet-mature-adult-chunks-gravy-tuna-tender-dinner-canned",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.hillspet.com/cat-food/science-diet-mature-adult-chunks-gravy-tuna-tender-dinner-canned"
+    },
     {
       "id": "auto-f2401c7cf2a8320a",
       "brand": "Royal Canin",
