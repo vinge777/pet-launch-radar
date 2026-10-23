@@ -1,10 +1,78 @@
 {
-  "generated_at": "2026-10-23T05:13:00Z",
+  "generated_at": "2026-10-23T11:57:44Z",
   "quality_gate": {
-    "removed": 0,
-    "kept": 93
+    "removed": 1,
+    "kept": 95
   },
   "products": [
+    {
+      "id": "auto-184f7c0cbe042416",
+      "brand": "Lily's Kitchen",
+      "brand_origin_country": "United Kingdom",
+      "origin_verified": true,
+      "product_name": "fresh recipes taster",
+      "species": "Other",
+      "category": "Food",
+      "market_region": "Europe",
+      "country": "United Kingdom",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-23T11:54:27Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Lily's Kitchen Official 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Lily's Kitchen Official",
+          "url": "https://www.lilyskitchen.co.uk/products/fresh-recipes-taster",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.lilyskitchen.co.uk/products/fresh-recipes-taster"
+    },
+    {
+      "id": "auto-29d7d437b999df18",
+      "brand": "Lily's Kitchen",
+      "brand_origin_country": "United Kingdom",
+      "origin_verified": true,
+      "product_name": "fresh recipes selection",
+      "species": "Other",
+      "category": "Food",
+      "market_region": "Europe",
+      "country": "United Kingdom",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-23T11:54:27Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Lily's Kitchen Official 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Lily's Kitchen Official",
+          "url": "https://www.lilyskitchen.co.uk/products/fresh-recipes-selection",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.lilyskitchen.co.uk/products/fresh-recipes-selection"
+    },
     {
       "id": "auto-930ef4459a177a9e",
       "brand": "Hill's",
