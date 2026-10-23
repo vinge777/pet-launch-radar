@@ -1,10 +1,350 @@
 {
-  "generated_at": "2026-10-22T21:53:27Z",
+  "generated_at": "2026-10-23T05:13:00Z",
   "quality_gate": {
-    "removed": 2,
-    "kept": 83
+    "removed": 0,
+    "kept": 93
   },
   "products": [
+    {
+      "id": "auto-930ef4459a177a9e",
+      "brand": "Hill's",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "w/d Multi-Benefit Dry Dog Food",
+      "species": "Dog",
+      "category": "Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-23T05:09:31Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Hill's Official Dog Food 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Hill's Official Dog Food",
+          "url": "https://www.hillspet.com/dog-food/prescription-diet-wd-glucose-management-dry",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.hillspet.com/dog-food/prescription-diet-wd-glucose-management-dry"
+    },
+    {
+      "id": "auto-7ea682de35e2c519",
+      "brand": "Hill's",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "Adult Perfect Digestion Salmon & Brown Rice Recipe Cat Food",
+      "species": "Cat",
+      "category": "Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-23T05:09:31Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Hill's Official Cat Food 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Hill's Official Cat Food",
+          "url": "https://www.hillspet.com/cat-food/science-diet-adult-perfect-digestion-salmon-oats-rice-dry",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.hillspet.com/cat-food/science-diet-adult-perfect-digestion-salmon-oats-rice-dry"
+    },
+    {
+      "id": "auto-b281f2a74c71d702",
+      "brand": "Hill's",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "Adult Tender Tuna Dinner Cat Food",
+      "species": "Cat",
+      "category": "Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-23T05:09:31Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Hill's Official Cat Food 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Hill's Official Cat Food",
+          "url": "https://www.hillspet.com/cat-food/science-diet-adult-chunks-gravy-tuna-tender-dinner-canned",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.hillspet.com/cat-food/science-diet-adult-chunks-gravy-tuna-tender-dinner-canned"
+    },
+    {
+      "id": "auto-51d53a567ff3d83e",
+      "brand": "Hill's",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "c/d Multicare Stress with Ocean Fish Dry Cat Food",
+      "species": "Cat",
+      "category": "Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-23T05:09:31Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Hill's Official Cat Food 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Hill's Official Cat Food",
+          "url": "https://www.hillspet.com/cat-food/prescription-diet-cd-multicare-stress-ocean-fish-urinary-care-dry",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.hillspet.com/cat-food/prescription-diet-cd-multicare-stress-ocean-fish-urinary-care-dry"
+    },
+    {
+      "id": "auto-e65ab637ccd54818",
+      "brand": "Hill's",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "c/d Multicare with Ocean Fish Wet Cat Food",
+      "species": "Cat",
+      "category": "Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-23T05:09:31Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Hill's Official Cat Food 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Hill's Official Cat Food",
+          "url": "https://www.hillspet.com/cat-food/prescription-diet-cd-multicare-ocean-fish-urinary-care-canned",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.hillspet.com/cat-food/prescription-diet-cd-multicare-ocean-fish-urinary-care-canned"
+    },
+    {
+      "id": "auto-f9fdcc5b958517c9",
+      "brand": "Hill's",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "Hill's Prescription Diet Metabolic Weight + j/d Cat Food",
+      "species": "Cat",
+      "category": "Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-23T05:09:31Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Hill's Official Cat Food 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Hill's Official Cat Food",
+          "url": "https://www.hillspet.com/cat-food/prescription-diet-metabolic-jd-weight-management-dry",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.hillspet.com/cat-food/prescription-diet-metabolic-jd-weight-management-dry"
+    },
+    {
+      "id": "auto-b24dec69e968019f",
+      "brand": "Hill's",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "k/d + j/d Chicken & Vegetable Stew Cat Food",
+      "species": "Cat",
+      "category": "Wet Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-23T05:09:31Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Hill's Official Cat Food 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Hill's Official Cat Food",
+          "url": "https://www.hillspet.com/cat-food/prescription-diet-kd-jd-mobility-chicken-vegetable-stew-kidney-care-canned",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.hillspet.com/cat-food/prescription-diet-kd-jd-mobility-chicken-vegetable-stew-kidney-care-canned"
+    },
+    {
+      "id": "auto-8cd61b6c76c1e452",
+      "brand": "Hill's",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "k/d + z/d Hydrolyzed Chicken Flavor Cat Food",
+      "species": "Cat",
+      "category": "Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-23T05:09:31Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Hill's Official Cat Food 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Hill's Official Cat Food",
+          "url": "https://www.hillspet.com/cat-food/prescription-diet-kd-zd-hydrolyzed-chicken-kidney-care-canned",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.hillspet.com/cat-food/prescription-diet-kd-zd-hydrolyzed-chicken-kidney-care-canned"
+    },
+    {
+      "id": "auto-5e09c03c6f021985",
+      "brand": "Hill's",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "ONC Care with Chicken Dry Cat Food",
+      "species": "Cat",
+      "category": "Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-23T05:09:31Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Hill's Official Cat Food 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Hill's Official Cat Food",
+          "url": "https://www.hillspet.com/cat-food/prescription-diet-onc-on-care-chicken-restorative-care-dry",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.hillspet.com/cat-food/prescription-diet-onc-on-care-chicken-restorative-care-dry"
+    },
+    {
+      "id": "auto-112aced4d1b80933",
+      "brand": "Hill's",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "Hill's Prescription Diet t/d Chicken Flavor Cat Food",
+      "species": "Cat",
+      "category": "Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-23T05:09:31Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Hill's Official Cat Food 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Hill's Official Cat Food",
+          "url": "https://www.hillspet.com/cat-food/prescription-diet-td-dental-care-dry",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.hillspet.com/cat-food/prescription-diet-td-dental-care-dry"
+    },
     {
       "id": "auto-d0f12d2377b74fde",
       "brand": "Hill's",
