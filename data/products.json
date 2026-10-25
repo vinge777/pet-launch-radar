@@ -1,10 +1,44 @@
 {
-  "generated_at": "2026-10-24T21:02:55Z",
+  "generated_at": "2026-10-25T05:04:14Z",
   "quality_gate": {
     "removed": 0,
-    "kept": 95
+    "kept": 96
   },
   "products": [
+    {
+      "id": "auto-113e31644b835699",
+      "brand": "Native Pet",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "first cat supplement line",
+      "species": "Cat",
+      "category": "Supplements",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-25T05:03:16Z",
+      "newness_status": "candidate_verified",
+      "newness_type": "new_product_or_line",
+      "newness_confidence": "medium",
+      "summary": "自动扫描从 US web discovery 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "trade_media"
+      ],
+      "sources": [
+        {
+          "name": "US web discovery",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNeXBsdVgxWG1UbmtNcHBfTUJablU3VEwxZWN3TzNCWnJyeDBxb19faTI4OTBiWjZYQVRiMFRtMnZCSlZMWHJQaU1ySUdJd3NHWTZqd2V0eVZJZGhCS1VDX0cwTE1zZEx5c2lDOVhvT28xeWFEaE14bUFqWkN0TkNkYlphMDFhcUp2VXhrUHlDR195UWJ0UUtCZjFKT0xHZkZzR2Vab2wySlRyd3kwa3lwaFgwVkdsWE5HaHdYdno3N0xWdw?oc=5",
+          "page_type": "launch_announcement"
+        }
+      ],
+      "source_published_at": "2026-09-30T07:00:00Z"
+    },
     {
       "id": "auto-184f7c0cbe042416",
       "brand": "Lily's Kitchen",
