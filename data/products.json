@@ -1,10 +1,44 @@
 {
-  "generated_at": "2026-10-26T05:07:21Z",
+  "generated_at": "2026-10-26T13:25:25Z",
   "quality_gate": {
     "removed": 0,
-    "kept": 98
+    "kept": 99
   },
   "products": [
+    {
+      "id": "auto-c8fb0c3f856769f6",
+      "brand": "Hill's",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "Kitten with Salmon Shop Now",
+      "species": "Cat",
+      "category": "Other",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-26T13:24:47Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Hill's Official Cat Food 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Hill's Official Cat Food",
+          "url": "https://www.hillspet.com/cat-food/science-diet-kitten-salmon-canned",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.hillspet.com/cat-food/science-diet-kitten-salmon-canned"
+    },
     {
       "id": "auto-9f0181d9c1a5ed68",
       "brand": "Lily's Kitchen",
