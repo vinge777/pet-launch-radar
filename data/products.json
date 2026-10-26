@@ -1,10 +1,78 @@
 {
-  "generated_at": "2026-10-25T21:02:47Z",
+  "generated_at": "2026-10-26T05:07:21Z",
   "quality_gate": {
     "removed": 0,
-    "kept": 96
+    "kept": 98
   },
   "products": [
+    {
+      "id": "auto-9f0181d9c1a5ed68",
+      "brand": "Lily's Kitchen",
+      "brand_origin_country": "United Kingdom",
+      "origin_verified": true,
+      "product_name": "fresh recipes chicken with pork",
+      "species": "Other",
+      "category": "Food",
+      "market_region": "Europe",
+      "country": "United Kingdom",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-26T05:06:46Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Lily's Kitchen Official 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Lily's Kitchen Official",
+          "url": "https://www.lilyskitchen.co.uk/products/fresh-recipes-chicken-with-pork",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.lilyskitchen.co.uk/products/fresh-recipes-chicken-with-pork"
+    },
+    {
+      "id": "auto-23831e55f5c1603f",
+      "brand": "Lily's Kitchen",
+      "brand_origin_country": "United Kingdom",
+      "origin_verified": true,
+      "product_name": "halloween hocus pocus stew 400g",
+      "species": "Other",
+      "category": "Wet Food",
+      "market_region": "Europe",
+      "country": "United Kingdom",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-26T05:06:46Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Lily's Kitchen Official 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Lily's Kitchen Official",
+          "url": "https://www.lilyskitchen.co.uk/products/halloween-hocus-pocus-stew-400g",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.lilyskitchen.co.uk/products/halloween-hocus-pocus-stew-400g"
+    },
     {
       "id": "auto-113e31644b835699",
       "brand": "Native Pet",
