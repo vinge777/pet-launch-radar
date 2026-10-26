@@ -1,10 +1,44 @@
 {
-  "generated_at": "2026-10-26T13:25:25Z",
+  "generated_at": "2026-10-26T22:49:26Z",
   "quality_gate": {
     "removed": 0,
     "kept": 99
   },
   "products": [
+    {
+      "id": "auto-66df0b3fbf7e0340",
+      "brand": "Hill's",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "Adult Perfect Weight Small Bites Chicken & Brown Rice Recipe Dog Food",
+      "species": "Dog",
+      "category": "Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-26T22:48:50Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Hill's Official Dog Food 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Hill's Official Dog Food",
+          "url": "https://www.hillspet.com/dog-food/science-diet-puppy-lamb-meal-rice-dry",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.hillspet.com/dog-food/science-diet-puppy-lamb-meal-rice-dry"
+    },
     {
       "id": "auto-c8fb0c3f856769f6",
       "brand": "Hill's",
@@ -894,40 +928,6 @@
       ],
       "product_url": "https://www.zooplus.com/shop/dogs/dry_dog_food/macs/1948066",
       "review_count_at_detection": 5
-    },
-    {
-      "id": "auto-71f0307f97b3f27b",
-      "brand": "Hill's",
-      "brand_origin_country": "United States",
-      "origin_verified": true,
-      "product_name": "Adult Perfect Weight Small Bites Chicken & Brown Rice Recipe Dog Food",
-      "species": "Dog",
-      "category": "Food",
-      "market_region": "North America",
-      "country": "United States",
-      "launch_date": null,
-      "launch_date_verified": false,
-      "first_seen_at": "2026-10-15T21:35:50Z",
-      "newness_status": "verified",
-      "newness_type": "new_product_or_sku",
-      "newness_confidence": "high",
-      "summary": "自动扫描从 Hill's Official Dog Food 发现。品牌官方或行业新品发布信号明确。",
-      "tags": [
-        "Auto-verified",
-        "Launch Signal"
-      ],
-      "image_url": "",
-      "evidence": [
-        "official"
-      ],
-      "sources": [
-        {
-          "name": "Hill's Official Dog Food",
-          "url": "https://www.hillspet.com/dog-food/science-diet-senior-11-small-paws-dry",
-          "page_type": "product_detail"
-        }
-      ],
-      "product_url": "https://www.hillspet.com/dog-food/science-diet-senior-11-small-paws-dry"
     },
     {
       "id": "auto-cef9f2d4c61c5f90",
