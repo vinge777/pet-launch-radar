@@ -1,10 +1,44 @@
 {
-  "generated_at": "2026-10-27T12:32:17Z",
+  "generated_at": "2026-10-27T22:28:29Z",
   "quality_gate": {
     "removed": 0,
-    "kept": 99
+    "kept": 100
   },
   "products": [
+    {
+      "id": "auto-3d32a00cd5b1db94",
+      "brand": "Lily's Kitchen",
+      "brand_origin_country": "United Kingdom",
+      "origin_verified": true,
+      "product_name": "halloween hocus pocus stew 6 x 400g",
+      "species": "Other",
+      "category": "Wet Food",
+      "market_region": "Europe",
+      "country": "United Kingdom",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-27T22:27:51Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Lily's Kitchen Official 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Lily's Kitchen Official",
+          "url": "https://www.lilyskitchen.co.uk/products/halloween-hocus-pocus-stew-6-x-400g",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.lilyskitchen.co.uk/products/halloween-hocus-pocus-stew-6-x-400g"
+    },
     {
       "id": "auto-66df0b3fbf7e0340",
       "brand": "Hill's",
