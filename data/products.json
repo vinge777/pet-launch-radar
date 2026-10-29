@@ -1,10 +1,44 @@
 {
-  "generated_at": "2026-10-29T06:10:06Z",
+  "generated_at": "2026-10-29T13:29:46Z",
   "quality_gate": {
     "removed": 0,
-    "kept": 100
+    "kept": 101
   },
   "products": [
+    {
+      "id": "auto-b9b029be84280a6b",
+      "brand": "RAWZ",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "Natural Pet Food Lickable Cat Treats Featuring Goat’s Milk, Green Mussels",
+      "species": "Cat",
+      "category": "Treats",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-29T13:29:10Z",
+      "newness_status": "candidate_verified",
+      "newness_type": "new_product_or_line",
+      "newness_confidence": "medium",
+      "summary": "自动扫描从 Pet Age Launch Watch 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "trade_media"
+      ],
+      "sources": [
+        {
+          "name": "Pet Age Launch Watch",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE0xVFFERVlRQjd2aXFfc0NLUDF4Rld0cktnZ1FhbjFzNzgxUVJoTWxONXJjMTV6Uk9VYnRjUVhQZC1hUEtvZHI0VXFKZEVtX25yWURrd3lPN3dZX0NXNXB5Qk15SlBXU3I3T3UtZnhfTkpRSGk3YlJENDYwV2QwcUE?oc=5",
+          "page_type": "launch_announcement"
+        }
+      ],
+      "source_published_at": "2026-09-30T07:00:00Z"
+    },
     {
       "id": "auto-3d32a00cd5b1db94",
       "brand": "Lily's Kitchen",
