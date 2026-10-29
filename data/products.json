@@ -1,10 +1,44 @@
 {
-  "generated_at": "2026-10-29T13:29:46Z",
+  "generated_at": "2026-10-29T22:54:45Z",
   "quality_gate": {
     "removed": 0,
-    "kept": 101
+    "kept": 102
   },
   "products": [
+    {
+      "id": "auto-bfe170ec19fb0e72",
+      "brand": "Stella & Chewy's",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "Stella & Chewy's",
+      "species": "Other",
+      "category": "Treats",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-10-29T22:54:07Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Stella & Chewy's Official 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Stella & Chewy's Official",
+          "url": "https://www.stellaandchewys.com/tools/recurring/login/",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.stellaandchewys.com/tools/recurring/login/"
+    },
     {
       "id": "auto-b9b029be84280a6b",
       "brand": "RAWZ",
