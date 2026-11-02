@@ -1,10 +1,146 @@
 {
-  "generated_at": "2026-11-02T06:35:05Z",
+  "generated_at": "2026-11-02T21:51:49Z",
   "quality_gate": {
     "removed": 0,
-    "kept": 102
+    "kept": 106
   },
   "products": [
+    {
+      "id": "auto-089105f49cfe4dea",
+      "brand": "Lily's Kitchen",
+      "brand_origin_country": "United Kingdom",
+      "origin_verified": true,
+      "product_name": "Christmas",
+      "species": "Other",
+      "category": "Other",
+      "market_region": "Europe",
+      "country": "United Kingdom",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-11-02T21:51:10Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Lily's Kitchen Official 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Lily's Kitchen Official",
+          "url": "https://www.lilyskitchen.co.uk/collections/dog-christmas-menu",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.lilyskitchen.co.uk/collections/dog-christmas-menu"
+    },
+    {
+      "id": "auto-fde8fccf26137bd6",
+      "brand": "Lily's Kitchen",
+      "brand_origin_country": "United Kingdom",
+      "origin_verified": true,
+      "product_name": "turkey christmas dinner 400g",
+      "species": "Other",
+      "category": "Other",
+      "market_region": "Europe",
+      "country": "United Kingdom",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-11-02T21:51:10Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Lily's Kitchen Official 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Lily's Kitchen Official",
+          "url": "https://www.lilyskitchen.co.uk/products/turkey-christmas-dinner-400g",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.lilyskitchen.co.uk/products/turkey-christmas-dinner-400g"
+    },
+    {
+      "id": "auto-ced72204543e19c1",
+      "brand": "Lily's Kitchen",
+      "brand_origin_country": "United Kingdom",
+      "origin_verified": true,
+      "product_name": "festive turkey jerky 70g",
+      "species": "Other",
+      "category": "Treats",
+      "market_region": "Europe",
+      "country": "United Kingdom",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-11-02T21:51:10Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Lily's Kitchen Official 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Lily's Kitchen Official",
+          "url": "https://www.lilyskitchen.co.uk/products/festive-turkey-jerky-70g",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.lilyskitchen.co.uk/products/festive-turkey-jerky-70g"
+    },
+    {
+      "id": "auto-95ae62761a019c22",
+      "brand": "Lily's Kitchen",
+      "brand_origin_country": "United Kingdom",
+      "origin_verified": true,
+      "product_name": "turkey christmas dinner 6 x 400g",
+      "species": "Other",
+      "category": "Other",
+      "market_region": "Europe",
+      "country": "United Kingdom",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-11-02T21:51:10Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Lily's Kitchen Official 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Lily's Kitchen Official",
+          "url": "https://www.lilyskitchen.co.uk/products/turkey-christmas-dinner-6-x-400g",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.lilyskitchen.co.uk/products/turkey-christmas-dinner-6-x-400g"
+    },
     {
       "id": "auto-bfe170ec19fb0e72",
       "brand": "Stella & Chewy's",
