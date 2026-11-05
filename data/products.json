@@ -1,10 +1,44 @@
 {
-  "generated_at": "2026-11-05T07:09:15Z",
+  "generated_at": "2026-11-05T20:11:40Z",
   "quality_gate": {
     "removed": 0,
-    "kept": 106
+    "kept": 107
   },
   "products": [
+    {
+      "id": "auto-9ca0dbdb4bbf70fb",
+      "brand": "Hill's",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "Adult 7+ Turkey & Barley Entrée Dog Food",
+      "species": "Dog",
+      "category": "Food",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-11-05T20:11:00Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Hill's Official Dog Food 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Hill's Official Dog Food",
+          "url": "https://www.hillspet.com/dog-food/science-diet-mature-adult-turkey-canned",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.hillspet.com/dog-food/science-diet-mature-adult-turkey-canned"
+    },
     {
       "id": "auto-089105f49cfe4dea",
       "brand": "Lily's Kitchen",
