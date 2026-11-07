@@ -2,7 +2,7 @@ name: Daily multi-channel pet intelligence scan
 
 on:
   schedule:
-    - cron: '30 0,6,12,18 * * *' # every 6h; reduces delay risk of scheduled runs
+    - cron: '17 0,6,12,18 * * *' # every 6h; reduces delay risk of scheduled runs
   workflow_dispatch:
     inputs:
       channel_scope:
@@ -45,6 +45,7 @@ concurrency:
 jobs:
   scan:
     runs-on: ubuntu-latest
+    timeout-minutes: 50
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -107,3 +108,42 @@ jobs:
             git commit -m "chore: update pet intelligence data"
             git push origin main
           fi
+
+  deploy:
+    name: Publish refreshed intelligence to Pages
+    needs: scan
+    if: ${{ needs.scan.result == 'success' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout latest published intelligence
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+      - name: Confirm latest generated data is checked out
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for filename in ('products.json', 'source-status.json', 'hotspots.json'):
+              data = json.loads((Path('data') / filename).read_text(encoding='utf-8'))
+              print(f'{filename} generated_at: {data.get("generated_at")}')
+          PY
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - name: Upload latest site and data
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: .
+      - name: Deploy current scan to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
