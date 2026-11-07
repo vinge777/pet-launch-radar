@@ -17,3 +17,11 @@ button,input,select{font:inherit}.shell{display:grid;grid-template-columns:260px
 .coverage-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.panel h3{margin:0 0 14px;font-size:14px}.source-row{display:grid;grid-template-columns:1fr 110px 90px 90px;gap:10px;align-items:center;padding:10px 0;border-top:1px solid #eef0f2;font-size:11px}.source-row:first-of-type{border-top:0}.status-ok{color:#1a7a5d;font-weight:700}.status-warn{color:#a56c13;font-weight:700}.brand-table{width:100%;border-collapse:collapse}.brand-table th,.brand-table td{font-size:11px;text-align:left;padding:10px;border-top:1px solid #eef0f2}.brand-table th{color:#7a838c;font-weight:600}.brand-table tr:first-child th{border-top:0}
 @media(max-width:1100px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.filters{grid-template-columns:1fr 1fr 1fr}.search-wrap{grid-column:1/-1}.stats{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){.shell{display:block}.sidebar{position:static;height:auto;padding:18px}.nav{grid-template-columns:repeat(5,1fr);overflow:auto}.nav-item{font-size:0;justify-content:center}.nav-item span{font-size:18px}.sidebar-note{display:none}.main{padding:22px 16px}.topbar{display:block}.scan-box{margin-top:16px;width:max-content}.product-grid{grid-template-columns:1fr}.filters{grid-template-columns:1fr 1fr}.search-wrap{grid-column:1/-1}.stats{grid-template-columns:repeat(2,1fr)}.coverage-grid{grid-template-columns:1fr}.source-row{grid-template-columns:1fr 80px}.source-row>*:nth-child(3),.source-row>*:nth-child(4){display:none}}
+
+/* Publish freshness: show stale scans instead of silently displaying old data. */
+.scan-box.scan-stale{border-color:#d98982;background:#fff4f2}
+.scan-box.scan-stale .pulse{background:#ce4444;box-shadow:0 0 0 5px #ffe0dc}
+.scan-box.scan-stale #scanHealth{color:#a92b2b;font-weight:700}
+.scan-box.scan-degraded{border-color:#d8b765;background:#fffaf0}
+.scan-box.scan-degraded .pulse{background:#d19428;box-shadow:0 0 0 5px #fff0c8}
+.scan-box.scan-degraded #scanHealth{color:#97721f}
