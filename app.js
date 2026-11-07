@@ -21,6 +21,35 @@ function newnessLabel(p){
  return p.newness_status==='retailer_new'?'渠道新上架':'新品';
 }
 
+const formatScanTime=value=>new Date(value).toLocaleString('zh-CN',{timeZone:'Asia/Shanghai',hour12:false});
+let lastPublishedRefresh=0;
+function updateScanHealth(scanTime,sources){
+  const el=$('#lastScan'),hint=$('#scanHealth'),box=$('#scanBox');
+  if(!el)return;
+  if(!scanTime||!Number.isFinite(new Date(scanTime).getTime())){
+    el.textContent='暂无有效扫描时间';
+    if(hint)hint.textContent='扫描数据不可用';
+    if(box)box.classList.add('scan-stale');
+    return;
+  }
+  const ageHours=Math.max(0,(Date.now()-new Date(scanTime).getTime())/3600000);
+  const ok=(sources||[]).filter(x=>x.status==='ok').length,total=(sources||[]).length;
+  el.textContent=formatScanTime(scanTime)+' 北京时间';
+  if(hint)hint.textContent=ageHours>12?'⚠ 已超过12小时未发布新数据':ageHours>8?'⚠ 更新延迟':`已更新 · ${ok}/${total} 源正常`;
+  if(box){box.classList.toggle('scan-stale',ageHours>12);box.classList.toggle('scan-degraded',ageHours>8&&ageHours<=12);}
+  el.title=`已发布的扫描数据时间：${formatScanTime(scanTime)}。来源：${ok}/${total} 正常，${total-ok} 需检查。`;
+}
+async function autoRefreshVisibleData(){
+  if(document.hidden||document.querySelector('#hotspotNav.active,#favoriteNav.active'))return;
+  if(Date.now()-lastPublishedRefresh<5*60*1000)return;
+  lastPublishedRefresh=Date.now();
+  try{await fetchData();render()}catch(e){
+    const hint=$('#scanHealth');
+    if(hint)hint.textContent='⚠ 读取最新数据失败';
+    console.warn('自动检查已发布数据失败',e);
+  }
+}
+
 async function fetchData(){
   const ts=Date.now();
   const [p,s,b]=await Promise.all([
@@ -30,16 +59,19 @@ async function fetchData(){
   ]);
   state.products=p.products||[]; state.sources=s.sources||[]; state.brands=b.brands||[]; state.lastScanScope=s.last_scan_scope||'all';
   const scanTime=s.generated_at||p.generated_at;
-  $('#lastScan').textContent=scanTime?new Date(scanTime).toLocaleString('zh-CN',{hour12:false}):'暂无';
+  updateScanHealth(scanTime,state.sources);
   setupCategories();
   return scanTime;
 }
 
 async function load(){
   await fetchData();
+  lastPublishedRefresh=Date.now();
   bind();
   bindSettings();
   render();
+  setInterval(autoRefreshVisibleData,15*60*1000);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)autoRefreshVisibleData()});
 }
 function setupCategories(){
  const current=state.category;
@@ -77,7 +109,7 @@ async function refreshPublishedData(){
  try{
    const scanTime=await fetchData();render();
    status.className='settings-status success';
-   status.textContent=`刷新完成${scanTime?' · 最近扫描 '+new Date(scanTime).toLocaleString('zh-CN',{hour12:false}):''}`;
+   status.textContent=`刷新完成${scanTime?' · 最近扫描 '+formatScanTime(scanTime):''}`;
  }catch(e){status.className='settings-status error';status.textContent='刷新失败：'+e.message}
  finally{btn.disabled=false}
 }
