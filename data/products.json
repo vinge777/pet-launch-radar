@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-09T06:26:00Z",
+  "generated_at": "2026-11-09T22:21:40Z",
   "quality_gate": {
-    "removed": 0,
-    "kept": 106
+    "removed": 2,
+    "kept": 104
   },
   "products": [
     {
@@ -210,40 +210,6 @@
       "product_url": "https://www.stellaandchewys.com/tools/recurring/login/"
     },
     {
-      "id": "auto-b9b029be84280a6b",
-      "brand": "RAWZ",
-      "brand_origin_country": "United States",
-      "origin_verified": true,
-      "product_name": "Natural Pet Food Lickable Cat Treats Featuring Goat’s Milk, Green Mussels",
-      "species": "Cat",
-      "category": "Treats",
-      "market_region": "North America",
-      "country": "United States",
-      "launch_date": null,
-      "launch_date_verified": false,
-      "first_seen_at": "2026-10-29T13:29:10Z",
-      "newness_status": "candidate_verified",
-      "newness_type": "new_product_or_line",
-      "newness_confidence": "medium",
-      "summary": "自动扫描从 Pet Age Launch Watch 发现。品牌官方或行业新品发布信号明确。",
-      "tags": [
-        "Auto-verified",
-        "Launch Signal"
-      ],
-      "image_url": "",
-      "evidence": [
-        "trade_media"
-      ],
-      "sources": [
-        {
-          "name": "Pet Age Launch Watch",
-          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE0xVFFERVlRQjd2aXFfc0NLUDF4Rld0cktnZ1FhbjFzNzgxUVJoTWxONXJjMTV6Uk9VYnRjUVhQZC1hUEtvZHI0VXFKZEVtX25yWURrd3lPN3dZX0NXNXB5Qk15SlBXU3I3T3UtZnhfTkpRSGk3YlJENDYwV2QwcUE?oc=5",
-          "page_type": "launch_announcement"
-        }
-      ],
-      "source_published_at": "2026-09-30T07:00:00Z"
-    },
-    {
       "id": "auto-3d32a00cd5b1db94",
       "brand": "Lily's Kitchen",
       "brand_origin_country": "United Kingdom",
@@ -412,40 +378,6 @@
         }
       ],
       "product_url": "https://www.lilyskitchen.co.uk/products/halloween-hocus-pocus-stew-400g"
-    },
-    {
-      "id": "auto-113e31644b835699",
-      "brand": "Native Pet",
-      "brand_origin_country": "United States",
-      "origin_verified": true,
-      "product_name": "first cat supplement line",
-      "species": "Cat",
-      "category": "Supplements",
-      "market_region": "North America",
-      "country": "United States",
-      "launch_date": null,
-      "launch_date_verified": false,
-      "first_seen_at": "2026-10-25T05:03:16Z",
-      "newness_status": "candidate_verified",
-      "newness_type": "new_product_or_line",
-      "newness_confidence": "medium",
-      "summary": "自动扫描从 US web discovery 发现。品牌官方或行业新品发布信号明确。",
-      "tags": [
-        "Auto-verified",
-        "Launch Signal"
-      ],
-      "image_url": "",
-      "evidence": [
-        "trade_media"
-      ],
-      "sources": [
-        {
-          "name": "US web discovery",
-          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNeXBsdVgxWG1UbmtNcHBfTUJablU3VEwxZWN3TzNCWnJyeDBxb19faTI4OTBiWjZYQVRiMFRtMnZCSlZMWHJQaU1ySUdJd3NHWTZqd2V0eVZJZGhCS1VDX0cwTE1zZEx5c2lDOVhvT28xeWFEaE14bUFqWkN0TkNkYlphMDFhcUp2VXhrUHlDR195UWJ0UUtCZjFKT0xHZkZzR2Vab2wySlRyd3kwa3lwaFgwVkdsWE5HaHdYdno3N0xWdw?oc=5",
-          "page_type": "launch_announcement"
-        }
-      ],
-      "source_published_at": "2026-09-30T07:00:00Z"
     },
     {
       "id": "auto-184f7c0cbe042416",
