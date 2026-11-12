@@ -1,10 +1,44 @@
 {
-  "generated_at": "2026-11-11T14:30:54Z",
+  "generated_at": "2026-11-12T00:43:15Z",
   "quality_gate": {
     "removed": 0,
-    "kept": 104
+    "kept": 105
   },
   "products": [
+    {
+      "id": "auto-93a1bb13db283e22",
+      "brand": "Blue Buffalo",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "Thanksgiving dinnerware with dog bowl",
+      "species": "Dog",
+      "category": "Accessories",
+      "market_region": "North America",
+      "country": "Global",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-11-12T00:42:34Z",
+      "newness_status": "candidate_verified",
+      "newness_type": "new_product_or_line",
+      "newness_confidence": "medium",
+      "summary": "自动扫描从 Petfood Industry Launch Watch 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "trade_media"
+      ],
+      "sources": [
+        {
+          "name": "Petfood Industry Launch Watch",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPekotaUlUQjNNOHdrdHd5dmVsS2dYaFNHeEg1UFdocVRBSlYzeW1XV2s4a2MxVGdiSHRKekg0a1RNMEpQQ05FQUV5MWVCcVBmODNzVWlsTEpFeVFwOGJxNFhlVEtRWlNWckc0cUgzYlJvN2JnbHhva1o0QVVrc3hEcEJwOUFHZThHNnNESnF2aDQ4YUZ6aDJ6cVM2U2FOUE94SXdFUmtRZjhZNl9LVEpINV9kTVB2cDhmLWRJeGxmbi1wNDFtR0hQOHl6U3B1Vjdv?oc=5",
+          "page_type": "launch_announcement"
+        }
+      ],
+      "source_published_at": "2026-11-11T22:07:05Z"
+    },
     {
       "id": "auto-9ca0dbdb4bbf70fb",
       "brand": "Hill's",
