@@ -1,10 +1,44 @@
 {
-  "generated_at": "2026-11-13T06:44:05Z",
+  "generated_at": "2026-11-13T19:41:34Z",
   "quality_gate": {
     "removed": 0,
-    "kept": 105
+    "kept": 106
   },
   "products": [
+    {
+      "id": "auto-e31b73847d9d2cb9",
+      "brand": "Purina",
+      "brand_origin_country": "United States",
+      "origin_verified": true,
+      "product_name": "Pro Plan Veterinary New Cat Care Nutrition, Supplement Innovations",
+      "species": "Cat",
+      "category": "Supplements",
+      "market_region": "North America",
+      "country": "United States",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-11-13T19:40:52Z",
+      "newness_status": "candidate_verified",
+      "newness_type": "new_product_or_line",
+      "newness_confidence": "medium",
+      "summary": "自动扫描从 Pet Age Launch Watch 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "trade_media"
+      ],
+      "sources": [
+        {
+          "name": "Pet Age Launch Watch",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPajUwU3hqMHBqT2pCVGJ2NEJ5aXlVTUx6dG5paWdMWjNPT0RuN2JBQThMZWFPaUl2WWZDeE5HRUdxeklQb0YwekYwdTBCcDVLOTJ6RWVyN21Hc1lBbGFKQUN1Y3cwNGVtMnBlSmtOTGs4QVMwX2p3MkZwUmF0UlM5dFJ2aUt5dXlHV05HakM5elBWbEN5R3paZjdaTW1tQU1NS0M4ZzBsMA?oc=5",
+          "page_type": "launch_announcement"
+        }
+      ],
+      "source_published_at": "2026-11-13T15:12:19Z"
+    },
     {
       "id": "auto-93a1bb13db283e22",
       "brand": "Blue Buffalo",
