@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T22:23:40Z",
+  "generated_at": "2026-11-15T06:30:53Z",
   "last_scan_scope": "all",
   "items": [
     {
@@ -129,7 +129,7 @@
       "food_priority": 3
     },
     {
-      "id": "research-circana-4210686853025127754",
+      "id": "research-circana-4510287669600911971",
       "title": "The Feeling’s Mutual: How Pet Wellness Benefits Both Pets and Their Humans",
       "title_zh": "感觉是相互的：宠物健康如何使宠物及其人类受益",
       "summary": "Circana data highlights pet wellness and humanization trends, including sustained double-digit growth in refrigerated and frozen pet food and rising demand for supplements and preventive-care products.",
@@ -143,7 +143,7 @@
       "country": "United States",
       "topic": "研究 / 报告",
       "published_at": "2026-04-08T00:00:00Z",
-      "discovered_at": "2026-11-14T22:25:00Z",
+      "discovered_at": "2026-11-15T06:32:25Z",
       "segment": "food",
       "segment_zh": "宠物食品",
       "subcategory_zh": "营养补充",
@@ -151,7 +151,7 @@
       "research_source": true
     },
     {
-      "id": "research-mintel-305589446263491191",
+      "id": "research-mintel-6287111783742242451",
       "title": "A Year of Innovation in Pet Food 2026",
       "title_zh": "2026 年宠物食品创新年",
       "summary": "Mintel reviews pet-food innovation across regions, including high-protein claims, novel ingredients, functionality, sustainability and fortified-product launches.",
@@ -165,7 +165,7 @@
       "country": "Global",
       "topic": "研究 / 报告",
       "published_at": "2026-03-12T14:01:06Z",
-      "discovered_at": "2026-11-14T22:25:00Z",
+      "discovered_at": "2026-11-15T06:32:25Z",
       "segment": "food",
       "segment_zh": "宠物食品",
       "subcategory_zh": "原料 / 营养科研",
@@ -173,7 +173,7 @@
       "research_source": true
     },
     {
-      "id": "research-mintel-3084199789775987418",
+      "id": "research-mintel-4625658082349112588",
       "title": "The Future of Pet Food 2026",
       "title_zh": "宠物食品的未来 2026",
       "summary": "Mintel examines the next five years of pet-food development, including environment-first nutrition, fresh food, personalization, playful treat formats and nutrient-dense upcycled ingredients.",
@@ -187,7 +187,7 @@
       "country": "Global",
       "topic": "研究 / 报告",
       "published_at": "2026-02-10T12:01:35Z",
-      "discovered_at": "2026-11-14T22:25:00Z",
+      "discovered_at": "2026-11-15T06:32:25Z",
       "segment": "food",
       "segment_zh": "宠物食品",
       "subcategory_zh": "零食 / 洁齿",
@@ -258,7 +258,7 @@
       "food_priority": 3
     },
     {
-      "id": "research-fediaf-6437490628077657341",
+      "id": "research-fediaf-458013907462454509",
       "title": "FEDIAF Nutritional Guidelines for Complete and Complementary Pet Food for Cats and Dogs",
       "title_zh": "FEDIAF 猫狗完整补充宠物食品营养指南",
       "summary": "FEDIAF's peer-reviewed nutritional guidelines summarize nutrient requirements and provide a practical reference for evaluating complete and complementary cat and dog foods in Europe.",
@@ -272,7 +272,7 @@
       "country": "Europe",
       "topic": "研究 / 报告",
       "published_at": null,
-      "discovered_at": "2026-11-14T22:25:00Z",
+      "discovered_at": "2026-11-15T06:32:25Z",
       "segment": "food",
       "segment_zh": "宠物食品",
       "subcategory_zh": "原料 / 营养科研",
@@ -280,7 +280,7 @@
       "research_source": true
     },
     {
-      "id": "research-kstate-petfood-937914829297433540",
+      "id": "research-kstate-petfood-4033830128726988820",
       "title": "Animal Feed and Pet Food Research",
       "title_zh": "动物饲料和宠物食品研究",
       "summary": "Kansas State University's pet-food research covers processing effects on resistant starch and digestibility, microbiome health, grain ingredients, probiotics, food safety, wet pet food and shelf life.",
@@ -294,7 +294,7 @@
       "country": "United States",
       "topic": "研究 / 报告",
       "published_at": null,
-      "discovered_at": "2026-11-14T22:25:00Z",
+      "discovered_at": "2026-11-15T06:32:25Z",
       "segment": "food",
       "segment_zh": "宠物食品",
       "subcategory_zh": "营养补充",
@@ -344,7 +344,7 @@
       "food_priority": 2
     },
     {
-      "id": "research-appa-2428351611188316714",
+      "id": "research-appa-7770030047700161116",
       "title": "U.S. Pet Industry Reaches $158 Billion in 2025, Poised for Continued Growth in 2026",
       "title_zh": "2025 年美国宠物行业将达到 1580 亿美元，并有望在 2026 年持续增长",
       "summary": "APPA's 2026 State of the Industry Report analyzes U.S. pet-industry spending, ownership trends, consumer behavior and generational shifts, including category expenditure outlooks.",
@@ -358,7 +358,7 @@
       "country": "United States",
       "topic": "研究 / 报告",
       "published_at": "2026-03-26T00:00:00Z",
-      "discovered_at": "2026-11-14T22:25:00Z",
+      "discovered_at": "2026-11-15T06:32:25Z",
       "segment": "industry",
       "segment_zh": "行业综合",
       "subcategory_zh": "行业综合",
@@ -618,7 +618,7 @@
       "food_priority": 2
     },
     {
-      "id": "research-euromonitor-3678881890776097631",
+      "id": "research-euromonitor-1218391308057941091",
       "title": "The World Market for Pet Care",
       "title_zh": "世界宠物护理市场",
       "summary": "Euromonitor's July 2026 global report examines pet-care growth, premiumisation, channel evolution, changing pet demographics and category opportunities through 2031.",
@@ -632,7 +632,7 @@
       "country": "Global",
       "topic": "研究 / 报告",
       "published_at": null,
-      "discovered_at": "2026-11-14T22:25:00Z",
+      "discovered_at": "2026-11-15T06:32:25Z",
       "segment": "industry",
       "segment_zh": "行业综合",
       "subcategory_zh": "行业综合",
@@ -640,7 +640,7 @@
       "research_source": true
     },
     {
-      "id": "research-euromonitor-5365833111372203554",
+      "id": "research-euromonitor-4612144767979893675",
       "title": "Top Five Trends in Pet Care",
       "title_zh": "宠物护理的五大趋势",
       "summary": "Euromonitor's September 2026 report analyzes affordability pressure, premiumisation, changing pet demographics, challenger brands and AI-enabled consumer engagement in pet care.",
@@ -654,7 +654,7 @@
       "country": "Global",
       "topic": "研究 / 报告",
       "published_at": null,
-      "discovered_at": "2026-11-14T22:25:00Z",
+      "discovered_at": "2026-11-15T06:32:25Z",
       "segment": "industry",
       "segment_zh": "行业综合",
       "subcategory_zh": "行业综合",
@@ -839,8 +839,8 @@
       "items_found": 0
     },
     {
-      "id": "research-purina-institute",
-      "name": "Purina Institute",
+      "id": "research-waltham",
+      "name": "WALTHAM Petcare Science Institute",
       "channel_type": "research_institute",
       "status": "error",
       "items_found": 0,
@@ -855,8 +855,8 @@
       "error": "HTTP Error 503: Service Unavailable"
     },
     {
-      "id": "research-waltham",
-      "name": "WALTHAM Petcare Science Institute",
+      "id": "research-circana",
+      "name": "Circana Pet Care Insights",
       "channel_type": "research_institute",
       "status": "error",
       "items_found": 0,
@@ -879,8 +879,8 @@
       "error": "HTTP Error 503: Service Unavailable"
     },
     {
-      "id": "research-circana",
-      "name": "Circana Pet Care Insights",
+      "id": "research-purina-institute",
+      "name": "Purina Institute",
       "channel_type": "research_institute",
       "status": "error",
       "items_found": 0,
@@ -895,16 +895,16 @@
       "error": "HTTP Error 503: Service Unavailable"
     },
     {
-      "id": "research-euromonitor",
-      "name": "Euromonitor Pet Care Research",
+      "id": "research-habri",
+      "name": "Human Animal Bond Research Institute",
       "channel_type": "research_institute",
       "status": "error",
       "items_found": 0,
       "error": "HTTP Error 503: Service Unavailable"
     },
     {
-      "id": "research-habri",
-      "name": "Human Animal Bond Research Institute",
+      "id": "research-euromonitor",
+      "name": "Euromonitor Pet Care Research",
       "channel_type": "research_institute",
       "status": "error",
       "items_found": 0,
@@ -919,7 +919,7 @@
       "error": "HTTP Error 503: Service Unavailable"
     }
   ],
-  "research_scan_at": "2026-11-14T22:25:19Z",
+  "research_scan_at": "2026-11-15T06:32:42Z",
   "segment_counts": {
     "food": 14,
     "supplies": 1,

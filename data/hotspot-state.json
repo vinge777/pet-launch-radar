@@ -1,115 +1,115 @@
 {
-  "generated_at": "2026-11-14T22:23:40Z",
+  "generated_at": "2026-11-15T06:30:53Z",
   "last_scan_scope": "all",
   "sources": {
     "hot-brand-purina": {
       "status": "ok",
-      "checked_at": "2026-11-14T22:23:40Z",
+      "checked_at": "2026-11-15T06:30:53Z",
       "items_found": 6
     },
     "hot-brand-unicharm": {
       "status": "ok",
-      "checked_at": "2026-11-14T22:23:40Z",
+      "checked_at": "2026-11-15T06:30:53Z",
       "items_found": 10
     },
     "hot-specialty-chewy": {
       "status": "ok",
-      "checked_at": "2026-11-14T22:23:40Z",
+      "checked_at": "2026-11-15T06:30:53Z",
       "items_found": 3
     },
     "hot-specialty-petco": {
       "status": "ok",
-      "checked_at": "2026-11-14T22:23:40Z",
+      "checked_at": "2026-11-15T06:30:53Z",
       "items_found": 11
     },
     "hot-specialty-pah": {
       "status": "ok",
-      "checked_at": "2026-11-14T22:23:40Z",
+      "checked_at": "2026-11-15T06:30:53Z",
       "items_found": 1
     },
     "hot-mass-walmart": {
       "status": "ok",
-      "checked_at": "2026-11-14T22:23:40Z",
+      "checked_at": "2026-11-15T06:30:53Z",
       "items_found": 0
     },
     "hot-mass-target": {
       "status": "ok",
-      "checked_at": "2026-11-14T22:23:40Z",
+      "checked_at": "2026-11-15T06:30:53Z",
       "items_found": 0
     },
     "hot-mass-carrefour": {
       "status": "error",
-      "checked_at": "2026-11-14T22:23:40Z",
+      "checked_at": "2026-11-15T06:30:53Z",
       "error": "HTTP Error 403: Forbidden"
     },
     "hot-drugstore-dm": {
       "status": "ok",
-      "checked_at": "2026-11-14T22:23:40Z",
+      "checked_at": "2026-11-15T06:30:53Z",
       "items_found": 0
     },
     "hot-drugstore-rossmann": {
       "status": "ok",
-      "checked_at": "2026-11-14T22:23:40Z",
+      "checked_at": "2026-11-15T06:30:53Z",
       "items_found": 0
     },
     "hot-market-rakuten": {
       "status": "ok",
-      "checked_at": "2026-11-14T22:23:40Z",
+      "checked_at": "2026-11-15T06:30:53Z",
       "items_found": 0
     },
     "hot-market-amazon": {
       "status": "ok",
-      "checked_at": "2026-11-14T22:23:40Z",
+      "checked_at": "2026-11-15T06:30:53Z",
       "items_found": 0
     },
     "hot-trade-global": {
       "status": "error",
-      "checked_at": "2026-11-14T22:23:40Z",
+      "checked_at": "2026-11-15T06:30:53Z",
       "error": "HTTP Error 503: Service Unavailable"
     },
     "hot-trade-us": {
       "status": "error",
-      "checked_at": "2026-11-14T22:23:40Z",
+      "checked_at": "2026-11-15T06:30:53Z",
       "error": "HTTP Error 503: Service Unavailable"
     },
     "hot-trade-eu": {
       "status": "error",
-      "checked_at": "2026-11-14T22:23:40Z",
+      "checked_at": "2026-11-15T06:30:53Z",
       "error": "HTTP Error 503: Service Unavailable"
     },
     "hot-trade-asia": {
       "status": "error",
-      "checked_at": "2026-11-14T22:23:40Z",
+      "checked_at": "2026-11-15T06:30:53Z",
       "error": "HTTP Error 503: Service Unavailable"
     },
     "hot-trade-sa": {
       "status": "error",
-      "checked_at": "2026-11-14T22:23:40Z",
+      "checked_at": "2026-11-15T06:30:53Z",
       "error": "HTTP Error 503: Service Unavailable"
     },
     "hot-food-global": {
       "status": "error",
-      "checked_at": "2026-11-14T22:23:40Z",
+      "checked_at": "2026-11-15T06:30:53Z",
       "error": "HTTP Error 503: Service Unavailable"
     },
     "hot-food-us": {
       "status": "error",
-      "checked_at": "2026-11-14T22:23:40Z",
+      "checked_at": "2026-11-15T06:30:53Z",
       "error": "HTTP Error 503: Service Unavailable"
     },
     "hot-food-eu": {
       "status": "error",
-      "checked_at": "2026-11-14T22:23:40Z",
+      "checked_at": "2026-11-15T06:30:53Z",
       "error": "HTTP Error 503: Service Unavailable"
     },
     "hot-food-asia": {
       "status": "error",
-      "checked_at": "2026-11-14T22:23:40Z",
+      "checked_at": "2026-11-15T06:30:53Z",
       "error": "HTTP Error 503: Service Unavailable"
     },
     "hot-food-sa": {
       "status": "error",
-      "checked_at": "2026-11-14T22:23:40Z",
+      "checked_at": "2026-11-15T06:30:53Z",
       "error": "HTTP Error 503: Service Unavailable"
     }
   }
