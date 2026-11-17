@@ -1,116 +1,116 @@
 {
-  "generated_at": "2026-11-16T22:00:35Z",
+  "generated_at": "2026-11-17T07:54:41Z",
   "last_scan_scope": "all",
   "sources": {
     "hot-brand-purina": {
       "status": "ok",
-      "checked_at": "2026-11-16T22:00:35Z",
+      "checked_at": "2026-11-17T07:54:41Z",
       "items_found": 5
     },
     "hot-brand-unicharm": {
       "status": "ok",
-      "checked_at": "2026-11-16T22:00:35Z",
+      "checked_at": "2026-11-17T07:54:41Z",
       "items_found": 10
     },
     "hot-specialty-chewy": {
       "status": "ok",
-      "checked_at": "2026-11-16T22:00:35Z",
+      "checked_at": "2026-11-17T07:54:41Z",
       "items_found": 3
     },
     "hot-specialty-petco": {
       "status": "ok",
-      "checked_at": "2026-11-16T22:00:35Z",
+      "checked_at": "2026-11-17T07:54:41Z",
       "items_found": 11
     },
     "hot-specialty-pah": {
       "status": "ok",
-      "checked_at": "2026-11-16T22:00:35Z",
+      "checked_at": "2026-11-17T07:54:41Z",
       "items_found": 1
     },
     "hot-mass-walmart": {
       "status": "ok",
-      "checked_at": "2026-11-16T22:00:35Z",
+      "checked_at": "2026-11-17T07:54:41Z",
       "items_found": 0
     },
     "hot-mass-target": {
       "status": "ok",
-      "checked_at": "2026-11-16T22:00:35Z",
+      "checked_at": "2026-11-17T07:54:41Z",
       "items_found": 0
     },
     "hot-mass-carrefour": {
       "status": "error",
-      "checked_at": "2026-11-16T22:00:35Z",
+      "checked_at": "2026-11-17T07:54:41Z",
       "error": "HTTP Error 403: Forbidden"
     },
     "hot-drugstore-dm": {
       "status": "ok",
-      "checked_at": "2026-11-16T22:00:35Z",
+      "checked_at": "2026-11-17T07:54:41Z",
       "items_found": 0
     },
     "hot-drugstore-rossmann": {
       "status": "ok",
-      "checked_at": "2026-11-16T22:00:35Z",
+      "checked_at": "2026-11-17T07:54:41Z",
       "items_found": 0
     },
     "hot-market-rakuten": {
       "status": "ok",
-      "checked_at": "2026-11-16T22:00:35Z",
+      "checked_at": "2026-11-17T07:54:41Z",
       "items_found": 0
     },
     "hot-market-amazon": {
       "status": "ok",
-      "checked_at": "2026-11-16T22:00:35Z",
+      "checked_at": "2026-11-17T07:54:41Z",
       "items_found": 0
     },
     "hot-trade-global": {
-      "status": "ok",
-      "checked_at": "2026-11-16T22:00:35Z",
-      "items_found": 27
+      "status": "error",
+      "checked_at": "2026-11-17T07:54:41Z",
+      "error": "HTTP Error 429: Too Many Requests"
     },
     "hot-trade-us": {
       "status": "ok",
-      "checked_at": "2026-11-16T22:00:35Z",
+      "checked_at": "2026-11-17T07:54:41Z",
       "items_found": 34
     },
     "hot-trade-eu": {
-      "status": "ok",
-      "checked_at": "2026-11-16T22:00:35Z",
-      "items_found": 20
+      "status": "error",
+      "checked_at": "2026-11-17T07:54:41Z",
+      "error": "HTTP Error 429: Too Many Requests"
     },
     "hot-trade-asia": {
       "status": "error",
-      "checked_at": "2026-11-16T22:00:35Z",
+      "checked_at": "2026-11-17T07:54:41Z",
       "error": "HTTP Error 429: Too Many Requests"
     },
     "hot-trade-sa": {
       "status": "ok",
-      "checked_at": "2026-11-16T22:00:35Z",
+      "checked_at": "2026-11-17T07:54:41Z",
       "items_found": 34
     },
     "hot-food-global": {
-      "status": "error",
-      "checked_at": "2026-11-16T22:00:35Z",
-      "error": "HTTP Error 429: Too Many Requests"
+      "status": "ok",
+      "checked_at": "2026-11-17T07:54:41Z",
+      "items_found": 42
     },
     "hot-food-us": {
       "status": "ok",
-      "checked_at": "2026-11-16T22:00:35Z",
-      "items_found": 45
+      "checked_at": "2026-11-17T07:54:41Z",
+      "items_found": 47
     },
     "hot-food-eu": {
       "status": "error",
-      "checked_at": "2026-11-16T22:00:35Z",
+      "checked_at": "2026-11-17T07:54:41Z",
       "error": "HTTP Error 429: Too Many Requests"
     },
     "hot-food-asia": {
       "status": "error",
-      "checked_at": "2026-11-16T22:00:35Z",
+      "checked_at": "2026-11-17T07:54:41Z",
       "error": "HTTP Error 429: Too Many Requests"
     },
     "hot-food-sa": {
-      "status": "ok",
-      "checked_at": "2026-11-16T22:00:35Z",
-      "items_found": 31
+      "status": "error",
+      "checked_at": "2026-11-17T07:54:41Z",
+      "error": "HTTP Error 429: Too Many Requests"
     }
   }
 }
