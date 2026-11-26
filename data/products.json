@@ -1,10 +1,44 @@
 {
-  "generated_at": "2026-11-26T08:15:30Z",
+  "generated_at": "2026-11-26T21:30:27Z",
   "quality_gate": {
     "removed": 0,
-    "kept": 106
+    "kept": 107
   },
   "products": [
+    {
+      "id": "auto-a3c49ce3529b8831",
+      "brand": "Lily's Kitchen",
+      "brand_origin_country": "United Kingdom",
+      "origin_verified": true,
+      "product_name": "festive turkey jerky 8 x 70g",
+      "species": "Other",
+      "category": "Treats",
+      "market_region": "Europe",
+      "country": "United Kingdom",
+      "launch_date": null,
+      "launch_date_verified": false,
+      "first_seen_at": "2026-11-26T21:29:48Z",
+      "newness_status": "verified",
+      "newness_type": "new_product_or_sku",
+      "newness_confidence": "high",
+      "summary": "自动扫描从 Lily's Kitchen Official 发现。品牌官方或行业新品发布信号明确。",
+      "tags": [
+        "Auto-verified",
+        "Launch Signal"
+      ],
+      "image_url": "",
+      "evidence": [
+        "official"
+      ],
+      "sources": [
+        {
+          "name": "Lily's Kitchen Official",
+          "url": "https://www.lilyskitchen.co.uk/products/festive-turkey-jerky-8-x-70g",
+          "page_type": "product_detail"
+        }
+      ],
+      "product_url": "https://www.lilyskitchen.co.uk/products/festive-turkey-jerky-8-x-70g"
+    },
     {
       "id": "auto-e31b73847d9d2cb9",
       "brand": "Purina",
