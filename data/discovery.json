@@ -1,7 +1,23 @@
 {
-  "generated_at": "2026-11-25T21:41:05Z",
+  "generated_at": "2026-11-26T08:15:21Z",
   "last_scan_scope": "all",
   "candidates": [
+    {
+      "id": "spb-news-betterbelly-ec75f8c0203b6050",
+      "title": "The 10 Best Dog Jackets for Colder Weather - The Spruce Pets",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE15RVo3MDdiVVRaU0h4ekZhQzdSYmZrSDZvRldieUdQMVZSbE1KdjZIZjlfZldtTTlyOGk5T29xYmgtY1hkYVBfSzVyX0wyY3lKVl90VVRhSHNBY0xHQmFYam5CVDI?oc=5",
+      "source_id": "spb-news-betterbelly",
+      "source_name": "Better Belly Launch Watch",
+      "region": "North America",
+      "country": "United States",
+      "channel_type": "trade_media",
+      "published_at": "2026-11-05T08:00:00Z",
+      "discovered_at": "2026-11-26T08:14:50Z",
+      "review_status": "pending",
+      "priority": 100,
+      "focus_group": "spectrum_pet_food",
+      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
+    },
     {
       "id": "spb-news-spectrum-gpc-b4b10cfdbc63fadb",
       "title": "Pet Food Extrusion Market To 2035: Premiumization and Humanization Fuel Expansion - News and Statistics - IndexBox",
@@ -56056,22 +56072,6 @@
       "id": "us-amazon-pet-new-3af02a82ac90435d",
       "title": "130 6389676 9704418",
       "url": "https://www.amazon.com/ARM-HAMMER-Triple-Action-Freshness-Non-Stick/dp/B0H7L9NFZS/ref=zg_bsnr_g_2619533011_d_sccl_1/130-6389676-9704418?psc=1",
-      "source_id": "us-amazon-pet-new",
-      "source_name": "Amazon US Pet Supplies New Releases",
-      "region": "North America",
-      "country": "United States",
-      "channel_type": "marketplace",
-      "published_at": null,
-      "discovered_at": "2026-10-21T12:09:31Z",
-      "review_status": "pending",
-      "priority": 45,
-      "focus_group": null,
-      "note": "Auto-discovered candidate. Verify brand origin, launch recency and product-detail URL before moving to products.json."
-    },
-    {
-      "id": "us-amazon-pet-new-3a5be80a9513cc3d",
-      "title": "130 6389676 9704418",
-      "url": "https://www.amazon.com/Farmers-Dog-Chicken-Human-Grade-Puppies/dp/B0H72H8NK3/ref=zg_bsnr_g_2619533011_d_sccl_2/130-6389676-9704418?psc=1",
       "source_id": "us-amazon-pet-new",
       "source_name": "Amazon US Pet Supplies New Releases",
       "region": "North America",
